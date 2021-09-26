@@ -17,21 +17,21 @@
                 <div class="text-center py-10 px-6 sm:px-14" id="otpForm">
                     
                     <!-- form container -->
-                    <form action="#">
+                    <form action="" method="post">
                     <div class="flex flex-col w-full gap-3">
 
                         <!-- email input -->
                         <div class="flex flex-col gap-1">
-                        <h2 class="text-xs text-primary-grey text-left">Enter Email/Mobile Number</h2>
-                        <input type="email" name="" id="" placeholder="Enter Email/Mobile Number" class="py-2 outline-none border-b rounded-sm focus:border-primary-blue" required>
-                        <span class="text-xxs text-red-500 font-medium text-left mt-0.5 invisible">Please enter valid Email ID/Mobile number</span>
+                        <h2 class="text-xs text-primary-grey text-left">Enter Email</h2>
+                        <input type="email" id="email" placeholder="Enter Email" class="py-2 outline-none border-b rounded-sm focus:border-primary-blue" required>
+                        <span class="text-xxs text-red-500 font-medium text-left mt-0.5 invisible emailError">Please enter valid Email ID</span>
                         </div>
                         <!-- email input -->
 
                         <!-- otp input -->
-                        <div class="flex flex-col gap-1 hidden">
+                        <div class="flex flex-col gap-1 hidden" id="otpInput">
                             <h2 class="text-xs text-primary-grey text-left">Enter OTP</h2>
-                            <input type="text" name="" id="" placeholder="Enter OTP" class="py-2 px-2 outline-none border rounded-sm focus:border-primary-blue" required>
+                            <input type="text" id="" placeholder="Enter OTP" class="py-2 px-2 outline-none border rounded-sm focus:border-primary-blue" required>
                             <span class="text-xxs text-red-500 font-medium text-left mt-0.5 invisible">Please enter valid OTP</span>
                         </div>
                         <!-- otp input -->
@@ -39,7 +39,7 @@
                         <!-- button container -->
                         <div class="flex flex-col gap-2.5 mt-1 mb-40">
                             <p class="text-xs text-primary-grey text-left">By continuing, you agree to Flipkart's <a href="https://www.flipkart.com/pages/terms" class="text-primary-blue"> Terms of Use</a> and <a href="https://www.flipkart.com/pages/privacypolicy" class="text-primary-blue"> Privacy Policy.</a></p>
-                            <button type="submit" class="text-white py-3 w-full bg-primary-orange shadow rounded-sm font-medium">Continue</button>
+                            <button type="button" class="text-white py-3 w-full bg-primary-orange shadow rounded-sm font-medium" id="continueBtn">Continue</button>
 
                             <a href="login.html" class="text-primary-blue py-3 mt-2 w-full shadow border rounded-sm font-medium">Existing User? Log in</a>
                         </div>
@@ -139,3 +139,32 @@
 
     </main>
     <!-- main sections ends -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('#continueBtn').click(function() {
+            send_otp();
+        });
+
+        function send_otp() {
+            var email = $('#email').val();
+
+            $.ajax({
+                url:'send_otp.php',
+                type:'post',
+                data:'email='+email,
+                success:function(result){
+                    if(result=="yes") {
+                        $('#otpInput').toggleClass('hidden');
+                    } else {
+                        $('#otpInput').toggleClass('hidden');
+                        $('.emailError').toggleClass('invisible');
+                    }
+                }
+            });
+        }
+
+    });
+   
+</script>
