@@ -1,5 +1,7 @@
 <?php 
-$email = 'jigarsable21@gmail.com';
+session_start();
+
+$email = $_POST['email'];
 
 $con = mysqli_connect('localhost','root','','flipkart_clone');
 
@@ -15,13 +17,14 @@ $htmldata = '<h3>Your OTP for Flipkart Clone is : '.$otp.'</h3>';
 smtp_mailer($email,'Flipart Clone PHP Signup',$htmldata);
 echo "yes";
 
+$_SESSION['EMAIL'] = $email;
 // echo $email;
 
 function smtp_mailer($to,$subject,$msg){
 	require_once("phpmailer/PHPMailerAutoload.php");
 	$mail = new PHPMailer(); 
 	$mail->IsSMTP();
-	$mail->SMTPDebug = 1;
+	// $mail->SMTPDebug = 1;
 	$mail->SMTPAuth = true;
 	$mail->SMTPSecure = 'tls';
 	$mail->Host = "smtp.gmail.com";
@@ -30,13 +33,14 @@ function smtp_mailer($to,$subject,$msg){
 	$mail->CharSet = 'UTF-8';
 	$mail->Username = "jigartesters@gmail.com";
 	$mail->Password = "Qwerty!2024";
-	$mail->SetFrom("jigartesters@gmail.com");
+	$mail->SetFrom("jigartesters@gmail.com","Fipkart Clone");
 	$mail->Subject = $subject;
 	$mail->Body = $msg;
 	$mail->AddAddress($to);
 	if(!$mail->Send()){
 		return 0;
-        echo $mail->ErrorInfo;
+        // echo $mail->ErrorInfo;
+        // echo "yes";
 	}else{
 		return 1;
 	}

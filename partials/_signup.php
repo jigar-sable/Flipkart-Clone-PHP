@@ -23,16 +23,16 @@
                         <!-- email input -->
                         <div class="flex flex-col gap-1">
                         <h2 class="text-xs text-primary-grey text-left">Enter Email</h2>
-                        <input type="email" id="email" placeholder="Enter Email" class="py-2 outline-none border-b rounded-sm focus:border-primary-blue" required>
-                        <span class="text-xxs text-red-500 font-medium text-left mt-0.5 invisible emailError">Please enter valid Email ID</span>
+                        <input type="email" id="emailInput1" placeholder="Enter Email" class="py-2 outline-none border-b rounded-sm focus:border-primary-blue">
+                        <span class="text-xxs text-red-500 font-medium text-left mt-0.5 emailError"></span>
                         </div>
                         <!-- email input -->
 
                         <!-- otp input -->
-                        <div class="flex flex-col gap-1 hidden" id="otpInput">
+                        <div class="flex flex-col gap-1 hidden" id="otpInputDiv">
                             <h2 class="text-xs text-primary-grey text-left">Enter OTP</h2>
-                            <input type="text" id="" placeholder="Enter OTP" class="py-2 px-2 outline-none border rounded-sm focus:border-primary-blue" required>
-                            <span class="text-xxs text-red-500 font-medium text-left mt-0.5 invisible">Please enter valid OTP</span>
+                            <input type="text" id="otpInput" placeholder="Enter OTP" class="py-2 px-2 outline-none border rounded-sm focus:border-primary-blue">
+                            <span class="text-xxs text-red-500 font-medium text-left mt-0.5 otpError"></span>
                         </div>
                         <!-- otp input -->
 
@@ -143,12 +143,43 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
-        $('#continueBtn').click(function() {
-            send_otp();
-        });
+
+            $('#continueBtn').click(function() {
+                // var emailInput1 = $('#emailInput1').val();
+                // var continueBtn = $('#continueBtn');
+                // var emailError = $('.emailError');
+
+                if($('#continueBtn').html()=='Continue') {
+    
+                function validateEmail() {
+                    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                    return emailReg.test($('#emailInput1').val());
+                }
+    
+                if($('#emailInput1').val()==""){
+                    $('.emailError').html('Please enter valid Email ID');
+                } else if(!validateEmail()){
+                    $('.emailError').html('Please enter valid Email ID');
+                } else {
+                    $('#continueBtn').html('Sending OTP');
+                    $('#continueBtn').attr('disabled',true);
+                    $('#continueBtn').addClass('bg-gray-400');
+                    $('#continueBtn').removeClass('bg-primary-orange');
+                    $('#otpInputDiv').toggleClass('hidden');
+                    send_otp();
+                }
+
+                } else if($('#continueBtn').html()=='Submit OTP') { 
+                    if($('#otpInput').val()==""){
+                        $('.otpError').html('Please enter valid OTP');
+                    } else {
+                        check_otp();
+                    }
+                }
+            });
 
         function send_otp() {
-            var email = $('#email').val();
+            var email = $('#emailInput1').val();
 
             $.ajax({
                 url:'send_otp.php',
@@ -156,10 +187,33 @@
                 data:'email='+email,
                 success:function(result){
                     if(result=="yes") {
-                        $('#otpInput').toggleClass('hidden');
+                        $('#continueBtn').html('Submit OTP');
+                        $('#continueBtn').removeAttr('disabled',true);
+                        $('#continueBtn').addClass('bg-primary-orange');
+                        $('#continueBtn').removeClass('bg-gray-600');
                     } else {
-                        $('#otpInput').toggleClass('hidden');
-                        $('.emailError').toggleClass('invisible');
+
+                    }
+                }
+            });
+        }
+
+        function check_otp() {
+            var otp = $('#otpInput').val();
+            var email = $('#emailInput1').val();
+
+            $.ajax({
+                url:'check_otp.php',
+                type:'post',
+                data:'otp='+otp+'email='+email,
+                success:function(result){
+                    if(result=="yes") {
+                        $('#continueBtn').html('OTP Verified');
+                        // $('#continueBtn').removeAttr('disabled',true);
+                        // $('#continueBtn').addClass('bg-primary-orange');
+                        // $('#continueBtn').removeClass('bg-gray-600');
+                    } else {
+
                     }
                 }
             });
