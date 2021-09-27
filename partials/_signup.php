@@ -1,4 +1,4 @@
-    <!-- main sections starts -->
+   <!-- main sections starts -->
     <main class="w-full mt-12 sm:mt-0">
 
         <!-- row -->
@@ -17,7 +17,7 @@
                 <div class="text-center py-10 px-6 sm:px-14" id="otpForm">
                     
                     <!-- form container -->
-                    <form action="" method="post">
+                    <form action="" method="post" id="otpForm">
                     <div class="flex flex-col w-full gap-3">
 
                         <!-- email input -->
@@ -28,10 +28,18 @@
                         </div>
                         <!-- email input -->
 
+                        <style>
+                            input[type=number]::-webkit-inner-spin-button, 
+                            input[type=number]::-webkit-outer-spin-button { 
+                            -webkit-appearance: none; 
+                            margin: 0; 
+                        }
+                        </style>
+
                         <!-- otp input -->
                         <div class="flex flex-col gap-1 hidden" id="otpInputDiv">
                             <h2 class="text-xs text-primary-grey text-left">Enter OTP</h2>
-                            <input type="text" id="otpInput" placeholder="Enter OTP" class="py-2 px-2 outline-none border rounded-sm focus:border-primary-blue">
+                            <input type="number" id="otpInput" placeholder="Enter OTP" class="py-2 px-2 outline-none border rounded-sm focus:border-primary-blue">
                             <span class="text-xxs text-red-500 font-medium text-left mt-0.5 otpError"></span>
                         </div>
                         <!-- otp input -->
@@ -53,7 +61,9 @@
                 <!-- otp signup container -->
 
                 <!-- personal info procedure container -->
-                <div class="p-5 sm:p-10 hidden" id="signupForm">
+                <div class="p-5 sm:p-10 hidden" id="signupFormDiv">
+                    <form action="signup_req.php" method="POST" id="signupForm">
+                    
                     <!-- personal info procedure -->
                     <div class="flex flex-col gap-5 items-start">
 
@@ -61,11 +71,11 @@
                         <div class="flex flex-col w-full justify-between sm:flex-row gap-3 items-center">
                             <div class="flex flex-col w-full sm:w-1/2 gap-0.5 px-3 py-1.5 rounded-sm border focus-within:border-primary-blue">
                                 <label for="fname" class="text-xs text-gray-500">First Name</label>
-                                <input type="text" placeholder="Enter First Name" class="outline-none">
+                                <input type="text" name="fname" placeholder="Enter First Name" class="outline-none" required>
                             </div>
                             <div class="flex flex-col w-full sm:w-1/2 gap-0.5 px-3 py-1.5 rounded-sm border focus-within:border-primary-blue">
                                 <label for="lname" class="text-xs text-gray-500">Last Name</label>
-                                <input type="text" placeholder="Enter First Name" class="outline-none">
+                                <input type="text" name="lname" placeholder="Enter First Name" class="outline-none" required>
                             </div>
                         </div>
                         <!-- input container column -->
@@ -73,13 +83,13 @@
                         <!-- gender input -->
                         <div class="flex gap-4 items-center">
                             <h2 class="text-sm">Your Gender :</h2>
-                            <div class="flex items-center gap-6" id="radioInput">
+                            <div class="flex items-center gap-6">
                                 <div class="flex items-center gap-2">
-                                <input type="radio" name="gender" id="male" class="h-4 w-4">
+                                <input type="radio" name="gender" value="male" id="male" class="h-4 w-4" required>
                                 <label for="male">Male</label>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                <input type="radio" name="gender" id="female" class="h-4 w-4">
+                                <input type="radio" name="gender" value="female" id="female" class="h-4 w-4" required>
                                 <label for="female">Female</label>
                                 </div>
                             </div>
@@ -89,35 +99,41 @@
                         <!-- input container column -->
                         <div class="flex flex-col w-full justify-between sm:flex-row gap-3 items-center">
                             <div class="flex flex-col w-full sm:w-1/2 gap-0.5 px-3 py-1.5 rounded-sm border bg-gray-100 cursor-not-allowed focus-within:border-primary-blue">
-                                <label for="fname" class="text-xs text-gray-500 cursor-not-allowed">Email</label>
-                                <input type="text" value="jigarsable@gmail.com" class="outline-none cursor-not-allowed text-gray-500" disabled>
+                                <label for="email" class="text-xs text-gray-500 cursor-not-allowed">Email</label>
+                                <input type="text" name="email" value="jigarsable@gmail.com" class="outline-none cursor-not-allowed text-gray-500" disabled>
                             </div>
 
                             <div class="flex flex-col w-full sm:w-1/2 gap-0.5 px-3 py-1.5 rounded-sm border focus-within:border-primary-blue">
-                                <label for="lname" class="text-xs text-gray-500">Mobile Number</label>
-                                <input type="text" placeholder="Enter Mobile Number" class="outline-none">
+                                <label for="mobile" class="text-xs text-gray-500">Mobile Number</label>
+                                <input type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" maxlength="10" name="mobile" placeholder="Enter Mobile Number" class="outline-none" required>
                             </div>
                         </div>
                         <!-- input container column -->
 
                         <!-- input container column -->
-                        <div class="flex flex-col w-full justify-between sm:flex-row gap-3 items-center">
-                            <div class="flex flex-col w-full sm:w-1/2 gap-0.5 px-3 py-1.5 rounded-sm border focus-within:border-primary-blue">
-                                <label for="fname" class="text-xs text-gray-500">Password</label>
-                                <input type="text" placeholder="Enter Password" class="outline-none">
+                        <div class="flex flex-col w-full">
+                            <div class="flex flex-col w-full justify-between sm:flex-row gap-3 items-center">
+                                <div class="flex flex-col w-full sm:w-1/2 gap-0.5 px-3 py-1.5 rounded-sm border focus-within:border-primary-blue">
+                                    <label for="password" class="text-xs text-gray-500">Password</label>
+                                    <input type="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" name="password" placeholder="Enter Password" class="outline-none" required>
+                                </div>
+    
+                                <div class="flex flex-col w-full sm:w-1/2 gap-0.5 px-3 py-1.5 rounded-sm border focus-within:border-primary-blue">
+                                    <label for="cpassword" class="text-xs text-gray-500">Confirm Password</label>
+                                    <input type="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" name="cpassword" placeholder="Enter Password" class="outline-none" required>
+                                </div>
                             </div>
-                            <div class="flex flex-col w-full sm:w-1/2 gap-0.5 px-3 py-1.5 rounded-sm border focus-within:border-primary-blue">
-                                <label for="lname" class="text-xs text-gray-500">Confirm Password</label>
-                                <input type="text" placeholder="Enter Password" class="outline-none">
-                            </div>
+
+                            <span class="text-xxs text-red-500 font-medium text-center ml-36 mt-0.5 cpasswordError">Password Doesn't Match</span>
+
                         </div>
                         <!-- input container column -->
 
                         <!-- input container column -->
                         <div class="flex flex-col w-full justify-between sm:flex-row gap-3 items-center">
                             <div class="flex flex-col w-full gap-0.5 px-3 py-1.5 rounded-sm border focus-within:border-primary-blue">
-                                <label for="fname" class="text-xs text-gray-500">Address</label>
-                                <input type="text" placeholder="Enter Address" class="outline-none">
+                                <label for="address" class="text-xs text-gray-500">Address</label>
+                                <textarea name="address" rows="2" placeholder="Enter Address" class="outline-none resize-none" required></textarea>
                             </div>
                         </div>
                         <!-- input container column -->
@@ -128,6 +144,7 @@
                     </div>
                     <!-- personal info procedure -->
 
+                    </form>
 
                 </div>
                 <!-- personal info procedure container -->
@@ -145,9 +162,6 @@
 
 
             $('#continueBtn').click(function() {
-                // var emailInput1 = $('#emailInput1').val();
-                // var continueBtn = $('#continueBtn');
-                // var emailError = $('.emailError');
 
                 if($('#continueBtn').html()=='Continue') {
     
@@ -161,12 +175,7 @@
                 } else if(!validateEmail()){
                     $('.emailError').html('Please enter valid Email ID');
                 } else {
-                    $('#continueBtn').html('Sending OTP');
-                    $('#continueBtn').attr('disabled',true);
-                    $('#continueBtn').addClass('bg-gray-400');
-                    $('#continueBtn').removeClass('bg-primary-orange');
-                    $('#otpInputDiv').toggleClass('hidden');
-                    send_otp();
+                    check_mail_exist();                    
                 }
 
                 } else if($('#continueBtn').html()=='Submit OTP') { 
@@ -177,6 +186,36 @@
                     }
                 }
             });
+
+
+
+        function check_mail_exist() {
+            var email = $('#emailInput1').val();
+
+            $.ajax({
+                url:'check_email_exist.php',
+                type:'post',
+                data:'email='+email,
+                success:function(result){
+                    if(result=="exist") {
+                        $('.emailError').html('Email already exists. Kindly Login');
+                        
+                    } else {
+                        $('.emailError').html('');
+                        $('#continueBtn').html('Sending OTP');
+                        $('#continueBtn').attr('disabled',true);
+                        $('#continueBtn').addClass('bg-gray-400 cursor-not-allowed');
+                        $('#continueBtn').removeClass('bg-primary-orange');
+                        $('#otpInputDiv').toggleClass('hidden');
+    
+                        $('#emailInput1').attr('disabled',true);
+                        $('#emailInput1').addClass('cursor-not-allowed text-gray-500');
+    
+                        send_otp();
+                    }
+                }
+            });
+        }
 
         function send_otp() {
             var email = $('#emailInput1').val();
@@ -190,7 +229,7 @@
                         $('#continueBtn').html('Submit OTP');
                         $('#continueBtn').removeAttr('disabled',true);
                         $('#continueBtn').addClass('bg-primary-orange');
-                        $('#continueBtn').removeClass('bg-gray-600');
+                        $('#continueBtn').removeClass('bg-gray-600 cursor-not-allowed');
                     } else {
 
                     }
@@ -209,11 +248,11 @@
                 success:function(result){
                     if(result=="yes") {
                         $('#continueBtn').html('OTP Verified');
-                        // $('#continueBtn').removeAttr('disabled',true);
-                        // $('#continueBtn').addClass('bg-primary-orange');
-                        // $('#continueBtn').removeClass('bg-gray-600');
+                        $('.otpError').html('');
+                        $('#otpForm').addClass('hidden');
+                        $('#signupFormDiv').removeClass('hidden');
                     } else {
-
+                        $('.otpError').html('Please enter valid OTP');
                     }
                 }
             });
