@@ -1,6 +1,6 @@
 <?php
 
-include 'partials/_header.php';
+include 'header.php';
 include 'partials/_categories_img_nav.php';
 ?>
 

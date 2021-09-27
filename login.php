@@ -1,12 +1,19 @@
 <?php
-session_start();
+// @ob_start();
+// session_start();
 
+// if(!session_id()) session_start();
+
+// print_r($_SESSION['login']);
+require 'globals.php';
+
+include 'header.php';
 
 if(isset($_SESSION['login']) || isset($_SESSION['signup'])){
-   header('location:index.php');
+   // header('location:index.php');
+   echo "<script>location.href='".$URL."/index.php';</script>";
 }
 
-include 'partials/_header.php';
 include 'partials/_categories_nav.php';
 
 include 'partials/_login.php';

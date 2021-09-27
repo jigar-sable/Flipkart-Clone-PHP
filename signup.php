@@ -1,6 +1,13 @@
 <?php
+require 'globals.php';
 
-include 'partials/_header.php';
+include 'header.php';
+
+if(isset($_SESSION['login']) || isset($_SESSION['signup'])){
+    // header('location:index.php');
+    echo "<script>location.href='".$URL."/index.php';</script>";
+ }
+
 include 'partials/_categories_nav.php';
 
 
