@@ -100,7 +100,7 @@
                         <div class="flex flex-col w-full justify-between sm:flex-row gap-3 items-center">
                             <div class="flex flex-col w-full sm:w-1/2 gap-0.5 px-3 py-1.5 rounded-sm border bg-gray-100 cursor-not-allowed focus-within:border-primary-blue">
                                 <label for="email" class="text-xs text-gray-500 cursor-not-allowed">Email</label>
-                                <input type="text" name="email" value="jigarsable@gmail.com" class="outline-none cursor-not-allowed text-gray-500" disabled>
+                                <input type="email" name="email" id="emailInput2" value="" class="outline-none cursor-not-allowed text-gray-500" disabled>
                             </div>
 
                             <div class="flex flex-col w-full sm:w-1/2 gap-0.5 px-3 py-1.5 rounded-sm border focus-within:border-primary-blue">
@@ -115,16 +115,16 @@
                             <div class="flex flex-col w-full justify-between sm:flex-row gap-3 items-center">
                                 <div class="flex flex-col w-full sm:w-1/2 gap-0.5 px-3 py-1.5 rounded-sm border focus-within:border-primary-blue">
                                     <label for="password" class="text-xs text-gray-500">Password</label>
-                                    <input type="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" name="password" placeholder="Enter Password" class="outline-none" required>
+                                    <input type="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" name="password" id="password" placeholder="Enter Password" class="outline-none" required>
                                 </div>
     
                                 <div class="flex flex-col w-full sm:w-1/2 gap-0.5 px-3 py-1.5 rounded-sm border focus-within:border-primary-blue">
                                     <label for="cpassword" class="text-xs text-gray-500">Confirm Password</label>
-                                    <input type="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" name="cpassword" placeholder="Enter Password" class="outline-none" required>
+                                    <input type="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" name="cpassword" id="cpassword" placeholder="Enter Password" class="outline-none" required>
                                 </div>
                             </div>
 
-                            <span class="text-xxs text-red-500 font-medium text-center ml-36 mt-0.5 cpasswordError">Password Doesn't Match</span>
+                            <span class="text-xxs text-red-500 font-medium text-center ml-36 mt-0.5 cpasswordError"></span>
 
                         </div>
                         <!-- input container column -->
@@ -138,7 +138,7 @@
                         </div>
                         <!-- input container column -->
 
-                        <button type="submit" class="text-white py-3 w-full bg-primary-orange shadow rounded-sm font-medium">Signup</button>
+                        <button type="submit" id="signupBtn" class="text-gray-500 py-3 w-full bg-gray-200 shadow rounded-sm font-medium cursor-not-allowed" disabled>Signup</button>
                         <a href="login.html" class="text-primary-blue text-center py-3 w-full shadow border rounded-sm font-medium">Existing User? Log in</a>
 
                     </div>
@@ -251,11 +251,32 @@
                         $('.otpError').html('');
                         $('#otpForm').addClass('hidden');
                         $('#signupFormDiv').removeClass('hidden');
+                        $('#emailInput2').val(email);
                     } else {
                         $('.otpError').html('Please enter valid OTP');
                     }
                 }
             });
+        }
+
+        $('#password').change(function(){
+            validate_pw();
+        });
+        $('#cpassword').change(function(){
+            validate_pw();
+        });
+
+        function validate_pw() {
+            
+            if ($('#password').val() == $('#cpassword').val()) {
+                $('#signupBtn').addClass('bg-primary-orange text-white').removeClass('bg-gray-200 text-gray-500 cursor-not-allowed');
+                $('.cpasswordError').html("");
+                $('#signupBtn').prop('disabled',false);
+            } else {
+                $('.cpasswordError').html("Password Doesn't Match");
+                $('#signupBtn').removeClass('bg-primary-orange text-white').addClass('bg-gray-200 text-gray-500 cursor-not-allowed');
+                $('#signupBtn').prop('disabled',true);
+            }
         }
 
     });

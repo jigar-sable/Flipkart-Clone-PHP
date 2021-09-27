@@ -18,13 +18,14 @@
                 <div class="text-center py-10 px-14">
                     
                     <!-- input container -->
-                    <form action="#">
+                    <form action="login_req.php" method="POST">
                     <div class="flex flex-col w-full gap-4">
 
                         <!-- email input -->
                         <div class="flex flex-col gap-1">
-                        <h2 class="text-xs text-primary-grey text-left">Enter Email/Mobile Number</h2>
-                        <input type="email" name="" id="" placeholder="Enter Email/Mobile Number" class="py-2 outline-none border-b rounded-sm focus:border-primary-blue" required>
+                        <h2 class="text-xs text-primary-grey text-left">Enter Email</h2>
+                        <input type="email" name="email" placeholder="Enter Email" class="py-2 outline-none border-b rounded-sm focus:border-primary-blue" required>
+
                         <span class="text-xxs text-red-500 font-medium text-left mt-0.5 invisible">Please enter valid Email ID/Mobile number</span>
                         </div>
                         <!-- email input -->
@@ -32,7 +33,8 @@
                         <!-- password input -->
                         <div class="flex flex-col gap-1">
                             <h2 class="text-xs text-primary-grey text-left">Enter Password</h2>
-                            <input type="text" name="" id="" placeholder="Enter Password" class="py-2 outline-none border-b rounded-sm focus:border-primary-blue" required>
+                            <input type="password" name="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Password" class="py-2 outline-none border-b rounded-sm focus:border-primary-blue" required>
+
                             <span class="text-xxs text-red-500 font-medium text-left mt-0.5 invisible">Please enter Password</span>
                         </div>
                         <!-- password input -->
