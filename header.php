@@ -61,8 +61,15 @@ require('functions.php');
         <!-- right navs -->
         <div class="flex items-center justify-between gap-7 relative">
 
-            <span class="<?php if(isset($_SESSION['login'])) { echo "flex"; } else { echo "hidden"; } ?> userDropDown items-center text-white font-medium gap-1 cursor-pointer">Jigar
-                <span class="material-icons text-sm transition-transform duration-100">expand_more</span>
+            <span class="<?php if(isset($_SESSION['login'])) { echo "flex"; } else { echo "hidden"; } ?> userDropDown items-center text-white font-medium gap-1 cursor-pointer">
+               <!-- set user's first name -->
+               <?php
+               foreach($user->getUserData($_SESSION['login']) as $users) {
+                    echo $users['first_name'];
+               }
+               ?>
+               <!-- set user's first name -->
+               <span class="material-icons text-sm transition-transform duration-100">expand_more</span>
             </span>
 
             <span class="<?php if(isset($_SESSION['login'])) { echo "hidden"; } ?> userDropDown px-9 py-0.5 text-primary-blue bg-white border font-medium rounded-sm cursor-pointer">Login</span>

@@ -8,10 +8,17 @@ class User {
         $this->db = $db;
     }
 
-    public function getUserData() {
-        $this->db->con->query("SELECT * FROM ");
+    public function getUserData($email) {
+        $result = $this->db->con->query("SELECT * FROM `users` where `email`='$email'");
+
+        $userArray = array();
+
+        while($row = mysqli_fetch_assoc($result)){
+            $userArray[] = $row;
+        }
+        // echo var_dump($userArray);
+        return $userArray;
     }
 }
-
 
 ?>
