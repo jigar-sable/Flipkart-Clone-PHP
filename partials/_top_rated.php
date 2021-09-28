@@ -11,86 +11,21 @@
         <!-- products container -->
         <div class="flex items-center justify-between owl-carousel owl-theme relative">
 
+            <?php
+            foreach($product->getData('top_rated') as $item):
+            ?>
             <!-- one product -->
-            <a class="flex flex-col items-center gap-2 p-6" href="#">
+            <a class="flex flex-col items-center gap-2 p-6" href="<?php echo $item['url']; ?>">
                 <div class="w-36 h-36 transform hover:scale-110 transition-transform duration-100 ease-out">
-                    <img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/150/150/ksdjma80/headphone/a/u/p/airdopes-131-airdopes-138-boat-original-imag5yz9sfz9bzq8.jpeg" alt="">
+                    <img class="w-full h-full object-contain" src="assets/images/top_rated/<?php echo $item['id']; ?>.png" alt="<?php echo $item['img_alt']; ?>">
                 </div>
-                <h2 class="font-medium text-sm mt-2">Audio & Video</h2>
-                <span class="text-primary-green text-sm">New Collection</span>
+                <h2 class="font-medium text-sm mt-2"><?php echo $item['title']; ?></h2>
+                <span class="text-primary-green text-sm"><?php echo $item['tag']; ?></span>
             </a>
-            <!-- one product -->
-            <a class="flex flex-col items-center gap-2 p-6" href="#">
-                <div class="w-36 h-36 transform hover:scale-110 transition-transform duration-100 ease-out">
-                    <img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/150/150/ksdjma80/headphone/a/u/p/airdopes-131-airdopes-138-boat-original-imag5yz9sfz9bzq8.jpeg" alt="">
-                </div>
-                <h2 class="font-medium text-sm mt-2">Audio & Video</h2>
-                <span class="text-primary-green text-sm">New Collection</span>
-            </a>
-            <!-- one product -->
-            <a class="flex flex-col items-center gap-2 p-6" href="#">
-                <div class="w-36 h-36 transform hover:scale-110 transition-transform duration-100 ease-out">
-                    <img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/150/150/ksdjma80/headphone/a/u/p/airdopes-131-airdopes-138-boat-original-imag5yz9sfz9bzq8.jpeg" alt="">
-                </div>
-                <h2 class="font-medium text-sm mt-2">Audio & Video</h2>
-                <span class="text-primary-green text-sm">New Collection</span>
-            </a>
-            <!-- one product -->
-            <a class="flex flex-col items-center gap-2 p-6" href="#">
-                <div class="w-36 h-36 transform hover:scale-110 transition-transform duration-100 ease-out">
-                    <img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/150/150/ksdjma80/headphone/a/u/p/airdopes-131-airdopes-138-boat-original-imag5yz9sfz9bzq8.jpeg" alt="">
-                </div>
-                <h2 class="font-medium text-sm mt-2">Audio & Video</h2>
-                <span class="text-primary-green text-sm">New Collection</span>
-            </a>
-            <!-- one product -->
-            <a class="flex flex-col items-center gap-2 p-6" href="#">
-                <div class="w-36 h-36 transform hover:scale-110 transition-transform duration-100 ease-out">
-                    <img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/150/150/ksdjma80/headphone/a/u/p/airdopes-131-airdopes-138-boat-original-imag5yz9sfz9bzq8.jpeg" alt="">
-                </div>
-                <h2 class="font-medium text-sm mt-2">Audio & Video</h2>
-                <span class="text-primary-green text-sm">New Collection</span>
-            </a>
-            <!-- one product -->
-            <a class="flex flex-col items-center gap-2 p-6" href="#">
-                <div class="w-36 h-36 transform hover:scale-110 transition-transform duration-100 ease-out">
-                    <img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/150/150/ksdjma80/headphone/a/u/p/airdopes-131-airdopes-138-boat-original-imag5yz9sfz9bzq8.jpeg" alt="">
-                </div>
-                <h2 class="font-medium text-sm mt-2">Audio & Video</h2>
-                <span class="text-primary-green text-sm">New Collection</span>
-            </a>
-            <!-- one product -->
-            <a class="flex flex-col items-center gap-2 p-6" href="#">
-                <div class="w-36 h-36 transform hover:scale-110 transition-transform duration-100 ease-out">
-                    <img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/150/150/ksdjma80/headphone/a/u/p/airdopes-131-airdopes-138-boat-original-imag5yz9sfz9bzq8.jpeg" alt="">
-                </div>
-                <h2 class="font-medium text-sm mt-2">Audio & Video</h2>
-                <span class="text-primary-green text-sm">New Collection</span>
-            </a>
-            <!-- one product -->
-            <a class="flex flex-col items-center gap-2 p-6" href="#">
-                <div class="w-36 h-36 transform hover:scale-110 transition-transform duration-100 ease-out">
-                    <img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/150/150/ksdjma80/headphone/a/u/p/airdopes-131-airdopes-138-boat-original-imag5yz9sfz9bzq8.jpeg" alt="">
-                </div>
-                <h2 class="font-medium text-sm mt-2">Audio & Video</h2>
-                <span class="text-primary-green text-sm">New Collection</span>
-            </a>
-            <!-- one product -->
-            <a class="flex flex-col items-center gap-2 p-6" href="#">
-                <div class="w-36 h-36 transform hover:scale-110 transition-transform duration-100 ease-out">
-                    <img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/150/150/ksdjma80/headphone/a/u/p/airdopes-131-airdopes-138-boat-original-imag5yz9sfz9bzq8.jpeg" alt="">
-                </div>
-                <h2 class="font-medium text-sm mt-2">Audio & Video</h2>
-                <span class="text-primary-green text-sm">New Collection</span>
-            </a>
-            <!-- one product -->
-            <a class="flex flex-col items-center gap-2 p-6" href="#">
-                <div class="w-36 h-36 transform hover:scale-110 transition-transform duration-100 ease-out">
-                    <img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/150/150/ksdjma80/headphone/a/u/p/airdopes-131-airdopes-138-boat-original-imag5yz9sfz9bzq8.jpeg" alt="">
-                </div>
-                <h2 class="font-medium text-sm mt-2">Audio & Video</h2>
-                <span class="text-primary-green text-sm">New Collection</span>
-            </a>
+
+            <?php
+            endforeach;
+            ?>
 
         </div>
         <!-- products container -->
