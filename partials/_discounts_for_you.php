@@ -11,15 +11,23 @@
         <!-- products container -->
         <div class="flex items-center justify-between owl-carousel owl-theme relative">
 
+            <?php
+            foreach($product->getData('discount_for_you') as $item):
+            ?>
+
             <!-- one product -->
-            <a class="flex flex-col items-center gap-1.5 p-6" href="#">
+            <a class="flex flex-col items-center gap-1.5 p-6" href="<?php echo $item['url']; ?>">
                 <div class="w-36 h-36 transform hover:scale-110 transition-transform duration-100 ease-out">
-                    <img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/150/150/k0wqwsw0/electric-kettle/g/t/d/butterfly-rapid-kettle-1-5-litre-wave-750-ml-water-bottle-rapid-original-imafkfy7zaekbubs.jpeg" alt="">
+                    <img class="w-full h-full object-contain" src="assets/images/discount_for_you/<?php echo $item['id']; ?>.png" alt="<?php echo $item['img_alt']; ?>">
                 </div>
-                <h2 class="font-medium text-sm mt-2">Kitchen Appliances</h2>
-                <span class="text-primary-green text-sm">Min 40% Off</span>
-                <span class="text-gray-500 text-sm">Buy Now!</span>
+                <h2 class="font-medium text-sm mt-2"><?php echo $item['title']; ?></h2>
+                <span class="text-primary-green text-sm"><?php echo $item['discount']; ?></span>
+                <span class="text-gray-500 text-sm"><?php echo $item['tag']; ?></span>
             </a>
+
+            <?php
+            endforeach;
+            ?>
 
             <!-- one product -->
             <a class="flex flex-col items-center gap-1.5 p-6" href="#">

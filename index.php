@@ -12,7 +12,10 @@ include 'partials/_banner.php';
 include 'partials/_top_selection.php';
 include 'partials/_suggested_for_you.php';
 include 'partials/_top_rated.php';
+include 'partials/_recommended_items.php';
+include 'partials/_you_may_like.php';
 include 'partials/_top_selection.php';
+include 'partials/_discounts_for_you.php';
 ?>
 
 </main>
