@@ -3,6 +3,11 @@
 session_start();
 ?>
 
+<?php
+// include 'functions.php';
+require('functions.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,11 +61,11 @@ session_start();
         <!-- right navs -->
         <div class="flex items-center justify-between gap-7 relative">
 
-            <span class="<?php if(isset($_SESSION['login']) || isset($_SESSION['signup'])) { echo "flex"; } else { echo "hidden"; } ?> userDropDown items-center text-white font-medium gap-1 cursor-pointer">Jigar
+            <span class="<?php if(isset($_SESSION['login'])) { echo "flex"; } else { echo "hidden"; } ?> userDropDown items-center text-white font-medium gap-1 cursor-pointer">Jigar
                 <span class="material-icons text-sm transition-transform duration-100">expand_more</span>
             </span>
 
-            <span class="<?php if(isset($_SESSION['login']) || isset($_SESSION['signup'])) { echo "hidden"; } ?> userDropDown px-9 py-0.5 text-primary-blue bg-white border font-medium rounded-sm cursor-pointer">Login</span>
+            <span class="<?php if(isset($_SESSION['login'])) { echo "hidden"; } ?> userDropDown px-9 py-0.5 text-primary-blue bg-white border font-medium rounded-sm cursor-pointer">Login</span>
 
            <!-- dropdown navbar hover tabs -->
            <div class="userDropDownMenu hidden absolute w-60 -left-24 ml-2 top-9 bg-white shadow-2xl rounded flex-col text-sm">
@@ -100,7 +105,7 @@ session_start();
                     <span class="material-icons md-18 text-primary-blue">notifications</span>
                     Notifications
                </a>
-               <a class="pl-3 py-3.5 flex gap-3 items-center hover:bg-gray-50 rounded-b" href="logout.php">
+               <a class="pl-3 py-3.5 flex gap-3 items-center hover:bg-gray-50 rounded-b" href="logout">
                     <span class="material-icons md-18 text-primary-blue">power_settings_new</span>
                     Logout
                </a>
