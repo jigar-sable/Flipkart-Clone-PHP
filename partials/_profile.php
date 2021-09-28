@@ -15,7 +15,13 @@
                     <!-- user icon -->
                     <div class="flex flex-col gap-1">
                         <p class="text-xs">Hello,</p>
-                        <h2 class="font-medium">Rohan Doeee</h2>
+                        <h2 class="font-medium">
+                        <?php
+                        foreach($user->getUserData($_SESSION['login']) as $users) {
+                        echo $users['first_name'] . " " . $users['last_name'];
+                        }
+                        ?>
+                        </h2>
                     </div>
                 </div>
                 <!-- profile card -->
@@ -110,40 +116,46 @@
             <div class="flex-1 overflow-hidden shadow bg-white">
                 <!-- edit info container -->
                 <div class="flex flex-col gap-12 m-4 sm:mx-8 sm:my-6">
-                    <!-- personal info -->
-                    <div class="flex flex-col gap-5 items-start">
-                        <span class="font-medium text-lg">Personal Information <span class="text-sm text-primary-blue font-medium ml-8 cursor-pointer" id="editPersonalBtn">Edit</span></span>
 
-                        <div class="flex flex-col sm:flex-row items-center gap-3" id="personalInputs">
-                            <div class="flex flex-col gap-0.5 w-64 px-3 py-1.5 rounded-sm border inputs cursor-not-allowed bg-gray-100 focus-within:border-primary-blue">
-                                <label for="fname" class="text-xs text-gray-500">First Name</label>
-                                <input type="text" value="Jigar" class="text-sm outline-none border-none cursor-not-allowed text-gray-500" disabled>
-                            </div>
-                            <div class="flex flex-col gap-0.5 w-64 px-3 py-1.5 rounded-sm border inputs cursor-not-allowed bg-gray-100 focus-within:border-primary-blue">
-                                <label for="lname" class="text-xs text-gray-500">Last Name</label>
-                                <input type="text" value="Sable" class="text-sm outline-none border-none cursor-not-allowed text-gray-500" disabled>
-                            </div>
-                            <button class="hidden w-full sm:w-auto px-11 py-3 bg-primary-blue border rounded text-white font-medium hover:bg-blue-600 transition-colors duration-75" id="personalSaveBtn">SAVE</button>
-                        </div>
+                    <form action="#" method="post" id="personalInfoForm">
 
-                        <!-- gender -->
-                        <div class="flex flex-col gap-2">
-                            <h2 class="text-sm">Your Gender</h2>
-                            <div class="flex items-center gap-8" id="radioInput">
-                                <div class="flex items-center gap-4 inputs text-gray-500 cursor-not-allowed">
-                                <input type="radio" name="gender" checked id="male" class="h-4 w-4 cursor-not-allowed" disabled>
-                                <label for="male" class="cursor-not-allowed">Male</label>
+                        <!-- personal info -->
+                        <div class="flex flex-col gap-5 items-start">
+                            <span class="font-medium text-lg">Personal Information <span class="text-sm text-primary-blue font-medium ml-8 cursor-pointer" id="editPersonalBtn">Edit</span></span>
+    
+                            <div class="flex flex-col sm:flex-row items-center gap-3" id="personalInputs">
+                                <div class="flex flex-col gap-0.5 w-64 px-3 py-1.5 rounded-sm border inputs cursor-not-allowed bg-gray-100 focus-within:border-primary-blue">
+                                    <label for="fname" class="text-xs text-gray-500">First Name</label>
+                                    <input type="text" name="fname" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) {echo $users['first_name'];} ?>" class="text-sm outline-none border-none cursor-not-allowed text-gray-500" disabled required>
                                 </div>
-                                <div class="flex items-center gap-4 inputs text-gray-500 cursor-not-allowed">
-                                <input type="radio" name="gender" id="female" class="h-4 w-4 cursor-not-allowed" disabled>
-                                <label for="female" class="cursor-not-allowed">Female</label>
+                                <div class="flex flex-col gap-0.5 w-64 px-3 py-1.5 rounded-sm border inputs cursor-not-allowed bg-gray-100 focus-within:border-primary-blue">
+                                    <label for="lname" class="text-xs text-gray-500">Last Name</label>
+                                    <input type="text" name="lname" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) {echo $users['last_name'];} ?>" class="text-sm outline-none border-none cursor-not-allowed text-gray-500" disabled required>
+                                </div>
+                                <input type="hidden" name="useremail" value="<?php echo $_SESSION['login'] ?>">
+                                <button class="hidden w-full sm:w-auto px-11 py-3 bg-primary-blue border rounded text-white font-medium hover:bg-blue-600 transition-colors duration-75" id="personalSaveBtn" type="submit">SAVE</button>
+                            </div>
+    
+                            <!-- gender -->
+                            <div class="flex flex-col gap-2">
+                                <h2 class="text-sm">Your Gender</h2>
+                                <div class="flex items-center gap-8" id="radioInput">
+                                    <div class="flex items-center gap-4 inputs text-gray-500 cursor-not-allowed">
+                                    <input type="radio" name="gender" value="male" <?php if(isMale($user)){echo "checked";} ?> id="male" class="h-4 w-4 cursor-not-allowed" disabled required>
+                                    <label for="male" class="cursor-not-allowed">Male</label>
+                                    </div>
+                                    <div class="flex items-center gap-4 inputs text-gray-500 cursor-not-allowed">
+                                    <input type="radio" name="gender" value="female" <?php if(!isMale($user)){echo "checked";} ?> id="female" class="h-4 w-4 cursor-not-allowed" disabled required>
+                                    <label for="female" class="cursor-not-allowed">Female</label>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- gender -->
+    
                         </div>
-                        <!-- gender -->
+                        <!-- personal info -->
 
-                    </div>
-                    <!-- personal info -->
+                    </form>
 
                     <!-- email address info -->
                     <div class="flex flex-col gap-5 items-start">
@@ -155,7 +167,7 @@
                         <div class="flex items-center gap-3">
                             <div class="flex flex-col gap-0.5 sm:w-64 px-3 py-1.5 rounded-sm border bg-gray-100 cursor-not-allowed focus-within:border-primary-blue" id="emailInputs">
                                 <label for="email" class="text-xs text-gray-500">Email Address</label>
-                                <input type="email" value="jigarsable@gmail.com" class="text-sm outline-none border-none cursor-not-allowed text-gray-500" disabled>
+                                <input type="email" value="<?php echo ($_SESSION['login']); ?>" class="text-sm outline-none border-none cursor-not-allowed text-gray-500" disabled>
                             </div>
                             <button class="hidden flex-1 px-11 py-3 bg-primary-blue border rounded text-white font-medium hover:bg-blue-600 transition-colors duration-75" id="emailSaveBtn">SAVE</button>
                         </div>
@@ -163,6 +175,7 @@
                     </div>
                     <!-- email address info -->
 
+                    <form action="#" method="post" id="mobUpdateForm">
                     <!-- mobile number info -->
                     <div class="flex flex-col gap-5 items-start">
                         <span class="font-medium text-lg">Mobile Number 
@@ -172,13 +185,15 @@
                         <div class="flex items-center gap-3">
                             <div class="flex flex-col gap-0.5 sm:w-64 px-3 py-1.5 rounded-sm border bg-gray-100 cursor-not-allowed focus-within:border-primary-blue" id="mobInputs">
                                 <label for="phone" class="text-xs text-gray-500">Mobile Number</label>
-                                <input type="tel" value="+917041411501" class="text-sm outline-none border-none text-gray-500 cursor-not-allowed" disabled>
+                                <input type="tel" pattern="[6-9]{1}[0-9]{9}" maxlength="10" name="mobile" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) {echo $users['mobile'];} ?>" class="text-sm outline-none border-none text-gray-500 cursor-not-allowed" disabled required>
                             </div>
-                            <button class="hidden px-11 py-3 bg-primary-blue border rounded text-white font-medium hover:bg-blue-600 transition-colors duration-75" id="mobSaveBtn">SAVE</button>
+                            <input type="hidden" name="useremail" value="<?php echo $_SESSION['login'] ?>">
+                            <button class="hidden px-11 py-3 bg-primary-blue border rounded text-white font-medium hover:bg-blue-600 transition-colors duration-75" id="mobSaveBtn" type="submit">SAVE</button>
                         </div>
 
                     </div>
                     <!-- mobile number info -->
+                    </form>
 
                     <!-- faqs -->
                     <div class="flex flex-col gap-4 mt-4">
@@ -212,3 +227,35 @@
 
     </main>
     <!-- main sections starts -->
+
+<script>
+    $('#personalInfoForm').on('submit',function(e){
+        e.preventDefault();
+        $.ajax({
+            url: "updateInfo.php",
+            type: "post",
+            data: $('#personalInfoForm').serialize(),
+            success: function(result){
+                if(result="done"){
+                    location.reload();
+                }
+            }
+        });
+
+    });
+
+    $('#mobUpdateForm').on('submit',function(e){
+        e.preventDefault();
+        $.ajax({
+            url: "updateMobile.php",
+            type: "post",
+            data: $('#mobUpdateForm').serialize(),
+            success: function(result){
+                if(result="done"){
+                    location.reload();
+                }
+            }
+        });
+    });
+
+</script>

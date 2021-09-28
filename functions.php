@@ -10,4 +10,14 @@ $product = new Product($db);
 
 $user = new User($db);
 
+function isMale($user) {
+    foreach($user->getUserData($_SESSION['login']) as $users) {
+        if($users['gender'] == "male"){
+            return true;
+        } else {
+            return false;
+        }
+    } 
+}
+                           
 ?>
