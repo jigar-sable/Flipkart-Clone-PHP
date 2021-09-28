@@ -12,7 +12,7 @@
         <!-- category -->
         <a class="flex flex-col gap-1 items-center p-2 group" href="#">
             <div class="h-16 w-16">
-                <img class="h-full w-full object-contain" src="assets/images/banner/<?php echo $item['cat_img']; ?>.png" alt="<?php echo $item['cat_img_alt']; ?>">
+                <img class="h-full w-full object-contain" src="assets/images/categories/<?php echo $item['cat_img']; ?>.png" alt="<?php echo $item['cat_img_alt']; ?>">
             </div>
             <span class="text-sm text-gray-800 font-medium group-hover:text-primary-blue flex items-center gap-0.5"> <?php echo $item['cat_title']; ?> </span>
         </a>

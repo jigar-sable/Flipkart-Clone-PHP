@@ -10,8 +10,8 @@ include 'partials/_categories_img_nav.php';
 <?php
 include 'partials/_banner.php';
 include 'partials/_top_selection.php';
-include 'partials/_top_selection.php';
-include 'partials/_top_selection.php';
+include 'partials/_suggested_for_you.php';
+include 'partials/_top_rated.php';
 include 'partials/_top_selection.php';
 ?>
 
