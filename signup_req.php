@@ -28,7 +28,7 @@ if($password != $cpassword) {
     if($result){
         header('location:index.php');
         echo mysqli_error($con);
-        $_SESSION['login'] = true;
+        $_SESSION['login'] = $email;
     } else {
         
     }

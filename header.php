@@ -105,7 +105,7 @@ require('functions.php');
                     <span class="material-icons md-18 text-primary-blue">notifications</span>
                     Notifications
                </a>
-               <a class="pl-3 py-3.5 flex gap-3 items-center hover:bg-gray-50 rounded-b" href="logout">
+               <a class="pl-3 py-3.5 flex gap-3 items-center hover:bg-gray-50 rounded-b" href="logout.php">
                     <span class="material-icons md-18 text-primary-blue">power_settings_new</span>
                     Logout
                </a>

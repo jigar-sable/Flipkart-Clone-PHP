@@ -14,7 +14,7 @@ mysqli_query($con, "UPDATE `users` set `otp`='$otp' where `email` = '$email'");
 
 $htmldata = '<h3>Your OTP for Flipkart Clone is : '.$otp.'</h3>';
 
-smtp_mailer($email,'Flipart Clone PHP Signup',$htmldata);
+smtp_mailer($email,'OTP Verification',$htmldata);
 echo "yes";
 
 $_SESSION['EMAIL'] = $email;

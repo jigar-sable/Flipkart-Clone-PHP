@@ -12,7 +12,7 @@ if(isset($_POST['email'])){
     $result = mysqli_query($con,$query);
     $count = mysqli_num_rows($result);
     if($count>0){
-        $_SESSION['login'] = true;
+        $_SESSION['login'] = $email;
         header('location:index.php');
     } else {
         echo "invalid id pw";
