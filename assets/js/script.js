@@ -174,6 +174,6 @@ $(document).ready(function() {
                 $(`${inputs} input`).prop('disabled',true)
     }
 
-    toggleEdit('#emailEditBtn','#emailSaveBtn','#emailInputs');
+    // toggleEdit('#emailEditBtn','#emailSaveBtn','#emailInputs');
     toggleEdit('#mobEditBtn','#mobSaveBtn','#mobInputs');
 });

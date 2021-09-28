@@ -45,7 +45,7 @@ require('functions.php');
 
         <!-- logo & search container -->
         <div class="flex items-center flex-1">
-        <a class="h-7 mr-4" href="/Flipkart/public/index.html">
+        <a class="h-7 mr-4" href="/Flipkart-Clone-PHP/index.php">
             <img class="h-full w-full object-contain" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fk-plus_3b0baa.png" alt="">
         </a>
 
@@ -76,7 +76,7 @@ require('functions.php');
 
            <!-- dropdown navbar hover tabs -->
            <div class="userDropDownMenu hidden absolute w-60 -left-24 ml-2 top-9 bg-white shadow-2xl rounded flex-col text-sm">
-               <a class="pl-3 py-3.5 border-b flex gap-3 items-center hover:bg-gray-50 rounded-t" href="profile.html">
+               <a class="pl-3 py-3.5 border-b flex gap-3 items-center hover:bg-gray-50 rounded-t" href="profile.php">
                     <span class="material-icons md-18 text-primary-blue">account_circle</span>
                     My Profile
                </a>
@@ -88,11 +88,11 @@ require('functions.php');
                     <span class="material-icons md-18 text-primary-blue">add_circle</span>
                     Flipkart Plus Zone
                </a>
-               <a class="pl-3 py-3.5 border-b flex gap-3 items-center hover:bg-gray-50" href="orders.html">
+               <a class="pl-3 py-3.5 border-b flex gap-3 items-center hover:bg-gray-50" href="orders.php">
                     <span class="material-icons md-18 text-primary-blue">shopping_bag</span>
                     Orders
                </a>
-               <a class="pl-3 py-3.5 border-b flex gap-3 items-center hover:bg-gray-50" href="wishlist.html">
+               <a class="pl-3 py-3.5 border-b flex gap-3 items-center hover:bg-gray-50" href="wishlist.php">
                     <span class="material-icons md-18 text-primary-blue">favorite</span>
                     Wishlist
                </a>

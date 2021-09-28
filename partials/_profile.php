@@ -160,13 +160,13 @@
                     <!-- email address info -->
                     <div class="flex flex-col gap-5 items-start">
                         <span class="font-medium text-lg">Email Address 
-                            <span class="text-sm text-primary-blue font-medium ml-3 sm:ml-8 cursor-pointer" id="emailEditBtn">Edit</span>
+                            <span class="text-sm text-primary-blue font-medium ml-3 sm:ml-8 cursor-pointer">Edit</span>
                             <a class="text-sm text-primary-blue font-medium ml-3 sm:ml-8" href="#">Change Password</a>
                         </span>
 
                         <div class="flex items-center gap-3">
                             <div class="flex flex-col gap-0.5 sm:w-64 px-3 py-1.5 rounded-sm border bg-gray-100 cursor-not-allowed focus-within:border-primary-blue" id="emailInputs">
-                                <label for="email" class="text-xs text-gray-500">Email Address</label>
+                                <label for="email" class="text-xs text-gray-500 cursor-not-allowed">Email Address</label>
                                 <input type="email" value="<?php echo ($_SESSION['login']); ?>" class="text-sm outline-none border-none cursor-not-allowed text-gray-500" disabled>
                             </div>
                             <button class="hidden flex-1 px-11 py-3 bg-primary-blue border rounded text-white font-medium hover:bg-blue-600 transition-colors duration-75" id="emailSaveBtn">SAVE</button>
