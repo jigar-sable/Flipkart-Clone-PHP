@@ -79,7 +79,7 @@ foreach($product->getData() as $item):
 
             <!-- warranty & brand -->
             <div class="flex gap-8 mt-2 items-center text-sm">
-                <img class="w-20 h-8 border p-1 object-contain" src="https://rukminim1.flixcart.com/image/160/160/prod-fk-cms-brand-images/164752bf18d354f1de5b2451fb11c381da8a6570cd227b9e4828917f34e7e7c6.jpg" alt="">
+                <img class="w-20 h-8 border p-1 object-contain" src="assets/images/brands/<?php echo $item['product_brand_logo']; ?>.png" alt="">
                 <span>1 Year <a class="font-medium text-primary-blue" href="#">Know More</a></span>
             </div>
             <!-- warranty & brand -->
@@ -95,9 +95,8 @@ foreach($product->getData() as $item):
             <div class="flex gap-20 mt-4 items-stretch text-sm font-medium">
                 <p class="text-gray-500">Color</p>
                 <ul class="flex gap-3">
-                    <li class="w-14 h-14 border cursor-pointer"><img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/160/160/prod-fk-cms-brand-images/164752bf18d354f1de5b2451fb11c381da8a6570cd227b9e4828917f34e7e7c6.jpg" alt=""></li>
-                    <li class="w-14 h-14 border cursor-pointer"><img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/160/160/prod-fk-cms-brand-images/164752bf18d354f1de5b2451fb11c381da8a6570cd227b9e4828917f34e7e7c6.jpg" alt=""></li>
-                    <li class="w-14 h-14 border cursor-pointer"><img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/160/160/prod-fk-cms-brand-images/164752bf18d354f1de5b2451fb11c381da8a6570cd227b9e4828917f34e7e7c6.jpg" alt=""></li>
+                    <li class="w-14 h-14 border cursor-pointer"><img class="w-full h-full object-contain" src="<?php echo $item['product_color_thumb1']; ?>" alt=""></li>
+                    <li class="w-14 h-14 border cursor-pointer"><img class="w-full h-full object-contain" src="<?php echo $item['product_color_thumb2']; ?>" alt=""></li>
                 </ul>
             </div>
             <!-- color selection -->
@@ -167,7 +166,7 @@ foreach($product->getData() as $item):
             <!-- description details -->
             <div class="flex flex-col sm:flex-row gap-1 sm:gap-14 mt-4 items-stretch text-sm">
                 <p class="text-gray-500 font-medium">Description</p>
-                <span>If you want to enjoy immersive entertainment on the move without any strings attached, then buy the boAt Rockerz 400 Super Extra Bass Bluetooth Headset. This powerful headset features 40-mm Dynamic Drivers, a Passive Noise Cancellation technology, and a Dual Mode to let you dive into your favorite music without interruption or physical limitations.</span>
+                <span><?php echo $item['product_desc'] ?></span>
             </div>
             <!-- description details -->
 
@@ -202,29 +201,29 @@ foreach($product->getData() as $item):
                 <h1 class="px-6 py-3 text-lg">General</h1>
 
                 <!-- specs list -->
-                <div class="px-6 py-2 flex items-center text-sm">
+                <div class="px-6 py-2 flex items-start text-sm">
                     <p class="text-gray-500 w-3/12">Model Name</p>
-                    <p class="flex-1">Rockerz 400 / Rockerz 410</p>
+                    <p class="flex-1"><?php echo $item['product_model'] ?></p>
                 </div>
-                <div class="px-6 py-2 flex items-center text-sm">
+                <div class="px-6 py-2 flex items-start text-sm">
                     <p class="text-gray-500 w-3/12">Color</p>
-                    <p class="flex-1">Rockerz 400 / Rockerz 410</p>
+                    <p class="flex-1"><?php echo $item['product_color'] ?></p>
                 </div>
-                <div class="px-6 py-2 flex items-center text-sm">
-                    <p class="text-gray-500 w-3/12">Model Name</p>
-                    <p class="flex-1">Rockerz 400 / Rockerz 410</p>
+                <div class="px-6 py-2 flex items-start text-sm">
+                    <p class="text-gray-500 w-3/12">Sales Package</p>
+                    <p class="flex-1"><?php echo $item['product_sales_package'] ?></p>
                 </div>
-                <div class="px-6 py-2 flex items-center text-sm">
-                    <p class="text-gray-500 w-3/12">Model Name</p>
-                    <p class="flex-1">Rockerz 400 / Rockerz 410</p>
+                <div class="px-6 py-2 flex items-start text-sm">
+                    <p class="text-gray-500 w-3/12">Generic Name</p>
+                    <p class="flex-1"><?php echo $item['product_generic_name'] ?></p>
                 </div>
-                <div class="px-6 py-2 flex items-center text-sm">
-                    <p class="text-gray-500 w-3/12">Model Name</p>
-                    <p class="flex-1">Rockerz 400 / Rockerz 410</p>
+                <div class="px-6 py-2 flex items-start text-sm">
+                    <p class="text-gray-500 w-3/12">Manufactured By</p>
+                    <p class="flex-1"><?php echo $item['product_manufactured_by'] ?></p>
                 </div>
-                <div class="px-6 py-2 flex items-center text-sm">
-                    <p class="text-gray-500 w-3/12">Model Name</p>
-                    <p class="flex-1">Rockerz 400 / Rockerz 410</p>
+                <div class="px-6 py-2 flex items-start text-sm">
+                    <p class="text-gray-500 w-3/12">Country of Origin</p>
+                    <p class="flex-1"><?php echo $item['product_origin_country'] ?></p>
                 </div>
                 <!-- specs list -->
 
@@ -233,33 +232,24 @@ foreach($product->getData() as $item):
 
             <!-- specifications border box -->
             <div class="w-full mt-4 pb-4 rounded-sm border flex flex-col">
-                <h1 class="px-6 py-4 border-b text-2xl font-medium">Specifications</h1>
-                <h1 class="px-6 py-3 text-lg">General</h1>
+                <h1 class="px-6 py-4 border-b text-2xl font-medium">Warranty</h1>
 
                 <!-- specs list -->
-                <div class="px-6 py-2 flex items-center text-sm">
-                    <p class="text-gray-500 w-3/12">Model Name</p>
-                    <p class="flex-1">Rockerz 400 / Rockerz 410</p>
+                <div class="px-6 py-2 flex items-start text-sm">
+                    <p class="text-gray-500 w-3/12">Domestic Warranty</p>
+                    <p class="flex-1"><?php echo $item['product_domestic_warranty'] ?></p>
                 </div>
-                <div class="px-6 py-2 flex items-center text-sm">
-                    <p class="text-gray-500 w-3/12">Coloe</p>
-                    <p class="flex-1">Rockerz 400 / Rockerz 410</p>
+                <div class="px-6 py-2 flex items-start text-sm">
+                    <p class="text-gray-500 w-3/12">Warranty Summary</p>
+                    <p class="flex-1"><?php echo $item['product_warranty_summary'] ?></p>
                 </div>
-                <div class="px-6 py-2 flex items-center text-sm">
-                    <p class="text-gray-500 w-3/12">Model Name</p>
-                    <p class="flex-1">Rockerz 400 / Rockerz 410</p>
+                <div class="px-6 py-2 flex items-start text-sm">
+                    <p class="text-gray-500 w-3/12">Covered in Warranty</p>
+                    <p class="flex-1"><?php echo $item['product_warranty_covered'] ?></p>
                 </div>
-                <div class="px-6 py-2 flex items-center text-sm">
-                    <p class="text-gray-500 w-3/12">Model Name</p>
-                    <p class="flex-1">Rockerz 400 / Rockerz 410</p>
-                </div>
-                <div class="px-6 py-2 flex items-center text-sm">
-                    <p class="text-gray-500 w-3/12">Model Name</p>
-                    <p class="flex-1">Rockerz 400 / Rockerz 410</p>
-                </div>
-                <div class="px-6 py-2 flex items-center text-sm">
-                    <p class="text-gray-500 w-3/12">Model Name</p>
-                    <p class="flex-1">Rockerz 400 / Rockerz 410</p>
+                <div class="px-6 py-2 flex items-start text-sm">
+                    <p class="text-gray-500 w-3/12">Not Covered in Warranty</p>
+                    <p class="flex-1"><?php echo $item['product_warranty_ncovered'] ?></p>
                 </div>
                 <!-- specs list -->
 
