@@ -65,13 +65,13 @@ class Cart {
     }
 
 
-    public function getSubTotal($arr) {
-        if(isset($arr)){
+    public function getSum($pricesArr) {
+        if(isset($pricesArr)){
             $sum = 0;
-            foreach($arr as $item){
+            foreach($pricesArr as $item){
                 $sum += floatval($item[0]);
             }
-            return sprintf('%.2f',$sum);
+            return number_format($sum);
         }
     }
 

@@ -29,6 +29,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 foreach($Cart->getData(getUserId($user),'cart') as $item):
                     // echo var_dump($item);
                     $cart = $product->getProducts($item['product_id']);
+
+                    $subDiscount[] = array_map(function($item){
+                        return ($item['product_cutted_price'] - $item['product_price']);
+                    }, $cart);
+
+                    $subPrice[] = array_map(function($item){
+                        return $item['product_cutted_price'];
+                    }, $cart);
+
+                    // echo var_dump($subDiscount);
+                    // echo $Cart->getSum($subDiscount);
+
                     $subTotal[] = array_map(function($item) use ($user){
                 ?>
 
@@ -131,15 +143,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <h1 class="px-6 py-3 border-b font-medium text-gray-500">PRICE DETAILS</h1>
 
                 <div class="flex flex-col gap-4 p-6 pb-3">
-                    <p class="flex justify-between">Price (1 item) <span>₹ <?php echo isset($subTotal) ? $Cart->getSubTotal($subTotal) : 0; ?></span></p>
-                    <p class="flex justify-between">Discount <span class="text-primary-green">- ₹10,000</span></p>
+                    <p class="flex justify-between">Price (1 item) <span>₹<?php echo isset($subPrice) ? $Cart->getSum($subPrice) : 0; ?></span></p>
+                    <p class="flex justify-between">Discount <span class="text-primary-green">- ₹<?php echo isset($subDiscount) ? $Cart->getSum($subDiscount) : 0; ?></span></p>
                     <p class="flex justify-between">Delivery Charges <span class="text-primary-green">FREE</span></p>
 
                     <div class="border border-dashed"></div>
-                    <p class="flex justify-between text-lg font-medium">Total Amount <span>₹75,998</span></p>
+                    <p class="flex justify-between text-lg font-medium">Total Amount <span>₹<?php echo isset($subTotal) ? $Cart->getSum($subTotal) : 0; ?></span></p>
                     <div class="border border-dashed"></div>
 
-                    <p class="font-medium text-primary-green">You will save ₹10,000 on this order</p>
+                    <p class="font-medium text-primary-green">You will save ₹<?php echo isset($subDiscount) ? $Cart->getSum($subDiscount) : 0; ?> on this order</p>
 
                 </div>
                 
