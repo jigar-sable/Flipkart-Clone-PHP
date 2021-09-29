@@ -32,5 +32,9 @@ function highlightSplit($str) {
     $result_array = explode(",",$str);
     return $result_array;
 }
+
+function getUserId($user) {
+    foreach($user->getUserData($_SESSION['login']) as $users) { return $users['id']; }
+}
                            
 ?>

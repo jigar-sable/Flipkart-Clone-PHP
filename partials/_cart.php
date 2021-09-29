@@ -9,11 +9,11 @@
 
             <!-- cart items container -->
             <div class="flex flex-col shadow bg-white">
-                <span class="font-medium text-lg px-2 sm:px-8 py-4 border-b">My Cart (2)</span>
+                <span class="font-medium text-lg px-2 sm:px-8 py-4 border-b">My Cart (<?php echo count($Cart->getData(getUserId($user),'cart')); ?>)</span>
                 <?php 
-                function getUserId($user) {
-                    foreach($user->getUserData($_SESSION['login']) as $users) { return $users['id']; }
-                }
+                // function getUserId($user) {
+                //     foreach($user->getUserData($_SESSION['login']) as $users) { return $users['id']; }
+                // }
                 // echo getUserId($user);
 
                 foreach($Cart->getData(getUserId($user),'cart') as $item):
@@ -51,8 +51,8 @@
 
                             <!-- price desc -->
                             <div class="flex items-baseline gap-2 text-xl font-medium">
-                                <span>₹<?php echo $item['product_price']; ?></span>
-                                <span class="text-sm text-gray-500 line-through font-normal">₹<?php echo $item['product_cutted_price']; ?></span>
+                                <span>₹<?php echo number_format($item['product_price']); ?></span>
+                                <span class="text-sm text-gray-500 line-through font-normal">₹<?php echo number_format($item['product_cutted_price']); ?></span>
                                 <span class="text-sm text-primary-green">15%&nbsp;off</span>
                             </div>
                             <!-- price desc -->
