@@ -11,11 +11,6 @@
             <div class="flex flex-col shadow bg-white">
                 <span class="font-medium text-lg px-2 sm:px-8 py-4 border-b">My Cart (<?php echo count($Cart->getData(getUserId($user),'cart')); ?>)</span>
                 <?php 
-                // function getUserId($user) {
-                //     foreach($user->getUserData($_SESSION['login']) as $users) { return $users['id']; }
-                // }
-                // echo getUserId($user);
-
                 foreach($Cart->getData(getUserId($user),'cart') as $item):
                     // echo var_dump($item);
                     $cart = $product->getProducts($item['product_id']);
