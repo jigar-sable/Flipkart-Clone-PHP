@@ -1,12 +1,12 @@
 <?php
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
-    if(isset($_POST['remove_from_cart'])){
-        $removedItem = $Cart->deleteCartItem($_POST['user_id'], $_POST['product_id']);
+    if(isset($_POST['remove_from_save_later'])){
+        $Cart->deleteCartItem($_POST['user_id'], $_POST['product_id'],'save_for_later');
     }
 
-    if(isset($_POST['save_for_later'])){
-        $Cart->saveForLater($_POST['user_id'], $_POST['product_id']);
+    if(isset($_POST['move_to_cart'])){
+        $Cart->saveForLater($_POST['user_id'], $_POST['product_id'],'cart','save_for_later');
     }
 }
 
@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <span class="font-medium text-lg px-2 sm:px-8 py-4 border-b">Saved For Later (<?php echo count($Cart->getData(getUserId($user),'save_for_later')); ?>)</span>
 
                 <?php 
-                foreach($Cart->getData(getUserId($user),'cart') as $item):
+                foreach($Cart->getData(getUserId($user),'save_for_later') as $item):
                     // echo var_dump($item);
                     $cart = $product->getProducts($item['product_id']);
                     $subTotal[] = array_map(function($item) use ($user){
@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <div class="flex flex-col sm:flex-row gap-5 items-stretch w-full" href="#">
                         <!-- product image -->
                         <div class="flex-shrink-0 sm:flex-shrink w-full sm:w-1/6 h-28">
-                            <img class="h-full w-full object-contain" src="https://rukminim1.flixcart.com/image/224/224/kh9gbrk0/computer/e/6/d/asus-na-thin-and-light-laptop-original-imafxbj7gbsraqzk.jpeg" alt="">
+                            <img class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_id']; ?>.png" alt="">
                         </div>
                         <!-- product image -->
 
@@ -39,16 +39,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                             <!-- product title -->
                             <div class="flex justify-between items-start pr-5">
                                 <div class="flex flex-col gap-0.5 w-11/12 sm:w-3/5">
-                                    <p class="truncate">realme 8 (Cyber Black, 128 GB) realme 8 (CyberBlack, 128 GB)</p>
-                                    <span class="text-sm text-gray-500">Seller:RetailNet</span>
+                                    <p class="truncate"><?php echo $item['product_title']; ?></p>
+                                    <span class="text-sm text-gray-500">Seller:<?php echo $item['product_seller']; ?></span>
                                 </div>
                             </div>
                             <!-- product title -->
 
                             <!-- price desc -->
                             <div class="flex items-baseline gap-2 text-xl font-medium">
-                                <span>₹16,790</span>
-                                <span class="text-sm text-gray-500 line-through font-normal">₹18,890</span>
+                                <span>₹<?php echo number_format($item['product_price']); ?></span>
+                                <span class="text-sm text-gray-500 line-through font-normal">₹<?php echo number_format($item['product_cutted_price']); ?></span>
                                 <span class="text-sm text-primary-green">15%&nbsp;off</span>
                             </div>
                             <!-- price desc -->
@@ -66,8 +66,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                             <div class="w-7 h-7 text-xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer">+</div>
                         </div>
                         <!-- quantity -->
-                        <button class="font-medium hover:text-primary-blue">MOVE TO CART</button>
-                        <button class="font-medium hover:text-primary-blue">REMOVE</button>
+                        <form method="POST">
+                            <input type="hidden" name="user_id" value="<?php echo getUserId($user); ?>">
+                            <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
+                            <button type="submit" name="move_to_cart" class="font-medium hover:text-primary-blue">MOVE TO CART</button>
+                        </form>
+
+                        <form method="POST">
+                            <input type="hidden" name="user_id" value="<?php echo getUserId($user); ?>">
+                            <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
+                            <button type="submit" name="remove_from_save_later" class="font-medium hover:text-primary-blue">REMOVE</button>
+                        </form>
                     </div>
                     <!-- move to cart -->
 
