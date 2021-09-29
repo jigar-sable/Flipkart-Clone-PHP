@@ -9,11 +9,11 @@ class User {
     }
 
     public function getUserData($email) {
-        $result = $this->db->con->query("SELECT * FROM `users` where `email`='$email'");
+        $result = $this->db->con->query("SELECT * FROM `users` where `email`= '$email'");
 
         $userArray = array();
 
-        while($row = mysqli_fetch_assoc($result)){
+        while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
             $userArray[] = $row;
         }
         // echo var_dump($userArray);

@@ -39,6 +39,30 @@ class Cart {
     }
 
 
+    public function deleteCartItem($user_id = null, $product_id = null, $table = 'cart') {
+        if($product_id != null){
+            $result = $this->db->con->query("DELETE FROM {$table} WHERE `user_id` = {$user_id} AND `product_id` = {$product_id}");
+            if($result){
+                // header("Location:".$_SERVER['PHP_SELF']);
+            }
+            echo $this->db->con->error;
+        }
+        return $result;
+    }
+
+    public function saveForLater($user_id = null, $product_id = null, $saveToTable = 'save_for_later', $fromTable = 'cart') {
+        if($product_id != null){
+            $query = "INSERT INTO {$saveToTable} SELECT * FROM {$fromTable} WHERE `user_id` = {$user_id} AND `product_id` = {$product_id};";
+            $query .= "DELETE FROM {$fromTable} WHERE `user_id` = {$user_id} AND `product_id` = {$product_id};";
+
+            $result = $this->db->con->multi_query($query);
+            if($result){
+                // header("Location:".$_SERVER['PHP_SELF']);
+                echo "<script>location.href = 'cart.php'; </script>";
+            }
+        }
+        return $result;
+    }
 
 
 
