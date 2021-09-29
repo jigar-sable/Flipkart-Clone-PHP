@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 foreach($Cart->getData(getUserId($user),'save_for_later') as $item):
                     // echo var_dump($item);
                     $cart = $product->getProducts($item['product_id']);
-                    $subTotal[] = array_map(function($item) use ($user){
+                    $sub[] = array_map(function($item) use ($user){
                 ?>
 
                 <!-- saved for later item -->

@@ -131,7 +131,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <h1 class="px-6 py-3 border-b font-medium text-gray-500">PRICE DETAILS</h1>
 
                 <div class="flex flex-col gap-4 p-6 pb-3">
-                    <p class="flex justify-between">Price (1 item) <span>₹85,988</span></p>
+                    <p class="flex justify-between">Price (1 item) <span>₹ <?php echo isset($subTotal) ? $Cart->getSubTotal($subTotal) : 0; ?></span></p>
                     <p class="flex justify-between">Discount <span class="text-primary-green">- ₹10,000</span></p>
                     <p class="flex justify-between">Delivery Charges <span class="text-primary-green">FREE</span></p>
 
