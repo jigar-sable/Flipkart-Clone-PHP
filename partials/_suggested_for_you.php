@@ -37,7 +37,7 @@ shuffle($product_array);
                 <div class="w-36 h-36">
                     <img class="w-full h-full object-contain" src="assets/images/products/<?php echo $item['product_id']; ?>.png" alt="gvgW">
                 </div>
-                <h2 class="text-sm mt-4 group-hover:text-primary-blue"><?php if(strlen($item['product_title']) > 55) {echo substr($item['product_title'],0,55)."...";} else { echo $item['product_title']; } ?></h2>
+                <h2 class="text-sm mt-4 group-hover:text-primary-blue"><?php if(strlen($item['product_title']) > 50) {echo substr($item['product_title'],0,50)."...";} else { echo $item['product_title']; } ?></h2>
                 </a>
                 <!-- image & product title -->
 
@@ -54,7 +54,7 @@ shuffle($product_array);
                         <div class="flex items-center gap-1.5 text-md font-medium">
                             <span>₹<?php echo number_format($item['product_price']); ?></span>
                             <span class="text-gray-500 line-through text-xs">₹<?php echo number_format($item['product_cutted_price']); ?></span>
-                            <span class="text-xs text-primary-green">15%&nbsp;off</span>
+                            <span class="text-xs text-primary-green"><?php calcDiscount($item['product_price'], $item['product_cutted_price']) ?>%&nbsp;off</span>
                         </div>
                         <!-- price container -->
                 </div>
