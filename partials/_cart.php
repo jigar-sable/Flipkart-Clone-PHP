@@ -10,6 +10,17 @@
             <!-- cart items container -->
             <div class="flex flex-col shadow bg-white">
                 <span class="font-medium text-lg px-2 sm:px-8 py-4 border-b">My Cart (2)</span>
+                <?php 
+                function getUserId($user) {
+                    foreach($user->getUserData($_SESSION['login']) as $users) { return $users['id']; }
+                }
+                // echo getUserId($user);
+
+                foreach($Cart->getData(getUserId($user),'cart') as $item):
+                    // echo var_dump($item);
+                    $cart = $product->getProducts($item['product_id']);
+                    $subTotal[] = array_map(function($item){
+                ?>
 
                 <!-- cart item -->
                 <div class="flex flex-col gap-3 py-5 pl-2 sm:pl-6 border-b overflow-hidden">
@@ -17,7 +28,7 @@
                     <div class="flex flex-col sm:flex-row gap-5 items-stretch w-full" href="#">
                         <!-- product image -->
                         <div class="w-full sm:w-1/6 h-28 flex-shrink-0 sm:flex-shrink">
-                            <img class="h-full w-full object-contain" src="https://rukminim1.flixcart.com/image/224/224/kh9gbrk0/computer/e/6/d/asus-na-thin-and-light-laptop-original-imafxbj7gbsraqzk.jpeg" alt="">
+                            <img class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_id']; ?>.png" alt="">
                         </div>
                         <!-- product image -->
 
@@ -26,8 +37,8 @@
                             <!-- product title -->
                             <div class="flex flex-col sm:flex-row justify-between items-start pr-5 gap-1 sm:gap-0">
                                 <div class="flex flex-col gap-0.5 w-11/12 sm:w-3/5">
-                                    <p class="truncate">realme 8 (Cyber Black, 128 GB) realme 8 (CyberBlack, 128 GB)</p>
-                                    <span class="text-sm text-gray-500">Seller:RetailNet</span>
+                                    <p class="truncate"><?php echo $item['product_title']; ?></p>
+                                    <span class="text-sm text-gray-500">Seller: <?php echo $item['product_seller']; ?></span>
                                 </div>
 
                                 <div class="flex flex-col sm:gap-2">
@@ -40,8 +51,8 @@
 
                             <!-- price desc -->
                             <div class="flex items-baseline gap-2 text-xl font-medium">
-                                <span>₹16,790</span>
-                                <span class="text-sm text-gray-500 line-through font-normal">₹18,890</span>
+                                <span>₹<?php echo $item['product_price']; ?></span>
+                                <span class="text-sm text-gray-500 line-through font-normal">₹<?php echo $item['product_cutted_price']; ?></span>
                                 <span class="text-sm text-primary-green">15%&nbsp;off</span>
                             </div>
                             <!-- price desc -->
@@ -67,227 +78,10 @@
                 </div>
                 <!-- cart item -->
 
-                <!-- cart item -->
-                <div class="flex flex-col gap-3 py-5 pl-2 sm:pl-6 border-b overflow-hidden">
-
-                    <div class="flex flex-col sm:flex-row gap-5 items-stretch w-full" href="#">
-                        <!-- product image -->
-                        <div class="w-full sm:w-1/6 h-28 flex-shrink-0 sm:flex-shrink">
-                            <img class="h-full w-full object-contain" src="https://rukminim1.flixcart.com/image/224/224/kh9gbrk0/computer/e/6/d/asus-na-thin-and-light-laptop-original-imafxbj7gbsraqzk.jpeg" alt="">
-                        </div>
-                        <!-- product image -->
-
-                        <!-- description -->
-                        <div class="flex flex-col sm:gap-5 w-full p-1 pr-6">
-                            <!-- product title -->
-                            <div class="flex flex-col sm:flex-row justify-between items-start pr-5 gap-1 sm:gap-0">
-                                <div class="flex flex-col gap-0.5 w-11/12 sm:w-3/5">
-                                    <p class="truncate">realme 8 (Cyber Black, 128 GB) realme 8 (CyberBlack, 128 GB)</p>
-                                    <span class="text-sm text-gray-500">Seller:RetailNet</span>
-                                </div>
-
-                                <div class="flex flex-col sm:gap-2">
-                                    <p class="text-sm">Delivery by Mon Sep 27 | <span class="text-primary-green">Free</span> <span class="line-through">₹40</span></p>
-                                    <span class="text-xs text-gray-500">7 Days Replacement Policy</span>
-                                </div>
-
-                            </div>
-                            <!-- product title -->
-
-                            <!-- price desc -->
-                            <div class="flex items-baseline gap-2 text-xl font-medium">
-                                <span>₹16,790</span>
-                                <span class="text-sm text-gray-500 line-through font-normal">₹18,890</span>
-                                <span class="text-sm text-primary-green">15%&nbsp;off</span>
-                            </div>
-                            <!-- price desc -->
-
-                        </div>
-                        <!-- description -->
-                    </div>
-
-                    <!-- save for later -->
-                    <div class="flex justify-evenly sm:justify-start sm:gap-6">
-                        <!-- quantity -->
-                        <div class="flex gap-1 items-center">
-                            <div class="w-7 h-7 text-3xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer" id="qtyDown">-</div>
-                            <input type="text" class="w-11 border outline-none text-center rounded-sm py-0.5 font-medium text-sm" id="qtyInput" value="1" disabled>
-                            <div class="w-7 h-7 text-xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer" id="qtyUp">+</div>
-                        </div>
-                        <!-- quantity -->
-                        <button class="font-medium hover:text-primary-blue">SAVE FOR LATER</button>
-                        <button class="font-medium hover:text-primary-blue">REMOVE</button>
-                    </div>
-                    <!-- save for later -->
-
-                </div>
-                <!-- cart item -->
-
-                <!-- cart item -->
-                <div class="flex flex-col gap-3 py-5 pl-2 sm:pl-6 border-b overflow-hidden">
-
-                    <div class="flex flex-col sm:flex-row gap-5 items-stretch w-full" href="#">
-                        <!-- product image -->
-                        <div class="w-full sm:w-1/6 h-28 flex-shrink-0 sm:flex-shrink">
-                            <img class="h-full w-full object-contain" src="https://rukminim1.flixcart.com/image/224/224/kh9gbrk0/computer/e/6/d/asus-na-thin-and-light-laptop-original-imafxbj7gbsraqzk.jpeg" alt="">
-                        </div>
-                        <!-- product image -->
-
-                        <!-- description -->
-                        <div class="flex flex-col sm:gap-5 w-full p-1 pr-6">
-                            <!-- product title -->
-                            <div class="flex flex-col sm:flex-row justify-between items-start pr-5 gap-1 sm:gap-0">
-                                <div class="flex flex-col gap-0.5 w-11/12 sm:w-3/5">
-                                    <p class="truncate">realme 8 (Cyber Black, 128 GB) realme 8 (CyberBlack, 128 GB)</p>
-                                    <span class="text-sm text-gray-500">Seller:RetailNet</span>
-                                </div>
-
-                                <div class="flex flex-col sm:gap-2">
-                                    <p class="text-sm">Delivery by Mon Sep 27 | <span class="text-primary-green">Free</span> <span class="line-through">₹40</span></p>
-                                    <span class="text-xs text-gray-500">7 Days Replacement Policy</span>
-                                </div>
-
-                            </div>
-                            <!-- product title -->
-
-                            <!-- price desc -->
-                            <div class="flex items-baseline gap-2 text-xl font-medium">
-                                <span>₹16,790</span>
-                                <span class="text-sm text-gray-500 line-through font-normal">₹18,890</span>
-                                <span class="text-sm text-primary-green">15%&nbsp;off</span>
-                            </div>
-                            <!-- price desc -->
-
-                        </div>
-                        <!-- description -->
-                    </div>
-
-                    <!-- save for later -->
-                    <div class="flex justify-evenly sm:justify-start sm:gap-6">
-                        <!-- quantity -->
-                        <div class="flex gap-1 items-center">
-                            <div class="w-7 h-7 text-3xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer" id="qtyDown">-</div>
-                            <input type="text" class="w-11 border outline-none text-center rounded-sm py-0.5 font-medium text-sm" id="qtyInput" value="1" disabled>
-                            <div class="w-7 h-7 text-xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer" id="qtyUp">+</div>
-                        </div>
-                        <!-- quantity -->
-                        <button class="font-medium hover:text-primary-blue">SAVE FOR LATER</button>
-                        <button class="font-medium hover:text-primary-blue">REMOVE</button>
-                    </div>
-                    <!-- save for later -->
-
-                </div>
-                <!-- cart item -->
-                <!-- cart item -->
-                <div class="flex flex-col gap-3 py-5 pl-2 sm:pl-6 border-b overflow-hidden">
-
-                    <div class="flex flex-col sm:flex-row gap-5 items-stretch w-full" href="#">
-                        <!-- product image -->
-                        <div class="w-full sm:w-1/6 h-28 flex-shrink-0 sm:flex-shrink">
-                            <img class="h-full w-full object-contain" src="https://rukminim1.flixcart.com/image/224/224/kh9gbrk0/computer/e/6/d/asus-na-thin-and-light-laptop-original-imafxbj7gbsraqzk.jpeg" alt="">
-                        </div>
-                        <!-- product image -->
-
-                        <!-- description -->
-                        <div class="flex flex-col sm:gap-5 w-full p-1 pr-6">
-                            <!-- product title -->
-                            <div class="flex flex-col sm:flex-row justify-between items-start pr-5 gap-1 sm:gap-0">
-                                <div class="flex flex-col gap-0.5 w-11/12 sm:w-3/5">
-                                    <p class="truncate">realme 8 (Cyber Black, 128 GB) realme 8 (CyberBlack, 128 GB)</p>
-                                    <span class="text-sm text-gray-500">Seller:RetailNet</span>
-                                </div>
-
-                                <div class="flex flex-col sm:gap-2">
-                                    <p class="text-sm">Delivery by Mon Sep 27 | <span class="text-primary-green">Free</span> <span class="line-through">₹40</span></p>
-                                    <span class="text-xs text-gray-500">7 Days Replacement Policy</span>
-                                </div>
-
-                            </div>
-                            <!-- product title -->
-
-                            <!-- price desc -->
-                            <div class="flex items-baseline gap-2 text-xl font-medium">
-                                <span>₹16,790</span>
-                                <span class="text-sm text-gray-500 line-through font-normal">₹18,890</span>
-                                <span class="text-sm text-primary-green">15%&nbsp;off</span>
-                            </div>
-                            <!-- price desc -->
-
-                        </div>
-                        <!-- description -->
-                    </div>
-
-                    <!-- save for later -->
-                    <div class="flex justify-evenly sm:justify-start sm:gap-6">
-                        <!-- quantity -->
-                        <div class="flex gap-1 items-center">
-                            <div class="w-7 h-7 text-3xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer" id="qtyDown">-</div>
-                            <input type="text" class="w-11 border outline-none text-center rounded-sm py-0.5 font-medium text-sm" id="qtyInput" value="1" disabled>
-                            <div class="w-7 h-7 text-xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer" id="qtyUp">+</div>
-                        </div>
-                        <!-- quantity -->
-                        <button class="font-medium hover:text-primary-blue">SAVE FOR LATER</button>
-                        <button class="font-medium hover:text-primary-blue">REMOVE</button>
-                    </div>
-                    <!-- save for later -->
-
-                </div>
-                <!-- cart item -->
-                <!-- cart item -->
-                <div class="flex flex-col gap-3 py-5 pl-2 sm:pl-6 border-b overflow-hidden">
-
-                    <div class="flex flex-col sm:flex-row gap-5 items-stretch w-full" href="#">
-                        <!-- product image -->
-                        <div class="w-full sm:w-1/6 h-28 flex-shrink-0 sm:flex-shrink">
-                            <img class="h-full w-full object-contain" src="https://rukminim1.flixcart.com/image/224/224/kh9gbrk0/computer/e/6/d/asus-na-thin-and-light-laptop-original-imafxbj7gbsraqzk.jpeg" alt="">
-                        </div>
-                        <!-- product image -->
-
-                        <!-- description -->
-                        <div class="flex flex-col sm:gap-5 w-full p-1 pr-6">
-                            <!-- product title -->
-                            <div class="flex flex-col sm:flex-row justify-between items-start pr-5 gap-1 sm:gap-0">
-                                <div class="flex flex-col gap-0.5 w-11/12 sm:w-3/5">
-                                    <p class="truncate">realme 8 (Cyber Black, 128 GB) realme 8 (CyberBlack, 128 GB)</p>
-                                    <span class="text-sm text-gray-500">Seller:RetailNet</span>
-                                </div>
-
-                                <div class="flex flex-col sm:gap-2">
-                                    <p class="text-sm">Delivery by Mon Sep 27 | <span class="text-primary-green">Free</span> <span class="line-through">₹40</span></p>
-                                    <span class="text-xs text-gray-500">7 Days Replacement Policy</span>
-                                </div>
-
-                            </div>
-                            <!-- product title -->
-
-                            <!-- price desc -->
-                            <div class="flex items-baseline gap-2 text-xl font-medium">
-                                <span>₹16,790</span>
-                                <span class="text-sm text-gray-500 line-through font-normal">₹18,890</span>
-                                <span class="text-sm text-primary-green">15%&nbsp;off</span>
-                            </div>
-                            <!-- price desc -->
-
-                        </div>
-                        <!-- description -->
-                    </div>
-
-                    <!-- save for later -->
-                    <div class="flex justify-evenly sm:justify-start sm:gap-6">
-                        <!-- quantity -->
-                        <div class="flex gap-1 items-center">
-                            <div class="w-7 h-7 text-3xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer" id="qtyDown">-</div>
-                            <input type="text" class="w-11 border outline-none text-center rounded-sm py-0.5 font-medium text-sm" id="qtyInput" value="1" disabled>
-                            <div class="w-7 h-7 text-xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer" id="qtyUp">+</div>
-                        </div>
-                        <!-- quantity -->
-                        <button class="font-medium hover:text-primary-blue">SAVE FOR LATER</button>
-                        <button class="font-medium hover:text-primary-blue">REMOVE</button>
-                    </div>
-                    <!-- save for later -->
-
-                </div>
-                <!-- cart item -->
+                <?php
+                return $item['product_price'];}, $cart);
+                endforeach;
+                ?>
                 
                 <!-- place order btn -->
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center px-2 sm:px-6 py-4 gap-2 sm:gap-0">

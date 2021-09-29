@@ -39,6 +39,26 @@ class Cart {
     }
 
 
+
+
+
+
+
+    // most important function
+    public function getData($userid, $table = 'cart') {
+        if(isset($userid)){
+            $result = $this->db->con->query("SELECT * FROM {$table} where `user_id` = {$userid}");
+            echo $this->db->con->error;
+            $resultArray = array();
+
+            while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                $resultArray[] = $row;
+            }
+            return $resultArray;
+        }
+    }
+
+
 }
 
 
