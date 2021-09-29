@@ -6,7 +6,7 @@ require('database/User.php');
 $db = new DBController();
 
 $product = new Product($db);
-// $product_shuffle = $product->getData();
+$product_array = $product->getData();
 
 $user = new User($db);
 
@@ -18,6 +18,11 @@ function isMale($user) {
             return false;
         }
     } 
+}
+
+function calcDiscount($product_price, $cutted_price){
+    $discount = (($cutted_price - $product_price) / $cutted_price) * 100;
+    echo intval($discount);
 }
                            
 ?>

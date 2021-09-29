@@ -1,3 +1,10 @@
+<?php
+
+$product_id = $_GET['product_id'];
+foreach($product->getData() as $item):
+    if($item['product_id'] == $product_id):
+?>
+    
     <!-- main sections starts -->
     <main class="mt-12 sm:mt-0">
     
@@ -9,7 +16,7 @@
             <!-- imgbox -->
             <div class="flex flex-col gap-3 m-3">
                 <div class="image-box w-full h-96 p-4 border">
-                    <img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/416/416/kfpq5jk0-0/headphone/c/n/6/rockerz-400-rockerz-410-boat-original-imafw45vhyrax3zj.jpeg" alt="">
+                    <img class="w-full h-full object-contain" src="assets/images/products/<?php echo $item['product_id']; ?>.png" alt="">
                 </div>
 
                 <div class="w-full flex gap-3">
@@ -36,20 +43,20 @@
         <!-- whole product description -->
         <div class="flex flex-col gap-2 mb-4">
 
-            <h2 class="text-lg">boAt Rockerz 400 Bluetooth Headset  (Red, Black, On the Ear)</h2>
+            <h2 class="text-lg"><?php echo $item['product_title']; ?></h2>
             <!-- rating badge -->
             <span class="text-sm text-gray-500 font-medium flex gap-2 items-center">
-                <span class="text-xs px-1.5 py-0.5 bg-primary-green rounded-sm text-white flex items-center gap-0.5">4.3 <i class="material-icons md-12">star</i></span>
-                <span>3,04,177 Ratings & 42,233 Reviews</span>
+                <span class="text-xs px-1.5 py-0.5 bg-primary-green rounded-sm text-white flex items-center gap-0.5"><?php echo $item['product_rating_star']; ?> <i class="material-icons md-12">star</i></span>
+                <span><?php echo number_format($item['product_rating_count']); ?> Ratings & <?php echo number_format($item['product_review']); ?> Reviews</span>
             </span>
             <!-- rating badge -->
 
             <!-- price desc -->
             <span class="text-primary-green text-sm font-medium">Special Price</span>
             <div class="flex items-baseline gap-2 text-2xl font-medium">
-                <span>₹16,790</span>
-                <span class="text-base text-gray-500 line-through">₹18,890</span>
-                <span class="text-base text-primary-green">15%&nbsp;off</span>
+                <span>₹<?php echo number_format($item['product_price']); ?></span>
+                <span class="text-base text-gray-500 line-through">₹<?php echo number_format($item['product_cutted_price']); ?></span>
+                <span class="text-base text-primary-green"><?php calcDiscount($item['product_price'], $item['product_cutted_price']) ?>%&nbsp;off</span>
             </div>
             <!-- price desc -->
 
@@ -147,7 +154,7 @@
             <!-- seller details -->
             <div class="flex gap-16 mt-4 items-center text-sm font-medium">
                 <p class="text-gray-500">Seller</p>
-                <a class="font-medium text-primary-blue ml-3" href="#">CORSECA</a>
+                <a class="font-medium text-primary-blue ml-3" href="#"><?php echo $item['product_seller'] ?></a>
             </div>
             <!-- seller details -->
 
@@ -266,6 +273,11 @@
 
     </div>
     <!-- product image & description container -->
+
+<?php
+endif;
+endforeach;
+?>
 
     <div class="flex flex-col gap-3 px-2 mt-6">
     <!-- you may like section -->
