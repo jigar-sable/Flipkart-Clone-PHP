@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <!-- cart item -->
                 <div class="flex flex-col gap-3 py-5 pl-2 sm:pl-6 border-b overflow-hidden">
 
-                    <div class="flex flex-col sm:flex-row gap-5 items-stretch w-full" href="#">
+                    <a class="flex flex-col sm:flex-row gap-5 items-stretch w-full group" href="product.php?product_id=<?php echo $item['product_id']; ?>">
                         <!-- product image -->
                         <div class="w-full sm:w-1/6 h-28 flex-shrink-0 sm:flex-shrink">
                             <img class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_id']; ?>.png" alt="">
@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                             <!-- product title -->
                             <div class="flex flex-col sm:flex-row justify-between items-start pr-5 gap-1 sm:gap-0">
                                 <div class="flex flex-col gap-0.5 w-11/12 sm:w-3/5">
-                                    <p class="truncate"><?php echo $item['product_title']; ?></p>
+                                    <p class="truncate group-hover:text-primary-blue"><?php echo $item['product_title']; ?></p>
                                     <span class="text-sm text-gray-500">Seller:<?php echo $item['product_seller']; ?></span>
                                 </div>
 
@@ -69,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
                         </div>
                         <!-- description -->
-                    </div>
+                    </a>
 
                     <!-- save for later -->
                     <div class="flex justify-evenly sm:justify-start sm:gap-6">
