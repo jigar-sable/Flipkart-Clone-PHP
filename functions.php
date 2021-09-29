@@ -2,10 +2,13 @@
 require('database/DBController.php');
 require('database/Product.php');
 require('database/User.php');
+require('database/Cart.php');
 
 $db = new DBController();
 
 $product = new Product($db);
+$Cart = new Cart($db);
+
 $product_array = $product->getData();
 
 $user = new User($db);

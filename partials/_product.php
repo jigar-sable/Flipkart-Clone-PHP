@@ -1,5 +1,14 @@
 <?php
 
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+    if(isset($_POST['add_to_cart'])){
+        $userid = $_POST['user_id'];
+        $productid = $_POST['product_id'];
+        $Cart->addToCart($userid, $productid);
+    }
+}
+
+
 $product_id = $_GET['product_id'];
 foreach($product->getData() as $item):
     if($item['product_id'] == $product_id):
@@ -21,15 +30,22 @@ foreach($product->getData() as $item):
 
                 <div class="w-full flex gap-3">
                     <!-- add to cart btn -->
-                    <button class="p-4 w-1/2 flex items-center justify-center gap-2 text-white bg-primary-yellow rounded-sm shadow" type="submit">
+                    <form method="POST" class="w-1/2">
+                    <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
+                    <input type="hidden" name="user_id" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['id']; }?>">
+                    <button class="p-4 w-full flex items-center justify-center gap-2 text-white bg-primary-yellow rounded-sm shadow" type="submit" name="add_to_cart">
                         <span class="material-icons">shopping_cart</span>
                         ADD TO CART
                     </button>
+                    </form>
+                    <!-- add to cart btn -->
+
+                    <!-- buy now btn -->
                     <button class="p-4 w-1/2 flex items-center justify-center gap-2 text-white bg-primary-orange rounded-sm shadow" type="submit">
                         <span class="material-icons">flash_on</span>
                         BUY NOW
                     </button>
-                    <!-- add to cart btn -->
+                    <!-- buy now btn -->
                 </div>
 
             </div>
