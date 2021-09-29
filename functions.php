@@ -24,5 +24,10 @@ function calcDiscount($product_price, $cutted_price){
     $discount = (($cutted_price - $product_price) / $cutted_price) * 100;
     echo intval($discount);
 }
+
+function highlightSplit($str) {
+    $result_array = explode(",",$str);
+    return $result_array;
+}
                            
 ?>

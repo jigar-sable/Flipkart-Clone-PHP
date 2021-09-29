@@ -107,26 +107,16 @@ foreach($product->getData() as $item):
             <!-- highlights details -->
             <div class="flex gap-16 mt-4 items-stretch text-sm">
                 <p class="text-gray-500 font-medium">Highlights</p>
-                
                 <ul class="list-disc flex flex-col gap-2 w-64">
+                    <?php
+                    foreach(highlightSplit($item['product_highlights']) as $highlight):
+                    ?>
                     <li>
-                        <p>Bluetooth version: 5.0</p>
+                        <p><?php echo $highlight ?></p>
                     </li>
-                    <li>
-                        <p>Bluetooth version: 5.0</p>
-                    </li>
-                    <li>
-                        <p>Foldable/ Collapsible: Designed for people always on the move, easy storage and easy to carry</p>
-                    </li>
-                    <li>
-                        <p>Bluetooth version: 5.0</p>
-                    </li>
-                    <li>
-                        <p>Bluetooth version: 5.0</p>
-                    </li>
-                    <li>
-                        <p>Bluetooth version: 5.0</p>
-                    </li>
+                    <?php
+                    endforeach;
+                    ?>
                 </ul>
             </div>
             <!-- highlights details -->
@@ -166,7 +156,7 @@ foreach($product->getData() as $item):
             <!-- description details -->
             <div class="flex flex-col sm:flex-row gap-1 sm:gap-14 mt-4 items-stretch text-sm">
                 <p class="text-gray-500 font-medium">Description</p>
-                <span><?php echo $item['product_desc'] ?></span>
+                <span><?php echo $item['product_desc']; ?></span>
             </div>
             <!-- description details -->
 
