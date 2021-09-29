@@ -33,7 +33,7 @@
                             <div class="flex flex-col sm:flex-row justify-between items-start pr-5 gap-1 sm:gap-0">
                                 <div class="flex flex-col gap-0.5 w-11/12 sm:w-3/5">
                                     <p class="truncate"><?php echo $item['product_title']; ?></p>
-                                    <span class="text-sm text-gray-500">Seller: <?php echo $item['product_seller']; ?></span>
+                                    <span class="text-sm text-gray-500">Seller:<?php echo $item['product_seller']; ?></span>
                                 </div>
 
                                 <div class="flex flex-col sm:gap-2">
@@ -82,7 +82,7 @@
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center px-2 sm:px-6 py-4 gap-2 sm:gap-0">
                     <div class="flex flex-col gap-1">
                         <p class="font-medium">Delivery Address :</p>
-                        <span class="text-sm">B-106, Shreenathji Park, Chanod, Vapi, Gujarat - <span class="font-medium">396195</span></span>
+                        <span class="text-sm"><?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['address']; }  ?></span>
                     </div>
                     <button class="w-full sm:w-auto px-16 py-3 font-medium text-white bg-primary-orange shadow rounded-sm">PLACE ORDER</button>
                 </div>
