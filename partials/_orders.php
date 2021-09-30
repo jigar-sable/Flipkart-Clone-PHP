@@ -94,11 +94,19 @@
                     </div>
                     <!-- searchbar -->
 
+                    <?php 
+                    foreach($Cart->getData(getUserId($user),'orders') as $item):
+                    // echo var_dump($item);
+                    $orders = $product->getProducts($item['product_id']);
+
+                    array_map(function($item) use($Cart, $user){
+                    ?>
+
                     <!-- ordered item -->
                     <a class="flex flex-col sm:flex-row p-4 items-start bg-white border rounded gap-2 sm:gap-0 hover:shadow-lg" href="#">
                         <!-- image container -->
                         <div class="w-full sm:w-32 h-20">
-                            <img class="h-full w-full object-contain" src="https://rukminim1.flixcart.com/image/kekadu80/mobile/z/z/v/realme-7-pro-rmx2170-original-imafv73vwh36pscq.jpeg" alt="">
+                            <img class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_id'] ?>.png" alt="">
                         </div>
                         <!-- image container -->
 
@@ -106,20 +114,25 @@
                         <div class="flex flex-col sm:flex-row justify-between w-full">
 
                             <div class="flex flex-col gap-1 overflow-hidden">
-                                <p class="text-sm">realme 7 pro (Mirror Silver, 128 GB)</p>
-                                <p class="text-xs text-gray-500 mt-2">Color: Silver</p>
-                                <p class="text-xs text-gray-500">Seller: PETILANTE Online</p>
+                                <p class="text-sm"><?php echo $item['product_title'] ?></p>
+                                <p class="text-xs text-gray-500 mt-2">Color: <?php echo $item['product_color'] ?></p>
+                                <p class="text-xs text-gray-500">Seller: <?php echo $item['product_seller'] ?></p>
                             </div>
     
                             <div class="flex flex-col sm:flex-row mt-1 sm:mt-0 gap-2 sm:gap-20 sm:w-1/2">
-                                <p class="text-sm">₹16,999</p>
+                                <p class="text-sm">₹<?php echo number_format($item['product_price']) ?></p>
         
                                 <div class="flex flex-col gap-1.5">
                                     <p class="text-sm font-medium flex items-center gap-2">
                                         <span class="material-icons text-primary-green md-14">circle</span>
-                                        Ordered on Sep 11
+                                        <?php 
+                                        foreach($Cart->getData(getUserId($user),'orders') as $order):
+                                        if($item['product_id'] == $order['product_id']):
+                                            $orderOn = date_create($order['order_on']);
+                                        ?>
+                                        Ordered on <?php echo date_format($orderOn, 'M d') ?> <?php endif; endforeach; ?>
                                     </p>
-                                    <p class="text-xs ml-1">Your item  has been ordered</p>
+                                    <p class="text-xs ml-1">Your item has been ordered</p>
                                 </div>
                             </div>
 
@@ -129,110 +142,10 @@
                     </a>
                     <!-- ordered item -->
 
-                    <!-- ordered item -->
-                    <a class="flex flex-col sm:flex-row p-4 items-start bg-white border rounded gap-2 sm:gap-0 hover:shadow-lg" href="#">
-                        <!-- image container -->
-                        <div class="w-full sm:w-32 h-20">
-                            <img class="h-full w-full object-contain" src="https://rukminim1.flixcart.com/image/kekadu80/mobile/z/z/v/realme-7-pro-rmx2170-original-imafv73vwh36pscq.jpeg" alt="">
-                        </div>
-                        <!-- image container -->
-
-                        <!-- order desc container -->
-                        <div class="flex flex-col sm:flex-row justify-between w-full">
-
-                            <div class="flex flex-col gap-1 overflow-hidden">
-                                <p class="text-sm">realme 7 pro (Mirror Silver, 128 GB)</p>
-                                <p class="text-xs text-gray-500 mt-2">Color: Silver</p>
-                                <p class="text-xs text-gray-500">Seller: PETILANTE Online</p>
-                            </div>
-    
-                            <div class="flex flex-col sm:flex-row mt-1 sm:mt-0 gap-2 sm:gap-20 sm:w-1/2">
-                                <p class="text-sm">₹16,999</p>
-        
-                                <div class="flex flex-col gap-1.5">
-                                    <p class="text-sm font-medium flex items-center gap-2">
-                                        <span class="material-icons text-primary-green md-14">circle</span>
-                                        Ordered on Sep 11
-                                    </p>
-                                    <p class="text-xs ml-1">Your item  has been ordered</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- order desc container -->
-
-                    </a>
-                    <!-- ordered item -->
-
-                    <!-- ordered item -->
-                    <a class="flex flex-col sm:flex-row p-4 items-start bg-white border rounded gap-2 sm:gap-0 hover:shadow-lg" href="#">
-                        <!-- image container -->
-                        <div class="w-full sm:w-32 h-20">
-                            <img class="h-full w-full object-contain" src="https://rukminim1.flixcart.com/image/kekadu80/mobile/z/z/v/realme-7-pro-rmx2170-original-imafv73vwh36pscq.jpeg" alt="">
-                        </div>
-                        <!-- image container -->
-
-                        <!-- order desc container -->
-                        <div class="flex flex-col sm:flex-row justify-between w-full">
-
-                            <div class="flex flex-col gap-1 overflow-hidden">
-                                <p class="text-sm">realme 7 pro (Mirror Silver, 128 GB)</p>
-                                <p class="text-xs text-gray-500 mt-2">Color: Silver</p>
-                                <p class="text-xs text-gray-500">Seller: PETILANTE Online</p>
-                            </div>
-    
-                            <div class="flex flex-col sm:flex-row mt-1 sm:mt-0 gap-2 sm:gap-20 sm:w-1/2">
-                                <p class="text-sm">₹16,999</p>
-        
-                                <div class="flex flex-col gap-1.5">
-                                    <p class="text-sm font-medium flex items-center gap-2">
-                                        <span class="material-icons text-primary-green md-14">circle</span>
-                                        Ordered on Sep 11
-                                    </p>
-                                    <p class="text-xs ml-1">Your item  has been ordered</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- order desc container -->
-
-                    </a>
-                    <!-- ordered item -->
-
-                    <!-- ordered item -->
-                    <a class="flex flex-col sm:flex-row p-4 items-start bg-white border rounded gap-2 sm:gap-0 hover:shadow-lg" href="#">
-                        <!-- image container -->
-                        <div class="w-full sm:w-32 h-20">
-                            <img class="h-full w-full object-contain" src="https://rukminim1.flixcart.com/image/kekadu80/mobile/z/z/v/realme-7-pro-rmx2170-original-imafv73vwh36pscq.jpeg" alt="">
-                        </div>
-                        <!-- image container -->
-
-                        <!-- order desc container -->
-                        <div class="flex flex-col sm:flex-row justify-between w-full">
-
-                            <div class="flex flex-col gap-1 overflow-hidden">
-                                <p class="text-sm">realme 7 pro (Mirror Silver, 128 GB)</p>
-                                <p class="text-xs text-gray-500 mt-2">Color: Silver</p>
-                                <p class="text-xs text-gray-500">Seller: PETILANTE Online</p>
-                            </div>
-    
-                            <div class="flex flex-col sm:flex-row mt-1 sm:mt-0 gap-2 sm:gap-20 sm:w-1/2">
-                                <p class="text-sm">₹16,999</p>
-        
-                                <div class="flex flex-col gap-1.5">
-                                    <p class="text-sm font-medium flex items-center gap-2">
-                                        <span class="material-icons text-primary-green md-14">circle</span>
-                                        Ordered on Sep 11
-                                    </p>
-                                    <p class="text-xs ml-1">Your item  has been ordered</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- order desc container -->
-
-                    </a>
-                    <!-- ordered item -->
+                    <?php
+                    }, $orders);
+                    endforeach;
+                    ?>
 
                 </div>
                 <!-- orders container -->
