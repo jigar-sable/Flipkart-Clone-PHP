@@ -122,7 +122,6 @@ $(document).ready(function() {
 
     let $qtyUp = $('#qtyUp');
     let $qtyDown = $('#qtyDown');
-    // let $input = $('#qtyInput');
 
     // price details update
     let $subPrice = $('#subPrice');
@@ -135,7 +134,6 @@ $(document).ready(function() {
         let $input = $(`#qtyInput[data-id='${$(this).data("id")}']`);
         let $productPrice = $(`#productPrice[data-id='${$(this).data("id")}']`);
         let $productCuttedPrice = $(`#productCuttedPrice[data-id='${$(this).data("id")}']`);
-        // alert($input);
 
         $.ajax({
             url: "partials/product_data.php",
@@ -158,7 +156,6 @@ $(document).ready(function() {
                     $productCuttedPrice.text('₹'+parseInt(product_cprice * $input.val()).toLocaleString());
                     
                     // alert(parseInt($subPrice.text().replace(/,/g, '')));
-                    // alert(parseInt($subTotal.text().replace(/,/g, '')) + parseInt(product_price));
                     let subTotalPrice = parseInt($subPrice.text().replace(/,/g, '')) + parseInt(product_cprice);
                     let subTotalDiscount = parseInt($subDiscount.text().replace(/,/g, '')) + parseInt(product_cprice-product_price);
                     let subTotalAmount = parseInt($subTotal.text().replace(/,/g, '')) + parseInt(product_price);
@@ -177,7 +174,6 @@ $(document).ready(function() {
         let $input = $(`#qtyInput[data-id='${$(this).data("id")}']`);
         let $productPrice = $(`#productPrice[data-id='${$(this).data("id")}']`);
         let $productCuttedPrice = $(`#productCuttedPrice[data-id='${$(this).data("id")}']`);
-        // alert($input);
         
         $.ajax({
             url: "partials/product_data.php",
@@ -198,19 +194,20 @@ $(document).ready(function() {
 
                     $productPrice.text('₹'+parseInt(product_price * $input.val()).toLocaleString());
                     $productCuttedPrice.text('₹'+parseInt(product_cprice * $input.val()).toLocaleString());
+
+                    // alert(parseInt($subPrice.text().replace(/,/g, '')));
+                    let subTotalPrice = parseInt($subPrice.text().replace(/,/g, '')) - parseInt(product_cprice);
+                    let subTotalDiscount = parseInt($subDiscount.text().replace(/,/g, '')) - parseInt(product_cprice-product_price);
+                    let subTotalAmount = parseInt($subTotal.text().replace(/,/g, '')) - parseInt(product_price);
+                    $subPrice.text(subTotalPrice.toLocaleString());
+                    $subDiscount.text(subTotalDiscount.toLocaleString());
+                    $subSaved.text(subTotalDiscount.toLocaleString());
+                    $subTotal.text(subTotalAmount.toLocaleString());
                 }
             }
         });
 
     });
-
-    // $('#qtyDown').on('click',function(){
-    //     if($('#qtyInput').val()>=2 && $('#qtyInput').val()<=11){
-    //         $('#qtyInput').val(function(i, qtynos){
-    //             return --qtynos;
-    //         })
-    //     }
-    // });
 
 
 
