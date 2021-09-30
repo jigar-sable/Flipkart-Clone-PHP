@@ -6,6 +6,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $productid = $_POST['product_id'];
         $Cart->addToCart($userid, $productid);
     }
+
+    if(isset($_POST['buy_now'])){
+        $userid = $_POST['user_id'];
+        $productid = $_POST['product_id'];
+        $Cart->buyNow($userid, $productid);
+    }
 }
 
 
@@ -30,11 +36,18 @@ foreach($product->getData() as $item):
 
                 <div class="w-full flex gap-3">
                     <!-- add to cart btn -->
-                    <form method="POST" class="w-1/2">
+                    <form method="POST" class="w-full">
                     <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
                     <input type="hidden" name="user_id" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['id']; }?>">
                     <?php
+                    function inCart($item, $Cart, $user) {
                         if(in_array($item['product_id'], $Cart->getCartIds($Cart->getData(getUserId($user),'cart')) ?? [])){
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                        if(inCart($item, $Cart, $user)){
                         
                         echo '<a href="cart.php" class="p-4 w-full flex items-center justify-center gap-2 text-white bg-primary-yellow rounded-sm shadow">
                         <span class="material-icons">shopping_cart</span>
@@ -63,10 +76,31 @@ foreach($product->getData() as $item):
                     <!-- add to cart btn -->
 
                     <!-- buy now btn -->
-                    <button class="p-4 w-1/2 flex items-center justify-center gap-2 text-white bg-primary-orange rounded-sm shadow" type="submit">
+                    <form method="POST" class="w-full">
+                    <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
+                    <input type="hidden" name="user_id" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['id']; }?>">
+                    <?php
+                    if(inCart($item, $Cart, $user)){
+                        
+                        echo '<a href="cart.php" class="p-4 w-full flex items-center justify-center gap-2 text-white bg-primary-orange rounded-sm shadow">
                         <span class="material-icons">flash_on</span>
                         BUY NOW
-                    </button>
+                        </a>';
+                        
+                        } else {
+                        
+                        echo '<button type="submit" name="buy_now" class="p-4 w-full flex items-center justify-center gap-2 text-white bg-primary-orange rounded-sm shadow">
+                        <span class="material-icons">flash_on</span>
+                        BUY NOW
+                        </button>';
+                        
+                        }
+                    ?>
+                    <!-- <button type="submit" name="buy_now" class="p-4 w-full flex items-center justify-center gap-2 text-white bg-primary-orange rounded-sm shadow">
+                        <span class="material-icons">flash_on</span>
+                        BUY NOW
+                    </button> -->
+                    </form>
                     <!-- buy now btn -->
                 </div>
 

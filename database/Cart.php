@@ -38,6 +38,22 @@ class Cart {
         }
     }
 
+    public function buyNow($userid, $productid, $table = 'cart') {
+        if(isset($userid) && isset($productid)){
+            $params = array (
+                "user_id" => $userid,
+                "product_id" => $productid
+            );
+
+            // pass params to insertIntoCart function
+            $result = $this->insertIntoCart($params, $table);
+            if($result){
+                // header("Location:".$_SERVER['PHP_SELF']);
+                echo "<script>location.href='cart.php';</script>";
+            }
+        }
+    }
+
 
     public function deleteCartItem($user_id = null, $product_id = null, $table = 'cart') {
         if($product_id != null){

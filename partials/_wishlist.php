@@ -25,7 +25,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <!-- user icon -->
                     <div class="flex flex-col gap-1">
                         <p class="text-xs">Hello,</p>
-                        <h2 class="font-medium">Rohan Doeee</h2>
+                        <h2 class="font-medium">
+                        <?php
+                        foreach($user->getUserData($_SESSION['login']) as $users) {
+                        echo $users['first_name'] . " " . $users['last_name'];
+                        }
+                        ?>
+                        </h2>
                     </div>
                 </div>
                 <!-- profile card -->
