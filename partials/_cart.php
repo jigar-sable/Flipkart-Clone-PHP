@@ -87,9 +87,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <div class="flex justify-evenly sm:justify-start sm:gap-6">
                         <!-- quantity -->
                         <div class="flex gap-1 items-center">
-                            <div class="w-7 h-7 text-3xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer" id="qtyDown" data-id="<?php echo $item['product_id'] ?>">-</div>
-                            <input type="text" class="w-11 border outline-none text-center rounded-sm py-0.5 font-medium text-sm" id="qtyInput" value="1" disabled data-id="<?php echo $item['product_id'] ?>">
-                            <div class="w-7 h-7 text-xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer" id="qtyUp" data-id="<?php echo $item['product_id'] ?>">+</div>
+                            <div class="w-7 h-7 text-3xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer qtyDecr" data-id="<?php echo $item['product_id'] ?>">-</div>
+                            <input type="text" class="w-11 border outline-none text-center rounded-sm py-0.5 font-medium text-sm qtyInput" value="1" disabled data-id="<?php echo $item['product_id'] ?>">
+                            <div class="w-7 h-7 text-xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer qtyIncr" data-id="<?php echo $item['product_id'] ?>">+</div>
                         </div>
                         <!-- quantity -->
 

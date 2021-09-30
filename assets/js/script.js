@@ -120,8 +120,8 @@ $(document).ready(function() {
     // };
     // new ImageZoom(document.querySelector('.image-box'), options);
 
-    let $qtyUp = $('#qtyUp');
-    let $qtyDown = $('#qtyDown');
+    let $qtyUp = $('.qtyIncr');
+    let $qtyDown = $('.qtyDecr');
 
     // price details update
     let $subPrice = $('#subPrice');
@@ -129,9 +129,9 @@ $(document).ready(function() {
     let $subTotal = $('#subTotal');
     let $subSaved = $('#subSaved');
 
-    $qtyUp.on('click',function(e){
+    $qtyUp.click(function(e){
 
-        let $input = $(`#qtyInput[data-id='${$(this).data("id")}']`);
+        let $input = $(`.qtyInput[data-id='${$(this).data("id")}']`);
         let $productPrice = $(`#productPrice[data-id='${$(this).data("id")}']`);
         let $productCuttedPrice = $(`#productCuttedPrice[data-id='${$(this).data("id")}']`);
 
@@ -169,9 +169,9 @@ $(document).ready(function() {
 
     });
 
-    $qtyDown.on('click',function(e){
+    $qtyDown.click(function(e){
 
-        let $input = $(`#qtyInput[data-id='${$(this).data("id")}']`);
+        let $input = $(`.qtyInput[data-id='${$(this).data("id")}']`);
         let $productPrice = $(`#productPrice[data-id='${$(this).data("id")}']`);
         let $productCuttedPrice = $(`#productCuttedPrice[data-id='${$(this).data("id")}']`);
         
