@@ -117,6 +117,26 @@ class Cart {
     }
 
 
+    public function deleteCartItems($user_id = null, $product_ids) {
+        if($product_ids != null){
+
+            foreach($product_ids as $product_id){
+                $query = "INSERT INTO `orders` (`user_id`,`product_id`) SELECT `user_id`, `product_id` FROM `cart` WHERE `user_id` = '$user_id' AND `product_id` = '$product_id';";
+                $query .= "DELETE FROM `cart` WHERE `user_id` = {$user_id} AND `product_id` = {$product_id};";
+                // echo $this->db->con->error;
+
+                $result = $this->db->con->multi_query($query);
+            }
+            if($result){
+                // header("Location:".$_SERVER['PHP_SELF']);
+                echo "<script>location.href = 'orders.php'; </script>";
+            }
+            return $result;
+            // echo $this->db->con->error;
+        }
+    }
+
+
 }
 
 ?>
