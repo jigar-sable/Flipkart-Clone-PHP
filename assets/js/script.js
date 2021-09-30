@@ -123,31 +123,74 @@ $(document).ready(function() {
     let $qtyUp = $('#qtyUp');
     let $qtyDown = $('#qtyDown');
     // let $input = $('#qtyInput');
+    let $subPrice = $('#subPrice');
 
     $qtyUp.on('click',function(e){
 
         let $input = $(`#qtyInput[data-id='${$(this).data("id")}']`);
         let $productPrice = $(`#productPrice[data-id='${$(this).data("id")}']`);
+        let $productCuttedPrice = $(`#productCuttedPrice[data-id='${$(this).data("id")}']`);
         // alert($input);
 
-        if($input.val()>=1 && $input.val()<=10){
-            $input.val(function(i, oldval){
-                    return ++oldval;
-            });
-        }
+        $.ajax({
+            url: "partials/product_data.php",
+            type: "POST",
+            data: {product_id:$(this).data('id')},
+            success: function(result){
+                // console.log(result);
+                let object = JSON.parse(result);
+                // console.log(object);
+
+                let product_price = object[0]['product_price'];
+                let product_cprice = object[0]['product_cutted_price'];
+
+                if($input.val()>=1 && $input.val()<=10){
+                    $input.val(function(i, oldval){
+                            return ++oldval;
+                    });
+
+                    $productPrice.text('₹'+parseInt(product_price * $input.val()).toLocaleString());
+                    $productCuttedPrice.text('₹'+parseInt(product_cprice * $input.val()).toLocaleString());
+                    
+                    // alert(parseInt($subPrice.text().replace(/,/g, '')));
+                    let subTotalPrice = parseInt($subPrice.text().replace(/,/g, '')) + parseInt(product_cprice);
+                    $subPrice.text(subTotalPrice.toLocaleString());
+                }
+            }
+        });
+
     });
 
     $qtyDown.on('click',function(e){
 
         let $input = $(`#qtyInput[data-id='${$(this).data("id")}']`);
         let $productPrice = $(`#productPrice[data-id='${$(this).data("id")}']`);
+        let $productCuttedPrice = $(`#productCuttedPrice[data-id='${$(this).data("id")}']`);
         // alert($input);
         
-        if($input.val()>=2 && $input.val()<=11){
-            $input.val(function(i, qtynos){
-                return --qtynos;
-            })
-        }
+        $.ajax({
+            url: "partials/product_data.php",
+            type: "POST",
+            data: {product_id:$(this).data('id')},
+            success: function(result){
+                // console.log(result);
+                let object = JSON.parse(result);
+                // console.log(object);
+
+                let product_price = object[0]['product_price'];
+                let product_cprice = object[0]['product_cutted_price'];
+
+                if($input.val() > 1 && $input.val()<=11){
+                    $input.val(function(i, qtynos){
+                        return --qtynos;
+                    });
+
+                    $productPrice.text('₹'+parseInt(product_price * $input.val()).toLocaleString());
+                    $productCuttedPrice.text('₹'+parseInt(product_cprice * $input.val()).toLocaleString());
+                }
+            }
+        });
+
     });
 
     // $('#qtyDown').on('click',function(){
