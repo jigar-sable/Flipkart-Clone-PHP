@@ -33,10 +33,32 @@ foreach($product->getData() as $item):
                     <form method="POST" class="w-1/2">
                     <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
                     <input type="hidden" name="user_id" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['id']; }?>">
-                    <button class="p-4 w-full flex items-center justify-center gap-2 text-white bg-primary-yellow rounded-sm shadow" type="submit" name="add_to_cart">
+                    <?php
+                        if(in_array($item['product_id'],$Cart->getCartIds($Cart->getData(getUserId($user),'cart'))) ?? []){
+                        
+                        echo '<a href="cart.php" class="p-4 w-full flex items-center justify-center gap-2 text-white bg-primary-yellow rounded-sm shadow">
+                        <span class="material-icons">shopping_cart</span>
+                        GO TO CART
+                        </a>';
+                        
+                        } else {
+                        
+                        echo '<button class="p-4 w-full flex items-center justify-center gap-2 text-white bg-primary-yellow rounded-sm shadow" type="submit" name="add_to_cart">
                         <span class="material-icons">shopping_cart</span>
                         ADD TO CART
-                    </button>
+                        </button>';
+                        
+                        }
+                    ?>
+                    <!-- <a href="cart.php" class="p-4 w-full flex items-center justify-center gap-2 text-white bg-primary-yellow rounded-sm shadow">
+                        <span class="material-icons">shopping_cart</span>
+                        GO TO CART
+                    </a> -->
+
+                    <!-- <button class="p-4 w-full flex items-center justify-center gap-2 text-white bg-primary-yellow rounded-sm shadow" type="submit" name="add_to_cart">
+                        <span class="material-icons">shopping_cart</span>
+                        ADD TO CART
+                    </button> -->
                     </form>
                     <!-- add to cart btn -->
 

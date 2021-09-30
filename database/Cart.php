@@ -75,6 +75,15 @@ class Cart {
         }
     }
 
+    public function getCartIds($cartArray = null, $key = 'product_id') {
+        if($cartArray != null){
+            $cartIds = array_map(function($value) use($key) {
+                return $value[$key];
+            }, $cartArray);
+            return $cartIds;
+        }
+    }
+
 
 
     // most important function
