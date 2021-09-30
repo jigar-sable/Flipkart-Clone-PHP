@@ -1,4 +1,14 @@
-    <!-- main sections starts -->
+<?php
+
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+    if(isset($_POST['remove_from_wishlist'])){
+        $Cart->deleteCartItem($_POST['user_id'], $_POST['product_id'], 'wishlist');
+    }
+}
+
+?>
+
+<!-- main sections starts -->
     <main class="w-full mt-14 sm:mt-0">
 
         <!-- row -->
@@ -120,7 +130,7 @@
                     array_map(function($item) use ($user){
                     ?>
                     <!-- wishlist item -->
-                    <a class="flex gap-4 items-stretch border-b p-4 sm:pb-8 w-full group" href="#">
+                    <a class="flex gap-4 items-stretch border-b p-4 sm:pb-8 w-full group" href="<?php printf('%s?product_id=%s','product.php',$item['product_id']); ?>">
                         <div class="w-1/6 h-28 p-1">
                             <img class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_id'] ?>.png" alt="">
                         </div>
@@ -138,7 +148,12 @@
                                     </span>
                                     <!-- rating badge -->
                                 </div>
-                                <button class="text-gray-400 hover:text-red-500"><span class="material-icons">delete</span></button>
+
+                                <form action="" method="POST">
+                                    <input type="hidden" name="user_id" value="<?php echo getUserId($user); ?>">
+                                    <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
+                                    <button type="submit" name="remove_from_wishlist" class="text-gray-400 hover:text-red-500"><span class="material-icons">delete</span></button>
+                                </form>
                             </div>
                             <!-- product title -->
 
@@ -146,7 +161,7 @@
                             <div class="flex items-center gap-2 text-2xl font-medium">
                                 <span>₹<?php echo number_format($item['product_price']); ?></span>
                                 <span class="text-sm text-gray-500 line-through font-normal">₹<?php echo number_format($item['product_cutted_price']); ?></span>
-                                <span class="text-sm text-primary-green">15%&nbsp;off</span>
+                                <span class="text-sm text-primary-green"><?php calcDiscount($item['product_price'], $item['product_cutted_price']) ?>%&nbsp;off</span>
                             </div>
                             <!-- price desc -->
 
