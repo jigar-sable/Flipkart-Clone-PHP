@@ -34,7 +34,7 @@ foreach($product->getData() as $item):
                     <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
                     <input type="hidden" name="user_id" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['id']; }?>">
                     <?php
-                        if(in_array($item['product_id'],$Cart->getCartIds($Cart->getData(getUserId($user),'cart'))) ?? []){
+                        if(in_array($item['product_id'], $Cart->getCartIds($Cart->getData(getUserId($user),'cart')) ?? [])){
                         
                         echo '<a href="cart.php" class="p-4 w-full flex items-center justify-center gap-2 text-white bg-primary-yellow rounded-sm shadow">
                         <span class="material-icons">shopping_cart</span>

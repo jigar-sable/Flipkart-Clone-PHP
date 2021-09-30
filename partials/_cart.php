@@ -73,8 +73,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
                             <!-- price desc -->
                             <div class="flex items-baseline gap-2 text-xl font-medium">
-                                <span>₹<?php echo number_format($item['product_price']); ?></span>
-                                <span class="text-sm text-gray-500 line-through font-normal">₹<?php echo number_format($item['product_cutted_price']); ?></span>
+                                <span id="productPrice" data-id="<?php echo $item['product_id'] ?>">₹<?php echo number_format($item['product_price']); ?></span>
+                                <span class="text-sm text-gray-500 line-through font-normal" id="productCuttedPrice" data-id="<?php echo $item['product_id'] ?>">₹<?php echo number_format($item['product_cutted_price']); ?></span>
                                 <span class="text-sm text-primary-green">15%&nbsp;off</span>
                             </div>
                             <!-- price desc -->
@@ -87,9 +87,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <div class="flex justify-evenly sm:justify-start sm:gap-6">
                         <!-- quantity -->
                         <div class="flex gap-1 items-center">
-                            <div class="w-7 h-7 text-3xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer" id="qtyDown">-</div>
-                            <input type="text" class="w-11 border outline-none text-center rounded-sm py-0.5 font-medium text-sm" id="qtyInput" value="1" disabled>
-                            <div class="w-7 h-7 text-xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer" id="qtyUp">+</div>
+                            <div class="w-7 h-7 text-3xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer" id="qtyDown" data-id="<?php echo $item['product_id'] ?>">-</div>
+                            <input type="text" class="w-11 border outline-none text-center rounded-sm py-0.5 font-medium text-sm" id="qtyInput" value="1" disabled data-id="<?php echo $item['product_id'] ?>">
+                            <div class="w-7 h-7 text-xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer" id="qtyUp" data-id="<?php echo $item['product_id'] ?>">+</div>
                         </div>
                         <!-- quantity -->
 
