@@ -144,14 +144,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 <div class="flex flex-col gap-4 p-6 pb-3">
                     <p class="flex justify-between">Price (1 item) <span>₹<span id="subPrice"><?php echo isset($subPrice) ? $Cart->getSum($subPrice) : 0; ?></span></span></p>
-                    <p class="flex justify-between">Discount <span class="text-primary-green">- ₹<?php echo isset($subDiscount) ? $Cart->getSum($subDiscount) : 0; ?></span></p>
+                    <p class="flex justify-between">Discount <span class="text-primary-green">- ₹<span id="subDiscount"><?php echo isset($subDiscount) ? $Cart->getSum($subDiscount) : 0; ?></span></span></p>
                     <p class="flex justify-between">Delivery Charges <span class="text-primary-green">FREE</span></p>
 
                     <div class="border border-dashed"></div>
-                    <p class="flex justify-between text-lg font-medium">Total Amount <span>₹<?php echo isset($subTotal) ? $Cart->getSum($subTotal) : 0; ?></span></p>
+                    <p class="flex justify-between text-lg font-medium">Total Amount <span>₹<span id="subTotal"><?php echo isset($subTotal) ? $Cart->getSum($subTotal) : 0; ?></span></span></p>
                     <div class="border border-dashed"></div>
 
-                    <p class="font-medium text-primary-green">You will save ₹<?php echo isset($subDiscount) ? $Cart->getSum($subDiscount) : 0; ?> on this order</p>
+                    <p class="font-medium text-primary-green">You will save ₹<span id="subSaved"><?php echo isset($subDiscount) ? $Cart->getSum($subDiscount) : 0; ?></span> on this order</p>
 
                 </div>
                 

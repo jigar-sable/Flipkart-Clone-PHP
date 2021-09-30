@@ -123,7 +123,12 @@ $(document).ready(function() {
     let $qtyUp = $('#qtyUp');
     let $qtyDown = $('#qtyDown');
     // let $input = $('#qtyInput');
+
+    // price details update
     let $subPrice = $('#subPrice');
+    let $subDiscount = $('#subDiscount');
+    let $subTotal = $('#subTotal');
+    let $subSaved = $('#subSaved');
 
     $qtyUp.on('click',function(e){
 
@@ -153,8 +158,14 @@ $(document).ready(function() {
                     $productCuttedPrice.text('₹'+parseInt(product_cprice * $input.val()).toLocaleString());
                     
                     // alert(parseInt($subPrice.text().replace(/,/g, '')));
+                    // alert(parseInt($subTotal.text().replace(/,/g, '')) + parseInt(product_price));
                     let subTotalPrice = parseInt($subPrice.text().replace(/,/g, '')) + parseInt(product_cprice);
+                    let subTotalDiscount = parseInt($subDiscount.text().replace(/,/g, '')) + parseInt(product_cprice-product_price);
+                    let subTotalAmount = parseInt($subTotal.text().replace(/,/g, '')) + parseInt(product_price);
                     $subPrice.text(subTotalPrice.toLocaleString());
+                    $subDiscount.text(subTotalDiscount.toLocaleString());
+                    $subSaved.text(subTotalDiscount.toLocaleString());
+                    $subTotal.text(subTotalAmount.toLocaleString());
                 }
             }
         });
