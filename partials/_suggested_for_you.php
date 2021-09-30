@@ -2,13 +2,13 @@
 
 shuffle($product_array);
 
-// if($_SERVER['REQUEST_METHOD'] == "POST") {
-//     if(isset($_POST['top_sale_submit'])){
-//     $userid = $_POST['user_id'];
-//     $itemid = $_POST['item_id'];
-//     $Cart->addToCart($userid, $itemid);
-//     }
-// }
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+    if(isset($_POST['add_to_wishlist'])){
+    $userid = $_POST['user_id'];
+    $productid = $_POST['product_id'];
+    $Cart->addToCart($userid, $productid, 'wishlist');
+    }
+}
 
 ?>    
     <!-- suggested for you section -->
@@ -61,7 +61,25 @@ shuffle($product_array);
                 <!-- product description -->
 
                 <!-- wishlist badge -->
-                <i class="material-icons absolute top-5 right-2 text-gray-300 cursor-pointer hover:text-red-500 md-16">favorite</i>
+                <form method="POST" id="wishlistForm">
+                    <input type="hidden" name="user_id" value="<?php echo getUserId($user); ?>">
+                    <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
+                    <?php
+                        if(in_array($item['product_id'], $Cart->getCartIds($Cart->getData(getUserId($user),'wishlist')) ?? [])){
+                        
+                        echo '<button type="submit" name="add_to_wishlist" class="wishlistBtn absolute top-5 right-2 text-gray-300" disabled>
+                           <i class="material-icons cursor-pointer text-red-500 md-16">favorite</i>
+                           </button>';
+                        
+                        } else {
+                        
+                        echo "<button type='submit' name='add_to_wishlist' class='wishlistBtn absolute top-5 right-2 text-gray-300' data-id='". $item['product_id'] ."'>
+                        <i class='material-icons cursor-pointer hover:text-red-500 md-16'>favorite</i>
+                    </button>";
+                        
+                        }
+                    ?>
+                </form>
                 <!-- wishlist badge -->
 
             </div>

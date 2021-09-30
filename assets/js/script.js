@@ -254,3 +254,23 @@ $(document).ready(function() {
     // toggleEdit('#emailEditBtn','#emailSaveBtn','#emailInputs');
     toggleEdit('#mobEditBtn','#mobSaveBtn','#mobInputs');
 });
+
+
+
+
+
+// wishlist toggle
+
+// let $wishlistBtn = $('.wishlistBtn');
+// let $wishlistBtn = $('.wishlistBtn');
+
+// $wishlistBtn.each(function(index){
+//     $(this).on('click', function(){
+//         // $.ajax({
+//         //     url: "partials/wishlistajax.php",
+//         //     type: "POST",
+//         //     data: 
+//         // })
+//         $(this).toggleClass('text-red-500');
+//     });
+// });

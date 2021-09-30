@@ -22,7 +22,7 @@ class Cart {
         }
     }
 
-    public function addToCart($userid, $productid) {
+    public function addToCart($userid, $productid, $table = 'cart') {
         if(isset($userid) && isset($productid)){
             $params = array (
                 "user_id" => $userid,
@@ -30,7 +30,7 @@ class Cart {
             );
 
             // pass params to insertIntoCart function
-            $result = $this->insertIntoCart($params);
+            $result = $this->insertIntoCart($params, $table);
             if($result){
                 // header("Location:".$_SERVER['PHP_SELF']);
             }
@@ -102,8 +102,5 @@ class Cart {
 
 
 }
-
-
-
 
 ?>
