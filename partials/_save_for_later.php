@@ -49,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                             <div class="flex items-baseline gap-2 text-xl font-medium">
                                 <span>₹<?php echo number_format($item['product_price']); ?></span>
                                 <span class="text-sm text-gray-500 line-through font-normal">₹<?php echo number_format($item['product_cutted_price']); ?></span>
-                                <span class="text-sm text-primary-green">15%&nbsp;off</span>
+                                <span class="text-sm text-primary-green"><?php calcDiscount($item['product_price'], $item['product_cutted_price']) ?>%&nbsp;off</span>
                             </div>
                             <!-- price desc -->
 
@@ -61,9 +61,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <div class="flex justify-evenly sm:justify-start sm:gap-6">
                         <!-- quantity -->
                         <div class="flex gap-1 items-center">
-                            <div class="w-7 h-7 text-3xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer">-</div>
-                            <input type="text" class="w-11 border outline-none text-center rounded-sm py-0.5 font-medium text-sm" id="qtyInput" disabled>
-                            <div class="w-7 h-7 text-xl font-light bg-gray-50 rounded-full border p-1 flex items-center justify-center cursor-pointer">+</div>
+                            <div class="w-7 h-7 text-3xl font-light bg-gray-50 text-primary-grey rounded-full border p-1 flex items-center justify-center cursor-not-allowed">-</div>
+                            <input type="text" class="w-11 border outline-none text-center text-primary-grey rounded-sm py-0.5 font-medium text-sm" value="1" disabled>
+                            <div class="w-7 h-7 text-xl font-light bg-gray-50 text-primary-grey rounded-full border p-1 flex items-center justify-center cursor-not-allowed">+</div>
                         </div>
                         <!-- quantity -->
                         <form method="POST">

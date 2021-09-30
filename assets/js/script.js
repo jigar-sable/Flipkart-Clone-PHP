@@ -120,8 +120,10 @@ $(document).ready(function() {
     // };
     // new ImageZoom(document.querySelector('.image-box'), options);
 
-    let $qtyUp = $('.qtyIncr');
-    let $qtyDown = $('.qtyDecr');
+// increase / decrease product quantity
+
+    let $qtyIncr = $('.qtyIncr');
+    let $qtyDecr = $('.qtyDecr');
 
     // price details update
     let $subPrice = $('#subPrice');
@@ -129,7 +131,7 @@ $(document).ready(function() {
     let $subTotal = $('#subTotal');
     let $subSaved = $('#subSaved');
 
-    $qtyUp.click(function(e){
+    $qtyIncr.click(function(e){
 
         let $input = $(`.qtyInput[data-id='${$(this).data("id")}']`);
         let $productPrice = $(`#productPrice[data-id='${$(this).data("id")}']`);
@@ -169,7 +171,7 @@ $(document).ready(function() {
 
     });
 
-    $qtyDown.click(function(e){
+    $qtyDecr.click(function(e){
 
         let $input = $(`.qtyInput[data-id='${$(this).data("id")}']`);
         let $productPrice = $(`#productPrice[data-id='${$(this).data("id")}']`);
@@ -208,6 +210,8 @@ $(document).ready(function() {
         });
 
     });
+
+// increase / decrease product quantity
 
 
 

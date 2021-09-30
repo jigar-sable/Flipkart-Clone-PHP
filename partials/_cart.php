@@ -75,7 +75,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                             <div class="flex items-baseline gap-2 text-xl font-medium">
                                 <span id="productPrice" data-id="<?php echo $item['product_id'] ?>">₹<?php echo number_format($item['product_price']); ?></span>
                                 <span class="text-sm text-gray-500 line-through font-normal" id="productCuttedPrice" data-id="<?php echo $item['product_id'] ?>">₹<?php echo number_format($item['product_cutted_price']); ?></span>
-                                <span class="text-sm text-primary-green">15%&nbsp;off</span>
+                                <span class="text-sm text-primary-green"><?php calcDiscount($item['product_price'], $item['product_cutted_price']) ?>%&nbsp;off</span>
                             </div>
                             <!-- price desc -->
 
@@ -143,7 +143,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <h1 class="px-6 py-3 border-b font-medium text-gray-500">PRICE DETAILS</h1>
 
                 <div class="flex flex-col gap-4 p-6 pb-3">
-                    <p class="flex justify-between">Price (1 item) <span>₹<span id="subPrice"><?php echo isset($subPrice) ? $Cart->getSum($subPrice) : 0; ?></span></span></p>
+                    <p class="flex justify-between">Price ( 
+                        <?php if(count($Cart->getData(getUserId($user),'cart')) > 0) { 
+                              if(count($Cart->getData(getUserId($user),'cart')) > 1) {
+                                echo count($Cart->getData(getUserId($user),'cart')) . ' items';
+                              } else {
+                                echo count($Cart->getData(getUserId($user),'cart')) . ' item';
+                              }
+                            } else { 
+                                echo '0 item'; 
+                            } 
+                        ?>
+                        )<span>₹<span id="subPrice"><?php echo isset($subPrice) ? $Cart->getSum($subPrice) : 0; ?></span></span></p>
                     <p class="flex justify-between">Discount <span class="text-primary-green">- ₹<span id="subDiscount"><?php echo isset($subDiscount) ? $Cart->getSum($subDiscount) : 0; ?></span></span></p>
                     <p class="flex justify-between">Delivery Charges <span class="text-primary-green">FREE</span></p>
 
