@@ -112,10 +112,17 @@
                 <div class="flex flex-col">
                     <span class="font-medium text-lg px-4 sm:px-8 py-4 border-b">My Wishlist (26)</span>
 
+                    <?php 
+                    foreach($Cart->getData(getUserId($user),'wishlist') as $item):
+                    // echo var_dump($item);
+                    $wishlist = $product->getProducts($item['product_id']);
+
+                    array_map(function($item) use ($user){
+                    ?>
                     <!-- wishlist item -->
                     <a class="flex gap-4 items-stretch border-b p-4 sm:pb-8 w-full group" href="#">
                         <div class="w-1/6 h-28 p-1">
-                            <img class="h-full w-full object-contain" src="https://rukminim1.flixcart.com/image/312/312/kmmcrrk0/mobile/4/g/a/8-rmx3085-realme-original-imagfgpfdkyc29zc.jpeg?q=70" alt="">
+                            <img class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_id'] ?>.png" alt="">
                         </div>
 
                         <!-- description -->
@@ -123,11 +130,11 @@
                             <!-- product title -->
                             <div class="flex justify-between items-start sm:pr-5">
                                 <div class="flex flex-col gap-0.5">
-                                    <p class="group-hover:text-primary-blue truncate">realme 8 (Cyber Black, 128 GB)</p>
+                                    <p class="group-hover:text-primary-blue truncate"><?php echo $item['product_title'] ?></p>
                                     <!-- rating badge -->
                                     <span class="text-sm text-gray-500 font-medium flex gap-2 items-center">
-                                        <span class="text-xs px-1.5 py-0.5 bg-primary-green rounded-sm text-white flex items-center gap-0.5">4.3 <i class="material-icons md-12">star</i></span>
-                                        <span>(7,345)</span>
+                                        <span class="text-xs px-1.5 py-0.5 bg-primary-green rounded-sm text-white flex items-center gap-0.5"><?php echo $item['product_rating_star']; ?> <i class="material-icons md-12">star</i></span>
+                                        <span>(<?php echo number_format($item['product_rating_count']); ?>)</span>
                                     </span>
                                     <!-- rating badge -->
                                 </div>
@@ -137,113 +144,8 @@
 
                             <!-- price desc -->
                             <div class="flex items-center gap-2 text-2xl font-medium">
-                                <span>₹16,790</span>
-                                <span class="text-sm text-gray-500 line-through font-normal">₹18,890</span>
-                                <span class="text-sm text-primary-green">15%&nbsp;off</span>
-                            </div>
-                            <!-- price desc -->
-
-                        </div>
-                        <!-- description -->
-                    </a>
-                    <!-- wishlist item -->
-                    <!-- wishlist item -->
-                    <a class="flex gap-4 items-stretch border-b p-4 sm:pb-8 w-full group" href="#">
-                        <div class="w-1/6 h-28 p-1">
-                            <img class="h-full w-full object-contain" src="https://rukminim1.flixcart.com/image/312/312/kmmcrrk0/mobile/4/g/a/8-rmx3085-realme-original-imagfgpfdkyc29zc.jpeg?q=70" alt="">
-                        </div>
-
-                        <!-- description -->
-                        <div class="flex flex-col gap-5 w-full p-1">
-                            <!-- product title -->
-                            <div class="flex justify-between items-start sm:pr-5">
-                                <div class="flex flex-col gap-0.5">
-                                    <p class="group-hover:text-primary-blue truncate">realme 8 (Cyber Black, 128 GB)</p>
-                                    <!-- rating badge -->
-                                    <span class="text-sm text-gray-500 font-medium flex gap-2 items-center">
-                                        <span class="text-xs px-1.5 py-0.5 bg-primary-green rounded-sm text-white flex items-center gap-0.5">4.3 <i class="material-icons md-12">star</i></span>
-                                        <span>(7,345)</span>
-                                    </span>
-                                    <!-- rating badge -->
-                                </div>
-                                <button class="text-gray-400 hover:text-red-500"><span class="material-icons">delete</span></button>
-                            </div>
-                            <!-- product title -->
-
-                            <!-- price desc -->
-                            <div class="flex items-center gap-2 text-2xl font-medium">
-                                <span>₹16,790</span>
-                                <span class="text-sm text-gray-500 line-through font-normal">₹18,890</span>
-                                <span class="text-sm text-primary-green">15%&nbsp;off</span>
-                            </div>
-                            <!-- price desc -->
-
-                        </div>
-                        <!-- description -->
-                    </a>
-                    <!-- wishlist item -->
-                    <!-- wishlist item -->
-                    <a class="flex gap-4 items-stretch border-b p-4 sm:pb-8 w-full group" href="#">
-                        <div class="w-1/6 h-28 p-1">
-                            <img class="h-full w-full object-contain" src="https://rukminim1.flixcart.com/image/312/312/kmmcrrk0/mobile/4/g/a/8-rmx3085-realme-original-imagfgpfdkyc29zc.jpeg?q=70" alt="">
-                        </div>
-
-                        <!-- description -->
-                        <div class="flex flex-col gap-5 w-full p-1">
-                            <!-- product title -->
-                            <div class="flex justify-between items-start sm:pr-5">
-                                <div class="flex flex-col gap-0.5">
-                                    <p class="group-hover:text-primary-blue truncate">realme 8 (Cyber Black, 128 GB)</p>
-                                    <!-- rating badge -->
-                                    <span class="text-sm text-gray-500 font-medium flex gap-2 items-center">
-                                        <span class="text-xs px-1.5 py-0.5 bg-primary-green rounded-sm text-white flex items-center gap-0.5">4.3 <i class="material-icons md-12">star</i></span>
-                                        <span>(7,345)</span>
-                                    </span>
-                                    <!-- rating badge -->
-                                </div>
-                                <button class="text-gray-400 hover:text-red-500"><span class="material-icons">delete</span></button>
-                            </div>
-                            <!-- product title -->
-
-                            <!-- price desc -->
-                            <div class="flex items-center gap-2 text-2xl font-medium">
-                                <span>₹16,790</span>
-                                <span class="text-sm text-gray-500 line-through font-normal">₹18,890</span>
-                                <span class="text-sm text-primary-green">15%&nbsp;off</span>
-                            </div>
-                            <!-- price desc -->
-
-                        </div>
-                        <!-- description -->
-                    </a>
-                    <!-- wishlist item -->
-                    <!-- wishlist item -->
-                    <a class="flex gap-4 items-stretch border-b p-4 sm:pb-8 w-full group" href="#">
-                        <div class="w-1/6 h-28 p-1">
-                            <img class="h-full w-full object-contain" src="https://rukminim1.flixcart.com/image/312/312/kmmcrrk0/mobile/4/g/a/8-rmx3085-realme-original-imagfgpfdkyc29zc.jpeg?q=70" alt="">
-                        </div>
-
-                        <!-- description -->
-                        <div class="flex flex-col gap-5 w-full p-1">
-                            <!-- product title -->
-                            <div class="flex justify-between items-start sm:pr-5">
-                                <div class="flex flex-col gap-0.5">
-                                    <p class="group-hover:text-primary-blue truncate">realme 8 (Cyber Black, 128 GB)</p>
-                                    <!-- rating badge -->
-                                    <span class="text-sm text-gray-500 font-medium flex gap-2 items-center">
-                                        <span class="text-xs px-1.5 py-0.5 bg-primary-green rounded-sm text-white flex items-center gap-0.5">4.3 <i class="material-icons md-12">star</i></span>
-                                        <span>(7,345)</span>
-                                    </span>
-                                    <!-- rating badge -->
-                                </div>
-                                <button class="text-gray-400 hover:text-red-500"><span class="material-icons">delete</span></button>
-                            </div>
-                            <!-- product title -->
-
-                            <!-- price desc -->
-                            <div class="flex items-center gap-2 text-2xl font-medium">
-                                <span>₹16,790</span>
-                                <span class="text-sm text-gray-500 line-through font-normal">₹18,890</span>
+                                <span>₹<?php echo number_format($item['product_price']); ?></span>
+                                <span class="text-sm text-gray-500 line-through font-normal">₹<?php echo number_format($item['product_cutted_price']); ?></span>
                                 <span class="text-sm text-primary-green">15%&nbsp;off</span>
                             </div>
                             <!-- price desc -->
@@ -253,6 +155,11 @@
                     </a>
                     <!-- wishlist item -->
 
+
+                    <?php
+                    }, $wishlist);
+                    endforeach;
+                    ?>
 
                 </div>
                 <!-- wishlist container -->

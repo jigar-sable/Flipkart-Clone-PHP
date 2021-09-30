@@ -66,17 +66,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
                     <?php
                         if(in_array($item['product_id'], $Cart->getCartIds($Cart->getData(getUserId($user),'wishlist')) ?? [])){
-                        
-                        echo '<button type="submit" name="add_to_wishlist" class="wishlistBtn absolute top-5 right-2 text-gray-300" disabled>
-                           <i class="material-icons cursor-pointer text-red-500 md-16">favorite</i>
-                           </button>';
+                            echo '<button type="submit" name="add_to_wishlist" class="wishlistBtn absolute top-5 right-2 text-gray-300" disabled>
+                            <i class="material-icons cursor-pointer text-red-500 md-16">favorite</i>
+                            </button>';
                         
                         } else {
-                        
-                        echo "<button type='submit' name='add_to_wishlist' class='wishlistBtn absolute top-5 right-2 text-gray-300' data-id='". $item['product_id'] ."'>
-                        <i class='material-icons cursor-pointer hover:text-red-500 md-16'>favorite</i>
-                    </button>";
-                        
+                            echo "<button type='submit' name='add_to_wishlist' class='wishlistBtn absolute top-5 right-2 text-gray-300' data-id='". $item['product_id'] ."'>
+                            <i class='material-icons cursor-pointer hover:text-red-500 md-16'>favorite</i>
+                            </button>";
                         }
                     ?>
                 </form>
