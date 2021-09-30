@@ -120,7 +120,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             <div class="flex-1 shadow bg-white">
                 <!-- wishlist container -->
                 <div class="flex flex-col">
-                    <span class="font-medium text-lg px-4 sm:px-8 py-4 border-b">My Wishlist (26)</span>
+                    <span class="font-medium text-lg px-4 sm:px-8 py-4 border-b">My Wishlist (<?php if(count($Cart->getData(getUserId($user),'wishlist')) > 0) { echo count($Cart->getData(getUserId($user),'wishlist')); } else { echo 0; } ?>)</span>
 
                     <?php 
                     foreach($Cart->getData(getUserId($user),'wishlist') as $item):
