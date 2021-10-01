@@ -9,10 +9,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         $Cart->saveForLater($_POST['user_id'], $_POST['product_id']);
     }
 
-    if(isset($_POST['place_order'])){
-        $product_ids = $Cart->getCartIds($Cart->getData(getUserId($user),'cart'));
-        $Cart->placeOrder($_POST['user_id'], $product_ids);
-    }
+    // if(isset($_POST['place_order'])){
+        // $product_ids = $Cart->getCartIds($Cart->getData(getUserId($user),'cart'));
+        // $Cart->placeOrder($_POST['user_id'], $product_ids);
+    // }
 }
 
 ?>
@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     }, $cart);
 
                     // echo var_dump($subDiscount);
-                    // echo $Cart->getSum($subDiscount);
+                    // echo number_format($Cart->getSum($subDiscount));
 
                     $subTotal[] = array_map(function($item) use ($user){
                 ?>
@@ -127,7 +127,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                         <span class="text-sm"><?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['address']; }  ?></span>
                     </div>
 
-                    <form method="POST">
+                    <form method="POST" action="request.php">
+
+          <input type="hidden" name="appId" value="99870e60ec9c2094406c9a59b07899"/>
+          <input type="hidden" name="orderId" value="<?php echo uniqid(); ?>" placeholder="Enter Order ID here (Ex. order00001)"/>
+          <input name="orderAmount" id="subTotalInput" value="<?php echo isset($subTotal) ? $Cart->getSum($subTotal) : 0; ?>" placeholder="Enter Order Amount here (Ex. 100)"/>
+          <input type="hidden" name="orderCurrency" value="INR" placeholder="Enter Currency here (Ex. INR)"/>
+          <input type="hidden" name="orderNote" placeholder="Enter Order Note here (Ex. Test order)"/>
+          <input type="hidden" name="customerName" placeholder="Enter your name here (Ex. John Doe)"/>
+          <input type="hidden" name="customerEmail" placeholder="Enter your email address here (Ex. Johndoe@test.com)"/>
+          <input type="hidden" name="customerPhone" placeholder="Enter your phone number here (Ex. 9999999999)"/>
+          <input type="hidden" name="returnUrl" placeholder="Enter the URL to which customer will be redirected (Ex. www.example.com)"/>
+
+
                         <input type="hidden" name="user_id" value="<?php echo getUserId($user); ?>">
                         <button type="submit" name="place_order" id="placeOrder" class="w-full sm:w-auto px-16 py-3 font-medium text-white bg-primary-orange shadow rounded-sm">PLACE ORDER</button>
                     </form>
@@ -163,15 +175,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                                 echo '0 item'; 
                             } 
                         ?>
-                        )<span>₹<span id="subPrice"><?php echo isset($subPrice) ? $Cart->getSum($subPrice) : 0; ?></span></span></p>
-                    <p class="flex justify-between">Discount <span class="text-primary-green">- ₹<span id="subDiscount"><?php echo isset($subDiscount) ? $Cart->getSum($subDiscount) : 0; ?></span></span></p>
+                        )<span>₹<span id="subPrice"><?php echo isset($subPrice) ? number_format($Cart->getSum($subPrice)) : 0; ?></span></span></p>
+                    <p class="flex justify-between">Discount <span class="text-primary-green">- ₹<span id="subDiscount"><?php echo isset($subDiscount) ? number_format($Cart->getSum($subDiscount)) : 0; ?></span></span></p>
                     <p class="flex justify-between">Delivery Charges <span class="text-primary-green">FREE</span></p>
 
                     <div class="border border-dashed"></div>
-                    <p class="flex justify-between text-lg font-medium">Total Amount <span>₹<span id="subTotal"><?php echo isset($subTotal) ? $Cart->getSum($subTotal) : 0; ?></span></span></p>
+                    <p class="flex justify-between text-lg font-medium">Total Amount <span>₹<span id="subTotal"><?php echo isset($subTotal) ? number_format($Cart->getSum($subTotal)) : 0; ?></span></span></p>
                     <div class="border border-dashed"></div>
 
-                    <p class="font-medium text-primary-green">You will save ₹<span id="subSaved"><?php echo isset($subDiscount) ? $Cart->getSum($subDiscount) : 0; ?></span> on this order</p>
+                    <p class="font-medium text-primary-green">You will save ₹<span id="subSaved"><?php echo isset($subDiscount) ? number_format($Cart->getSum($subDiscount)) : 0; ?></span> on this order</p>
 
                 </div>
                 

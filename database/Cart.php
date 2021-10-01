@@ -87,7 +87,7 @@ class Cart {
             foreach($pricesArr as $item){
                 $sum += floatval($item[0]);
             }
-            return number_format($sum);
+            return $sum;
         }
     }
 
