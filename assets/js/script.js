@@ -165,6 +165,7 @@ $(document).ready(function() {
                     $subDiscount.text(subTotalDiscount.toLocaleString());
                     $subSaved.text(subTotalDiscount.toLocaleString());
                     $subTotal.text(subTotalAmount.toLocaleString());
+
                 }
             }
         });
@@ -214,12 +215,6 @@ $(document).ready(function() {
 // increase / decrease product quantity
 
 
-
-
-
-
-
-
     // personal info edit buttons
     $('#editPersonalBtn').click(function() {
         // change button text
@@ -253,9 +248,40 @@ $(document).ready(function() {
 
     // toggleEdit('#emailEditBtn','#emailSaveBtn','#emailInputs');
     toggleEdit('#mobEditBtn','#mobSaveBtn','#mobInputs');
+
+ 
+    var options = {
+    "key": "rzp_test_svnGRsVDKLaUHy", // Enter the Key ID generated from the Dashboard
+    "amount": parseInt($subTotal.text().replace(/,/g, '')) + "00", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Flipkart Clone PHP",
+    "description": "Place Order",
+    "image": "https://example.com/your_logo",
+    "handler": function (response){
+        console.log(response);
+    },
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "gaurav.kumar@example.com",
+        "contact": "9999999999"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+// document.getElementById('placeOrder').onclick = function(e){
+    // rzp1.open();
+    // e.preventDefault();
+    // let $amount = parseInt($subTotal.text().replace(/,/g, ''));
+    //  console.log($amount);
+// }
+
+
 });
-
-
 
 
 

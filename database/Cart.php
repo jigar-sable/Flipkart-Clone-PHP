@@ -117,22 +117,53 @@ class Cart {
     }
 
 
-    public function deleteCartItems($user_id = null, $product_ids) {
+    // old function to order products
+
+    // public function deleteCartItems($user_id = null, $product_ids) {
+    //     if($product_ids != null){
+
+    //         foreach($product_ids as $product_id){
+    //             $query = "INSERT INTO `orders` (`user_id`,`product_id`) SELECT `user_id`, `product_id` FROM `cart` WHERE `user_id` = '$user_id' AND `product_id` = '$product_id';";
+    //             $query .= "DELETE FROM `cart` WHERE `user_id` = {$user_id} AND `product_id` = {$product_id};";
+    //             // echo $this->db->con->error;
+
+    //             $result = $this->db->con->multi_query($query);
+    //         }
+    //         if($result){
+    //             // header("Location:".$_SERVER['PHP_SELF']);
+    //             echo "<script>location.href = 'orders.php'; </script>";
+    //         }
+    //         return $result;
+    //         // echo $this->db->con->error;
+    //     }
+    // }
+
+
+    public function placeOrder($user_id = null, $product_ids) {
         if($product_ids != null){
 
-            foreach($product_ids as $product_id){
-                $query = "INSERT INTO `orders` (`user_id`,`product_id`) SELECT `user_id`, `product_id` FROM `cart` WHERE `user_id` = '$user_id' AND `product_id` = '$product_id';";
-                $query .= "DELETE FROM `cart` WHERE `user_id` = {$user_id} AND `product_id` = {$product_id};";
-                // echo $this->db->con->error;
-
-                $result = $this->db->con->multi_query($query);
+            foreach($product_ids as $product_id) {
+                $query = "INSERT INTO `orders` (`user_id`,`product_id`,`product_title`,`product_color`,`product_seller`,`product_price`) SELECT `cart`.`user_id`, `cart`.`product_id`, `products`.`product_title`, `products`.`product_color`, `products`.`product_seller`, `products`.`product_price` FROM `cart`, `products` WHERE `cart`.`user_id` = '$user_id' AND `cart`.`product_id` = '$product_id' AND `products`.`product_id` = `cart`.`product_id`";
+                // echo $query;
+                $result = $this->db->con->query($query);
+                // echo mysqli_error($con);
+                // mysqli_report(5);
             }
-            if($result){
-                // header("Location:".$_SERVER['PHP_SELF']);
-                echo "<script>location.href = 'orders.php'; </script>";
+    
+            foreach($product_ids as $product_id) {
+                $query = "DELETE FROM `cart` WHERE `user_id` = {$user_id} AND `product_id` = {$product_id}";
+                // echo $query;
+                $result = $this->db->con->query($query);
+                // echo mysqli_error($con);
+                // mysqli_report(5);
+                
+                if($result){
+                    // header("Location:".$_SERVER['PHP_SELF']);
+                    echo "<script>location.href = 'orders.php'; </script>";
+                }
             }
+      
             return $result;
-            // echo $this->db->con->error;
         }
     }
 

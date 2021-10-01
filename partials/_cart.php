@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if(isset($_POST['place_order'])){
         $product_ids = $Cart->getCartIds($Cart->getData(getUserId($user),'cart'));
-        $Cart->deleteCartItems($_POST['user_id'], $product_ids);
+        $Cart->placeOrder($_POST['user_id'], $product_ids);
     }
 }
 
@@ -127,9 +127,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                         <span class="text-sm"><?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['address']; }  ?></span>
                     </div>
 
-                    <form method="POST" class="w-full">
+                    <form method="POST">
                         <input type="hidden" name="user_id" value="<?php echo getUserId($user); ?>">
-                        <button type="submit" name="place_order" class="w-full sm:w-auto px-16 py-3 font-medium text-white bg-primary-orange shadow rounded-sm">PLACE ORDER</button>
+                        <button type="submit" name="place_order" id="placeOrder" class="w-full sm:w-auto px-16 py-3 font-medium text-white bg-primary-orange shadow rounded-sm">PLACE ORDER</button>
                     </form>
                 </div>
                 <!-- place order btn -->
