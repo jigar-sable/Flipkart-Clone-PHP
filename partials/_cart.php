@@ -129,19 +129,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
                     <form method="POST" action="request.php">
 
-          <input type="hidden" name="appId" value="99870e60ec9c2094406c9a59b07899"/>
-          <input type="hidden" name="orderId" value="<?php echo uniqid(); ?>" placeholder="Enter Order ID here (Ex. order00001)"/>
-          <input name="orderAmount" id="subTotalInput" value="<?php echo isset($subTotal) ? $Cart->getSum($subTotal) : 0; ?>" placeholder="Enter Order Amount here (Ex. 100)"/>
-          <input type="hidden" name="orderCurrency" value="INR" placeholder="Enter Currency here (Ex. INR)"/>
-          <input type="hidden" name="orderNote" placeholder="Enter Order Note here (Ex. Test order)"/>
-          <input type="hidden" name="customerName" placeholder="Enter your name here (Ex. John Doe)"/>
-          <input type="hidden" name="customerEmail" placeholder="Enter your email address here (Ex. Johndoe@test.com)"/>
-          <input type="hidden" name="customerPhone" placeholder="Enter your phone number here (Ex. 9999999999)"/>
-          <input type="hidden" name="returnUrl" placeholder="Enter the URL to which customer will be redirected (Ex. www.example.com)"/>
-
-
+                        <input type="hidden" name="appId" value="99870e60ec9c2094406c9a59b07899"/>
+                        <input type="hidden" name="orderId" value="<?php echo uniqid(time()) ?>" placeholder="Enter Order ID here (Ex. order00001)"/>
+                        <input type="hidden" name="orderAmount" id="subTotalInput" value="<?php echo isset($subTotal) ? $Cart->getSum($subTotal) : 0; ?>" placeholder="Enter Order Amount here (Ex. 100)"/>
+                        <input type="hidden" name="orderCurrency" value="INR" placeholder="Enter Currency here (Ex. INR)"/>
+                        <input type="hidden" name="orderNote" alue="Test Order Note" placeholder="Enter Order Note here (Ex. Test order)"/>
+                        <input type="hidden" name="customerName" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['first_name']." ".$users['last_name']; } ?>" placeholder="Enter your name here (Ex. John Doe)"/>
+                        <input type="hidden" name="customerEmail" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['email']; } ?>" placeholder="Enter your email address here (Ex. Johndoe@test.com)"/>
+                        <input type="hidden" name="customerPhone" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['mobile']; } ?>" placeholder="Enter your phone number here (Ex. 9999999999)"/>
+                        <input type="hidden" name="returnUrl" value="http://localhost/Flipkart-Clone-PHP/response.php" placeholder="Enter the URL to which customer will be redirected (Ex. www.example.com)"/>
+                        <input type="hidden" name="notifyUrl" value="" placeholder="Enter the URL to get server notificaitons (Ex. www.example.com)"/>
+            
+            
                         <input type="hidden" name="user_id" value="<?php echo getUserId($user); ?>">
-                        <button type="submit" name="place_order" id="placeOrder" class="w-full sm:w-auto px-16 py-3 font-medium text-white bg-primary-orange shadow rounded-sm">PLACE ORDER</button>
+                        <button type="submit" value="Pay" name="place_order" id="placeOrder" class="w-full sm:w-auto px-16 py-3 font-medium text-white bg-primary-orange shadow rounded-sm">PLACE ORDER</button>
                     </form>
                 </div>
                 <!-- place order btn -->

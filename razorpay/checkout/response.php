@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Cashfree - PG Response Details</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-	<h1 align="center">PG Response</h1>	
+<?php
+
+// // require 'globals.php';
+
+// include $_SERVER['DOCUMENT_ROOT'].'/Flipkart-Clone-PHP/header.php';
+require 'globals.php';
+
+include 'header.php';
+
+?>
 
 	<?php  
 		 $secretkey = "b4ddf9ea26a6ee515214980135ebe8e9d95174ec";
@@ -24,6 +23,14 @@
 		 $hash_hmac = hash_hmac('sha256', $data, $secretkey, true) ;
 		 $computedSignature = base64_encode($hash_hmac);
 		 if ($signature == $computedSignature) {
+
+			if($txStatus == "SUCCESS"){
+				$userId = getUserId($user);
+				// echo $userId;
+                $product_ids = $Cart->getCartIds($Cart->getData(getUserId($user),'cart'));
+                $Cart->placeOrder($userId, $product_ids);
+				echo "sdfghjfdghjdfcgh";
+			}
 	 ?>
 	<div class="container"> 
 	<div class="panel panel-success">
@@ -115,10 +122,8 @@
 	
 	<?php	
 	 	}
-	 ?>
-
-</body>
-</html>
+	include $_SERVER['DOCUMENT_ROOT'].'/Flipkart-Clone-PHP/partials/_footer.php';
+	?>
 
 
 
