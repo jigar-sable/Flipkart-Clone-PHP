@@ -82,7 +82,7 @@
             <div class="flex-1">
 
                 <!-- orders container -->
-                <div class="flex flex-col gap-3 sm:mr-4 overflow-hidden">
+                <div class="flex flex-col gap-3 sm:mr-4 overflow-hidden sm:p-1">
 
                     <!-- searchbar -->
                     <div class="flex justify-between items-center mx-1 sm:mx-0 sm:w-10/12 bg-white border rounded">
@@ -95,7 +95,7 @@
                     <!-- searchbar -->
 
                     <?php 
-                    foreach($Cart->getData(getUserId($user),'orders') as $order):
+                    foreach(array_reverse($Cart->getData(getUserId($user),'orders')) as $order):
                     // echo var_dump($order);
                     // $orders = $product->getProducts($order['product_id']);
 

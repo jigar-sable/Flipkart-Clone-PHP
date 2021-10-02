@@ -141,7 +141,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                         <input type="hidden" name="notifyUrl" value="" placeholder="Enter the URL to get server notificaitons (Ex. www.example.com)"/>
             
             
-                        <input type="hidden" name="user_id" value="<?php echo getUserId($user); ?>">
+                        <!-- <input type="hidden" name="user_id" value="<?php // echo getUserId($user); ?>"> -->
                         <button type="submit" value="Pay" name="place_order" id="placeOrder" class="w-full sm:w-auto px-16 py-3 font-medium text-white bg-primary-orange shadow rounded-sm">PLACE ORDER</button>
                     </form>
                 </div>
