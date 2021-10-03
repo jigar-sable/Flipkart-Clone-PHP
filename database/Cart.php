@@ -59,7 +59,8 @@ class Cart {
         if($product_id != null){
             $result = $this->db->con->query("DELETE FROM {$table} WHERE `user_id` = {$user_id} AND `product_id` = {$product_id}");
             if($result){
-                header("Location:".$_SERVER['PHP_SELF']);
+                // header("Location:".$_SERVER['PHP_SELF']);
+                echo "<script>location.href = 'cart.php'; </script>";
             }
             echo $this->db->con->error;
         }

@@ -30,7 +30,21 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             <!-- cart items container -->
             <div class="flex flex-col shadow bg-white">
                 <span class="font-medium text-lg px-2 sm:px-8 py-4 border-b">My Cart (<?php if(count($Cart->getData(getUserId($user),'cart')) > 0) { echo count($Cart->getData(getUserId($user),'cart')); } else { echo 0; } ?>)</span>
+
+                <?php if(count($Cart->getData(getUserId($user),'cart')) < 1) { ?>
+                <!-- empty cart -->
+                <div class="flex items-center flex-col gap-2 m-6">
+                    <div class="w-52 h-44">
+                        <img class="w-full h-full object-contain" src="assets/images/cart-empty.png" alt="">
+                    </div>
+                    <span class="text-lg">Your cart is empty!</span>
+                    <p class="text-xs">Add items to it now.</p>
+                    <a href="#" class="bg-primary-blue text-sm text-white px-12 py-2.5 rounded-sm shadow mt-3">Shop Now</a>
+                </div>
+                <!-- empty cart -->
+
                 <?php 
+                }
                 foreach($Cart->getData(getUserId($user),'cart') as $item):
                     // echo var_dump($item);
                     $cart = $product->getProducts($item['product_id']);
@@ -142,7 +156,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             
             
                         <!-- <input type="hidden" name="user_id" value="<?php // echo getUserId($user); ?>"> -->
+                        <?php if(count($Cart->getData(getUserId($user),'cart')) < 1) { ?>
+                            <button type="submit" value="Pay" name="place_order" id="placeOrder" class="w-full sm:w-auto px-16 py-3 font-medium text-white bg-primary-grey shadow rounded-sm cursor-not-allowed" disabled>PLACE ORDER</button>
+                        <?php
+                        } else {
+                        ?>
                         <button type="submit" value="Pay" name="place_order" id="placeOrder" class="w-full sm:w-auto px-16 py-3 font-medium text-white bg-primary-orange shadow rounded-sm">PLACE ORDER</button>
+                        <?php 
+                        }
+                        ?>
+
                     </form>
                 </div>
                 <!-- place order btn -->
