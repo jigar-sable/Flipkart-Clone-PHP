@@ -2,7 +2,7 @@
 // @ob_start();
 session_start();
 
-if(isset($_POST['email'])){
+if(isset($_POST['email'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 

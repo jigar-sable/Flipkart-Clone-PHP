@@ -1,3 +1,26 @@
+<?php
+
+$error = false;
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+    if(isset($_POST['loginBtn'])){
+
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+    
+        $user->loginUser($email, $password);
+
+        if(!$user->loginUser($email, $password)) {
+            $error = true;
+        } else {
+            $error = false;
+        }
+    }
+
+}
+
+
+?>
+
 <!-- main sections starts -->
 <main class="w-full mt-12 sm:mt-0">
 
@@ -18,7 +41,7 @@
                 <div class="text-center py-10 px-14">
                     
                     <!-- input container -->
-                    <form action="login_req.php" method="POST">
+                    <form method="POST">
                     <div class="flex flex-col w-full gap-4">
 
                         <!-- email input -->
@@ -26,7 +49,13 @@
                         <h2 class="text-xs text-primary-grey text-left">Enter Email</h2>
                         <input type="email" name="email" placeholder="Enter Email" class="py-2 outline-none border-b rounded-sm focus:border-primary-blue" required>
 
-                        <span class="text-xxs text-red-500 font-medium text-left mt-0.5 invisible">Please enter valid Email ID/Mobile number</span>
+                        <?php
+                        if($error) {
+                            echo '<span class="text-xxs text-red-500 font-medium text-left mt-0.5">Please enter valid Email ID</span>';
+                        } else {
+                            echo '<span class="text-xxs text-red-500 font-medium text-left mt-0.5 invisible">Please enter valid Email ID</span>';
+                        }
+                        ?>
                         </div>
                         <!-- email input -->
 
@@ -35,14 +64,20 @@
                             <h2 class="text-xs text-primary-grey text-left">Enter Password</h2>
                             <input type="password" name="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Password" class="py-2 outline-none border-b rounded-sm focus:border-primary-blue" required>
 
-                            <span class="text-xxs text-red-500 font-medium text-left mt-0.5 invisible">Please enter Password</span>
+                            <?php
+                        if($error) {
+                            echo '<span class="text-xxs text-red-500 font-medium text-left mt-0.5">Please enter valid Password</span>';
+                        } else {
+                            echo '<span class="text-xxs text-red-500 font-medium text-left mt-0.5 invisible">Please enter valid Password</span>';
+                        }
+                        ?>
                         </div>
                         <!-- password input -->
 
                         <!-- button container -->
                         <div class="flex flex-col gap-2.5 mt-2 mb-36">
                             <p class="text-xs text-primary-grey text-left">By continuing, you agree to Flipkart's <a href="https://www.flipkart.com/pages/terms" class="text-primary-blue"> Terms of Use</a> and <a href="https://www.flipkart.com/pages/privacypolicy" class="text-primary-blue"> Privacy Policy.</a></p>
-                            <button type="submit" class="text-white py-3 w-full bg-primary-orange shadow rounded-sm font-medium">Login</button>
+                            <button type="submit" name="loginBtn" class="text-white py-3 w-full bg-primary-orange shadow rounded-sm font-medium">Login</button>
                         </div>
                         <!-- button container -->
     
@@ -50,7 +85,7 @@
                     </form>
                     <!-- input container -->
 
-                    <a href="signup.html" class="font-medium text-sm text-primary-blue">New to Flipkart? Create an account</a>
+                    <a href="signup.php" class="font-medium text-sm text-primary-blue">New to Flipkart? Create an account</a>
                 </div>
                 <!-- edit info container -->
                 

@@ -9,15 +9,31 @@ class User {
     }
 
     public function getUserData($email) {
-        $result = $this->db->con->query("SELECT * FROM `users` where `email`= '$email'");
-
-        $userArray = array();
-
-        while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-            $userArray[] = $row;
+        if($email != null) {
+            $result = $this->db->con->query("SELECT * FROM `users` where `email`= '$email'");
+    
+            $userArray = array();
+    
+            while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                $userArray[] = $row;
+            }
+            // echo var_dump($userArray);
+            return $userArray;
         }
-        // echo var_dump($userArray);
-        return $userArray;
+    }
+
+    public function loginUser($email, $password){
+        if($email != null && $password != null) {
+            $result = $this->db->con->query("SELECT * from `users` where `email` = '$email' and `password` = '$password'");
+            $count = mysqli_num_rows($result);
+            if($count>0){
+                session_start();
+                $_SESSION['login'] = $email;
+                header('location:index.php');
+            } else {
+                return false;
+            }
+        }
     }
 }
 
