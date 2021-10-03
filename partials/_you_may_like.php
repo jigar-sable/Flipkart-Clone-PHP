@@ -1,6 +1,6 @@
 <?php
 
-shuffle($product_array);
+// shuffle($product_array);
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
     if(isset($_POST['add_to_wishlist'])){

@@ -2,7 +2,7 @@
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
     if(isset($_POST['remove_from_wishlist'])){
-        $Cart->deleteCartItem($_POST['user_id'], $_POST['product_id'], 'wishlist');
+        $Cart->deleteCartItem($_POST['user_id'], $_POST['product_id'], 'wishlist', 'wishlist.php');
     }
 }
 

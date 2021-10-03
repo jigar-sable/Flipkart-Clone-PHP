@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Product Entry!</title>
   </head>
   <body class="bg-dark text-white">
 
@@ -23,6 +23,17 @@
         <div class="mb-3 col-5">
           <label for="formGroupExampleInput2" class="form-label">Product Rating Star Count</label>
           <input required name="product_rating_star_count" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between">
+        <div class="mb-3 col-5">
+            <label for="formGroupExampleInput" class="form-label">Product Image</label>
+            <input required name="product_img" type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+        </div>
+        <div class="mb-3 col-5">
+          <label for="formGroupExampleInput2" class="form-label">Product Image Alt</label>
+          <input required name="product_img_alt" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
         </div>
     </div>
 
@@ -160,6 +171,8 @@
 if(isset($_POST['submit'])){
 
 $title = $_POST['product_title'];
+$img = $_POST['product_img'];
+$img_alt = $_POST['product_img_alt'];
 $reviews = $_POST['product_review_count'];
 $cprice = $_POST['product_cutted_price'];
 $model = $_POST['product_model'];
@@ -186,7 +199,9 @@ $highlights = $_POST['product_highlights'];
 $con = mysqli_connect('localhost','root','','flipkart_clone');
 
 $query = "INSERT INTO `products` (
-`product_title`, 
+`product_title`,
+`product_img`,
+`product_img_alt`, 
 `product_rating_star`, 
 `product_review`, 
 `product_price`, 
@@ -208,7 +223,7 @@ $query = "INSERT INTO `products` (
 `product_domestic_warranty`, 
 `product_warranty_covered`, 
 `product_warranty_ncovered`) VALUES 
-('$title', '$starcount', '$reviews', '$price', '$cprice', '$seller', '$model', '$ratingcount', '$brand', '$highlights', '$desc', '$color', '$color1', '$color2', '$sales_package', '$generic_name', '$manfby', '$country_origin', '$warranty_summary', '$domesticwarranty', '$covered_warranty', '$ncovered_warranty');";
+('$title', '$img', '$img_alt', '$starcount', '$reviews', '$price', '$cprice', '$seller', '$model', '$ratingcount', '$brand', '$highlights', '$desc', '$color', '$color1', '$color2', '$sales_package', '$generic_name', '$manfby', '$country_origin', '$warranty_summary', '$domesticwarranty', '$covered_warranty', '$ncovered_warranty');";
 
 $result = mysqli_query($con,$query);
 echo mysqli_error($con);

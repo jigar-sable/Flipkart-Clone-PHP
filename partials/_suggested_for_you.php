@@ -2,13 +2,13 @@
 
 shuffle($product_array);
 
-if($_SERVER['REQUEST_METHOD'] == "POST") {
-    if(isset($_POST['add_to_wishlist'])){
-    $userid = $_POST['user_id'];
-    $productid = $_POST['product_id'];
-    $Cart->addToCart($userid, $productid, 'wishlist');
-    }
-}
+// if($_SERVER['REQUEST_METHOD'] == "POST") {
+//     if(isset($_POST['add_to_wishlist'])){
+//     $userid = $_POST['user_id'];
+//     $productid = $_POST['product_id'];
+//     $Cart->addToCart($userid, $productid, 'wishlist');
+//     }
+// }
 
 ?>    
     <!-- suggested for you section -->

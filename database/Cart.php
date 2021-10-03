@@ -55,12 +55,12 @@ class Cart {
     }
 
 
-    public function deleteCartItem($user_id = null, $product_id = null, $table = 'cart') {
+    public function deleteCartItem($user_id = null, $product_id = null, $table = 'cart', $location = 'cart.php') {
         if($product_id != null){
             $result = $this->db->con->query("DELETE FROM {$table} WHERE `user_id` = {$user_id} AND `product_id` = {$product_id}");
             if($result){
                 // header("Location:".$_SERVER['PHP_SELF']);
-                echo "<script>location.href = 'cart.php'; </script>";
+                echo "<script>location.href = $location; </script>";
             }
             echo $this->db->con->error;
         }

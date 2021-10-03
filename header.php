@@ -105,6 +105,9 @@ require('functions.php');
                <a class="pl-3 py-3.5 border-b flex gap-3 items-center hover:bg-gray-50" href="wishlist.php">
                     <span class="material-icons md-18 text-primary-blue">favorite</span>
                     Wishlist
+                    <span class="ml-auto mr-3 bg-gray-100 p-0.5 px-2 text-gray-600 rounded">
+                    <?php if(isset($_SESSION['login'])){ if(count($Cart->getData(getUserId($user),'wishlist')) > 0) { echo count($Cart->getData(getUserId($user),'wishlist')); } else { echo 0; } } ?>
+                    </span>
                </a>
                <a class="pl-3 py-3.5 border-b flex gap-3 items-center hover:bg-gray-50" href="#">
                     <span class="material-icons md-18 text-primary-blue">chat</span>
