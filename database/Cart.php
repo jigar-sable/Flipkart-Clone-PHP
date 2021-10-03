@@ -73,8 +73,8 @@ class Cart {
 
             $result = $this->db->con->multi_query($query);
             if($result){
-                header("Location:".$_SERVER['PHP_SELF']);
-                // echo "<script>location.href = 'cart.php'; </script>";
+                // header("Location:".$_SERVER['PHP_SELF']);
+                echo "<script>location.href = 'cart.php'; </script>";
             }
         }
         return $result;

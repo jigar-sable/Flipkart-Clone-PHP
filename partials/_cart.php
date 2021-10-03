@@ -124,7 +124,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center px-2 sm:px-6 py-4 gap-2 sm:gap-0">
                     <div class="flex flex-col gap-1">
                         <p class="font-medium">Delivery Address :</p>
-                        <span class="text-sm"><?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['address']; }  ?></span>
+                        <span class="text-sm font-semibold"><?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['first_name'] . " " . $users['last_name']; } ?> <span class="font-normal"><?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['address']; }  ?></span></span>
                     </div>
 
                     <form method="POST" action="request.php">

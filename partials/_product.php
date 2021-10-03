@@ -245,16 +245,16 @@ foreach($product->getData() as $item):
                 <div class="flex flex-col sm:flex-row gap-2 sm:gap-7 p-6 items-stretch border-b">
                     <img class="h-40 sm:h-24 w-full sm:w-44 object-contain" src="https://rukminim1.flixcart.com/image/200/200/cms-rpd-images/919a81e496a24548bbcec5d90c2960ff_16d4db6631c_image.jpeg" alt="">
                     <div class="flex flex-col gap-2">
-                        <h2 class="text-lg">Wireless Entertainment</h2>
-                        <p class="text-sm">Using Bluetooth technology, connect your smart devices to this headset and groove to your favorite melodies for up to 8 hours. Let the high-definition sound of this headset serenade your soul without any wires.</p>
+                        <h2 class="text-lg">Lorem, ipsum dolor.</h2>
+                        <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis corporis provident labore soluta vero amet reprehenderit magnam fuga error quod, cupiditate voluptate modi officia ullam nemo. Optio dignissimos laborum ut?</p>
                     </div>
                 </div>
 
                 <div class="flex flex-col gap-2 sm:gap-7 sm:flex-row-reverse p-6 items-stretch">
                     <img class="h-40 sm:h-24 w-full sm:w-44 object-contain" src="https://rukminim1.flixcart.com/image/200/200/cms-rpd-images/919a81e496a24548bbcec5d90c2960ff_16d4db6631c_image.jpeg" alt="">
                     <div class="flex flex-col gap-2">
-                        <h2 class="text-lg">Stylish and Classy</h2>
-                        <p class="text-sm">This boAt headset is lightweight, sleek, and sturdy to make your musical experience stylish and convenient. It features an ergonomic base that ensures that this headset offers a custom fit as per your head's shape.</p>
+                        <h2 class="text-lg">Lorem, ipsum.</h2>
+                        <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt doloribus repellat delectus. Corrupti voluptates, laudantium est veritatis blanditiis qui facilis eligendi modi odio accusamus explicabo!</p>
                     </div>
                 </div>
                 <!-- info rows -->
