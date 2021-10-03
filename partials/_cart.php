@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     </div>
                     <span class="text-lg">Your cart is empty!</span>
                     <p class="text-xs">Add items to it now.</p>
-                    <a href="#" class="bg-primary-blue text-sm text-white px-12 py-2.5 rounded-sm shadow mt-3">Shop Now</a>
+                    <a href="index.php" class="bg-primary-blue text-sm text-white px-12 py-2.5 rounded-sm shadow mt-3">Shop Now</a>
                 </div>
                 <!-- empty cart -->
 

@@ -266,6 +266,17 @@ $('.colorImg').hover(function(){
     // toggleEdit('#emailEditBtn','#emailSaveBtn','#emailInputs');
     toggleEdit('#mobEditBtn','#mobSaveBtn','#mobInputs');
 
+// timer 
+let time = 5;
+let interval = setInterval(function() {
+    time--;
+    $('#timer').text(time);
+    if (time == 0) {
+        clearInterval(interval);
+    }
+}, 1000);
+
+
     // let $amount = parseInt($subTotal.text().replace(/,/g, ''));
  
 //     var options = {

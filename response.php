@@ -3,6 +3,8 @@ ob_start();
 require 'globals.php';
 
 include 'header.php';
+include 'partials/_categories_nav.php';
+
 
 if(!isset($_SESSION['login'])){
     // header('location:index.php');
@@ -31,13 +33,26 @@ if(!isset($_SESSION['login'])){
 				// echo $userId;
                 $product_ids = $Cart->getCartIds($Cart->getData(getUserId($user),'cart'));
                 $Cart->placeOrder($userId, $product_ids);
-			} else {
-				echo "Bhai Transaction Failed!";
-				header('refresh:5;url=cart.php');
-			}
-	 ?>
+			} else { 
+				header('refresh:5; url=cart.php');
+			?>
+
+			    <!-- main sections starts -->
+				<main class="w-full mt-12 sm:mt-0">
+
+                <!-- row -->
+                <div class="flex flex-col items-center justify-center sm:w-4/6 sm:mt-4 m-auto mb-7 bg-white shadow rounded p-6 pb-12">
+                	<img class="w-1/2 h-60 object-contain" src="https://cdn.dribbble.com/users/251873/screenshots/9388228/error-img.gif" alt="Transaction Error">
+                	<h1 class="text-2xl font-semibold">Transaction Failed</h1>
+                	<p class="mt-4 text-lg text-gray-800">Redirecting to cart in 0<span id="timer">5</span> sec</p>
+                </div>
+                <!-- row -->
+                
+                </main>
+                <!-- main sections starts -->
 	
-	 <?php   
+	 <?php 
+		}  
 	  	} else {
 	 
 	 ?>
