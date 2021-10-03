@@ -1,5 +1,5 @@
 <!-- banner section -->
-<section class="h-44 sm:h-72 w-full rounded-sm shadow owl-carousel owl-theme relative overflow-hidden" id="banner">
+<section class="mt-12 sm:mt-0 h-44 sm:h-72 w-full rounded-sm shadow owl-carousel owl-theme relative overflow-hidden" id="banner">
 
     <?php
     foreach($product->getData('banner') as $banner):

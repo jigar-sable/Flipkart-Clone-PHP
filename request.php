@@ -1,22 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cashfree - Signature Generator</title>
+  <title>Cashfree - Payment Gateway</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 <?php
-require 'globals.php';
-
 include 'header.php';
-
-// $userId = getUserId($user);
-// 				echo $userId;
-// if(!isset($_SESSION['login'])){
-//     // header('location:index.php');
-//     echo "<script>location.href='".$URL."/login.php';</script>";
-// }
-// error_reporting(0);
 ?>
 <body onload="document.frm1.submit()">
 
