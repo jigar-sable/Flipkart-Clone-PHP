@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <!-- empty cart -->
                 <div class="flex items-center flex-col gap-2 m-6">
                     <div class="w-52 h-44">
-                        <img class="w-full h-full object-contain" src="assets/images/cart-empty.png" alt="">
+                        <img draggable="false" class="w-full h-full object-contain" src="assets/images/cart-empty.png" alt="">
                     </div>
                     <span class="text-lg">Your cart is empty!</span>
                     <p class="text-xs">Add items to it now.</p>
@@ -69,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <a class="flex flex-col sm:flex-row gap-5 items-stretch w-full group" href="product.php?product_id=<?php echo $item['product_id']; ?>">
                         <!-- product image -->
                         <div class="w-full sm:w-1/6 h-28 flex-shrink-0 sm:flex-shrink">
-                            <img class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
+                            <img draggable="false" class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
                         </div>
                         <!-- product image -->
 

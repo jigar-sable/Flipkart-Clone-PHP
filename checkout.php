@@ -43,7 +43,7 @@ error_reporting(0);
 
                 <!-- row -->
                 <div class="flex flex-col items-center justify-center sm:w-4/6 sm:mt-4 m-auto mb-7 bg-white shadow rounded p-6 pb-12">
-                	<img class="w-1/2 h-60 object-contain" src="assets/images/transaction-error.gif" alt="Transaction Error">
+                	<img draggable="false" class="w-1/2 h-60 object-contain" src="assets/images/transaction-error.gif" alt="Transaction Error">
                 	<h1 class="text-2xl font-semibold">Transaction Failed</h1>
                 	<p class="mt-4 text-lg text-gray-800">Redirecting to cart in 0<span id="timer">3</span> sec</p>
                 </div>

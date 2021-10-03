@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <div class="flex items-center gap-4 p-3 bg-white rounded-sm shadow">
                     <!-- user icon -->
                     <div class="w-12 h-12 rounded-full">
-                        <img class="h-full w-full object-contain" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/profile-pic-male_4811a1.svg" alt="">
+                        <img draggable="false" class="h-full w-full object-contain" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/profile-pic-male_4811a1.svg" alt="">
                     </div>
                     <!-- user icon -->
                     <div class="flex flex-col gap-1">
@@ -138,7 +138,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <!-- wishlist item -->
                     <a class="flex gap-4 items-stretch border-b p-4 sm:pb-8 w-full group" href="<?php printf('%s?product_id=%s','product.php',$item['product_id']); ?>">
                         <div class="w-1/6 h-28 p-1">
-                            <img class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_img'] ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
+                            <img draggable="false" class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_img'] ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
                         </div>
 
                         <!-- description -->

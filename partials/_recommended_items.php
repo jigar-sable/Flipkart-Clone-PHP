@@ -23,7 +23,7 @@
                 <!-- image & product title -->
                 <a href="<?php printf('%s?product_id=%s','product.php',$item['product_id']); ?>" class="flex flex-col items-center text-center group">
                 <div class="w-36 h-36">
-                    <img class="w-full h-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
+                    <img draggable="false" class="w-full h-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
                 </div>
                 <h2 class="text-sm mt-4 group-hover:text-primary-blue"><?php if(strlen($item['product_title']) > 50) {echo substr($item['product_title'],0,50)."...";} else { echo $item['product_title']; } ?></h2>
                 </a>

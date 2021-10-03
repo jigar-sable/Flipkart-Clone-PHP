@@ -10,7 +10,7 @@
                 <div class="flex items-center gap-4 p-3 bg-white rounded-sm shadow">
                     <!-- user icon -->
                     <div class="w-12 h-12 rounded-full">
-                        <img class="h-full w-full object-contain" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/profile-pic-male_4811a1.svg" alt="">
+                        <img draggable="false" class="h-full w-full object-contain" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/profile-pic-male_4811a1.svg" alt="">
                     </div>
                     <!-- user icon -->
                     <div class="flex flex-col gap-1">
@@ -219,7 +219,7 @@
                 </div>
                 <!-- edit info container -->
                 
-                <img class="w-full object-contain" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/myProfileFooter_4e9fe2.png" alt="">
+                <img draggable="false" class="w-full object-contain" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/myProfileFooter_4e9fe2.png" alt="">
             </div>
             <!-- details column -->
         </div>

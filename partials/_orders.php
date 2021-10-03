@@ -106,7 +106,7 @@
                     <a class="flex flex-col sm:flex-row p-4 items-start bg-white border rounded gap-2 sm:gap-0 hover:shadow-lg" href="#">
                         <!-- image container -->
                         <div class="w-full sm:w-32 h-20">
-                            <img class="h-full w-full object-contain" src="assets/images/products/<?php echo $order['product_img'] ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
+                            <img draggable="false" class="h-full w-full object-contain" src="assets/images/products/<?php echo $order['product_img'] ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
                         </div>
                         <!-- image container -->
 
