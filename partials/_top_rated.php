@@ -12,12 +12,12 @@
         <div class="flex items-center justify-between owl-carousel owl-theme relative">
 
             <?php
-            foreach($product->getData('top_rated') as $item):
+            foreach($product->getData('top_selection') as $item):
             ?>
             <!-- one product -->
             <a class="flex flex-col items-center gap-2 p-6" href="<?php echo $item['url']; ?>">
                 <div class="w-36 h-36 transform hover:scale-110 transition-transform duration-100 ease-out">
-                    <img class="w-full h-full object-contain" src="assets/images/top_rated/<?php echo $item['id']; ?>.png" alt="<?php echo $item['img_alt']; ?>">
+                    <img class="w-full h-full object-contain" src="assets/images/top_selection/<?php echo $item['img']; ?>.png" alt="<?php echo $item['img_alt']; ?>">
                 </div>
                 <h2 class="font-medium text-sm mt-2"><?php echo $item['title']; ?></h2>
                 <span class="text-primary-green text-sm"><?php echo $item['tag']; ?></span>
