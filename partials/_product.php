@@ -137,7 +137,7 @@ foreach($product->getData() as $item):
 
             <p class="text-sm flex items-center gap-1">
                 <span class="material-icons md-20 text-primary-lightGreen">local_offer</span>
-                <span class="font-medium ml-2">Bank Offer</span> 15% Instant discount on first Flipkart Pay Later order of 500 and above <a class="text-primary-blue font-medium" href="#">T&C</a>
+                <span class="font-medium ml-2">Bank Offer</span> 10% off on Axis Bank Credit Cards, up to ₹1500. On orders of ₹5000 and above <a class="text-primary-blue font-medium" href="#">T&C</a>
             </p>
             <p class="text-sm flex items-center gap-1">
                 <span class="material-icons md-20 text-primary-lightGreen">local_offer</span>
@@ -145,14 +145,18 @@ foreach($product->getData() as $item):
             </p>
             <p class="text-sm flex items-center gap-1">
                 <span class="material-icons md-20 text-primary-lightGreen">local_offer</span>
-                <span class="font-medium ml-2">Bank Offer</span> 15% Instant discount on first Flipkart Pay Later order of 500 and above <a class="text-primary-blue font-medium" href="#">T&C</a>
+                <span class="font-medium ml-2">Special Price</span> Extra ₹2200 off(price inclusive of discount)<a class="text-primary-blue font-medium" href="#">T&C</a>
+            </p>
+            <p class="text-sm flex items-center gap-1">
+                <span class="material-icons md-20 text-primary-lightGreen">local_offer</span>
+                <span class="font-medium ml-2">Bank Offer</span> Flat ₹4000 off on Flipkart Axis Bank Credit Cards. On order of ₹80,000 and above <a class="text-primary-blue font-medium" href="#">T&C</a>
             </p>
             <!-- banks offers -->
 
             <!-- warranty & brand -->
             <div class="flex gap-8 mt-2 items-center text-sm">
                 <img class="w-20 h-8 border p-1 object-contain" src="assets/images/brands/<?php echo $item['product_brand_logo']; ?>.png" alt="">
-                <span>1 Year <a class="font-medium text-primary-blue" href="#">Know More</a></span>
+                <span><?php echo $item['product_domestic_warranty']; ?> <a class="font-medium text-primary-blue" href="#">Know More</a></span>
             </div>
             <!-- warranty & brand -->
 
@@ -198,7 +202,7 @@ foreach($product->getData() as $item):
                 <p class="text-gray-500 font-medium">Services</p>
                 <ul class="flex flex-col gap-2">
                     <li>
-                        <p class="flex items-center gap-3"><span class="material-icons md-18 text-primary-blue">verified_user</span> 1 Year</p>
+                        <p class="flex items-center gap-3"><span class="material-icons md-18 text-primary-blue">verified_user</span> <?php echo $item['product_domestic_warranty']; ?></p>
                     </li>
                     <li>
                         <p class="flex items-center gap-3"><span class="material-icons md-18 text-primary-blue">cached</span> 7 Days Replacement Policy</p>
