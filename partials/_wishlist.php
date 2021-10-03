@@ -138,7 +138,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <!-- wishlist item -->
                     <a class="flex gap-4 items-stretch border-b p-4 sm:pb-8 w-full group" href="<?php printf('%s?product_id=%s','product.php',$item['product_id']); ?>">
                         <div class="w-1/6 h-28 p-1">
-                            <img class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_id'] ?>.png" alt="">
+                            <img class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_img'] ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
                         </div>
 
                         <!-- description -->

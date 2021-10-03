@@ -10,5 +10,4 @@ if(isset($_POST['product_id'])){
     echo json_encode($result);
 }
 
-
 ?>

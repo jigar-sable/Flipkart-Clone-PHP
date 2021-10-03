@@ -143,7 +143,7 @@ class Cart {
         if($product_ids != null){
 
             foreach($product_ids as $product_id) {
-                $query = "INSERT INTO `orders` (`user_id`,`product_id`,`product_title`,`product_color`,`product_seller`,`product_price`) SELECT `cart`.`user_id`, `cart`.`product_id`, `products`.`product_title`, `products`.`product_color`, `products`.`product_seller`, `products`.`product_price` FROM `cart`, `products` WHERE `cart`.`user_id` = '$user_id' AND `cart`.`product_id` = '$product_id' AND `products`.`product_id` = `cart`.`product_id`";
+                $query = "INSERT INTO `orders` (`user_id`,`product_id`,`product_img`,`product_img_alt`,`product_title`,`product_color`,`product_seller`,`product_price`) SELECT `cart`.`user_id`, `cart`.`product_id`, `products`.`product_img`,`products`.`product_img_alt`,`products`.`product_title`, `products`.`product_color`, `products`.`product_seller`, `products`.`product_price` FROM `cart`, `products` WHERE `cart`.`user_id` = '$user_id' AND `cart`.`product_id` = '$product_id' AND `products`.`product_id` = `cart`.`product_id`";
                 // echo $query;
                 $result = $this->db->con->query($query);
                 // echo mysqli_error($con);

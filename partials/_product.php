@@ -31,7 +31,7 @@ foreach($product->getData() as $item):
             <!-- imgbox -->
             <div class="flex flex-col gap-3 m-3">
                 <div class="image-box w-full h-96 p-4 border">
-                    <img class="w-full h-full object-contain" src="assets/images/products/<?php echo $item['product_id']; ?>.png" alt="">
+                    <img class="w-full h-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
                 </div>
 
                 <div class="w-full flex gap-3">
