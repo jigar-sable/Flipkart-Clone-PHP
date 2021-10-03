@@ -17,7 +17,7 @@
                 <div class="text-center py-10 px-6 sm:px-14" id="otpForm">
                     
                     <!-- form container -->
-                    <form action="" method="post" id="otpForm">
+                    <form method="post" id="otpForm">
                     <div class="flex flex-col w-full gap-3">
 
                         <!-- email input -->
@@ -39,7 +39,7 @@
                         <!-- otp input -->
                         <div class="flex flex-col gap-1 hidden" id="otpInputDiv">
                             <h2 class="text-xs text-primary-grey text-left">Enter OTP</h2>
-                            <input type="number" id="otpInput" placeholder="Enter OTP" class="py-2 px-2 outline-none border rounded-sm focus:border-primary-blue">
+                            <input type="number" maxlength="6" id="otpInput" placeholder="Enter OTP" class="py-2 px-2 outline-none border rounded-sm focus:border-primary-blue">
                             <span class="text-xxs text-red-500 font-medium text-left mt-0.5 otpError"></span>
                         </div>
                         <!-- otp input -->
@@ -160,7 +160,6 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
-
             $('#continueBtn').click(function() {
 
                 if($('#continueBtn').html()=='Continue') {
@@ -186,7 +185,6 @@
                     }
                 }
             });
-
 
 
         function check_mail_exist() {
@@ -225,7 +223,7 @@
                 type:'post',
                 data:'email='+email,
                 success:function(result){
-                    if(result=="yes") {
+                    if(result=="mailed") {
                         $('#continueBtn').html('Submit OTP');
                         $('#continueBtn').removeAttr('disabled',true);
                         $('#continueBtn').addClass('bg-primary-orange');
@@ -246,7 +244,7 @@
                 type:'post',
                 data:'otp='+otp+'email='+email,
                 success:function(result){
-                    if(result=="yes") {
+                    if(result=="verified") {
                         $('#continueBtn').html('OTP Verified');
                         $('.otpError').html('');
                         $('#otpForm').addClass('hidden');

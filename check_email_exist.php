@@ -1,10 +1,13 @@
 <?php 
+require('database/DBController.php');
+
+$db = new DBController();
+
 $email = $_POST['email'];
-$con = mysqli_connect('localhost','root','','flipkart_clone');
 
 $query = "SELECT * from `users` where `email` = '$email'";
-$result = mysqli_query($con,$query);
-// mysqli_error($con);
+$result = mysqli_query($db->con,$query);
+// mysqli_error($db->con);
 $count = mysqli_num_rows($result);
 if($count>0){
     echo "exist";

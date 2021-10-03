@@ -1,21 +1,22 @@
 <?php 
 session_start();
+require('database/DBController.php');
+
+$db = new DBController();
 
 $otp = $_POST['otp'];
 
 $email = $_SESSION['EMAIL'];
 
-$con = mysqli_connect('localhost','root','','flipkart_clone');
-
 $query = "SELECT * from `users` where `email` = '$email' and `otp` = '$otp'";
-$result = mysqli_query($con,$query);
-// mysqli_error($con);
+$result = mysqli_query($db->con,$query);
+// mysqli_error($db->con);
 $count = mysqli_num_rows($result);
 if($count>0){
-    mysqli_query($con, "UPDATE `users` set `otp` = '' WHERE `email` = '$email'");
-    echo "yes";
+    mysqli_query($db->con, "UPDATE `users` set `otp` = '' WHERE `email` = '$email'");
+    echo "verified";
 } else {
-	echo "not_exist";
+	echo "error";
 }
 
 ?>
