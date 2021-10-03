@@ -73,14 +73,27 @@ require('functions.php');
                <span class="material-icons text-sm transition-transform duration-100">expand_more</span>
             </span>
 
-            <span class="<?php if(isset($_SESSION['login'])) { echo "hidden"; } ?> userDropDown px-9 py-0.5 text-primary-blue bg-white border font-medium rounded-sm cursor-pointer">Login</span>
+            <a href="login.php" class="<?php if(isset($_SESSION['login'])) { echo "hidden"; } ?> userDropDown px-9 py-0.5 text-primary-blue bg-white border font-medium rounded-sm cursor-pointer">Login</a>
 
            <!-- dropdown navbar hover tabs -->
-           <div class="userDropDownMenu hidden absolute w-60 -left-24 ml-2 top-9 bg-white shadow-2xl rounded flex-col text-sm">
+           <div class="userDropDownMenu hidden absolute w-60 <?php if(!isset($_SESSION['login'])) { echo "-left-16 top-10"; } else { echo "-left-24 top-9"; }?> ml-2 bg-white shadow-2xl rounded flex-col text-sm">
+               <?php 
+                  if(isset($_SESSION['login'])) {
+               ?>
                <a class="pl-3 py-3.5 border-b flex gap-3 items-center hover:bg-gray-50 rounded-t" href="profile.php">
                     <span class="material-icons md-18 text-primary-blue">account_circle</span>
                     My Profile
                </a>
+               <?php
+                   } else { 
+               ?>
+               <div class="pl-3 py-4 border-b flex justify-between pr-3 items-center text-sm hover:bg-gray-50 rounded-t">
+                    <span>New Customer?</span>
+                    <a href="signup.php" class="text-primary-blue hover:underline">Signup</a>
+               </div>
+               <?php
+                   }
+               ?>
                <a class="pl-3 py-3.5 border-b flex gap-3 items-center hover:bg-gray-50" href="#">
                     <span class="material-icons md-18 text-primary-blue">offline_bolt</span>
                     Supercoin Zone

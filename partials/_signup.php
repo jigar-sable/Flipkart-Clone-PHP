@@ -139,7 +139,7 @@
                         <!-- input container column -->
 
                         <button type="submit" id="signupBtn" class="text-gray-500 py-3 w-full bg-gray-200 shadow rounded-sm font-medium cursor-not-allowed" disabled>Signup</button>
-                        <a href="login.html" class="text-primary-blue text-center py-3 w-full shadow border rounded-sm font-medium">Existing User? Log in</a>
+                        <a href="login.php" class="text-primary-blue text-center py-3 w-full shadow border rounded-sm font-medium">Existing User? Log in</a>
 
                     </div>
                     <!-- personal info procedure -->
