@@ -32,7 +32,7 @@ class Cart {
             // pass params to insertIntoCart function
             $result = $this->insertIntoCart($params, $table);
             if($result){
-                // header("Location:".$_SERVER['PHP_SELF']);
+                header("Location:".$_SERVER['REQUEST_URI']);
             }
             // echo $this->db->con->error;
         }
@@ -48,7 +48,7 @@ class Cart {
             // pass params to insertIntoCart function
             $result = $this->insertIntoCart($params, $table);
             if($result){
-                // header("Location:".$_SERVER['PHP_SELF']);
+                // header("Location:".$_SERVER['REQUEST_URI']);
                 echo "<script>location.href='cart.php';</script>";
             }
         }
@@ -59,7 +59,7 @@ class Cart {
         if($product_id != null){
             $result = $this->db->con->query("DELETE FROM {$table} WHERE `user_id` = {$user_id} AND `product_id` = {$product_id}");
             if($result){
-                // header("Location:".$_SERVER['PHP_SELF']);
+                header("Location:".$_SERVER['PHP_SELF']);
             }
             echo $this->db->con->error;
         }
@@ -73,8 +73,8 @@ class Cart {
 
             $result = $this->db->con->multi_query($query);
             if($result){
-                // header("Location:".$_SERVER['PHP_SELF']);
-                echo "<script>location.href = 'cart.php'; </script>";
+                header("Location:".$_SERVER['PHP_SELF']);
+                // echo "<script>location.href = 'cart.php'; </script>";
             }
         }
         return $result;
@@ -158,7 +158,7 @@ class Cart {
                 // mysqli_report(5);
                 
                 if($result){
-                    // header("Location:".$_SERVER['PHP_SELF']);
+                    // header("Location: orders.php");
                     echo "<script>location.href = 'orders.php'; </script>";
                 }
             }

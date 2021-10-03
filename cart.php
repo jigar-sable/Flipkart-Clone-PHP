@@ -1,5 +1,5 @@
 <?php
-ob_start();
+// ob_start();
 require 'globals.php';
 
 include 'header.php';
