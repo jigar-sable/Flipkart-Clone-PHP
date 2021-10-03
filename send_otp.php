@@ -12,9 +12,9 @@ $result = mysqli_query($db->con,$query);
 $otp = rand(111111,999999);
 mysqli_query($db->con, "UPDATE `users` set `otp`='$otp' where `email` = '$email'");
 
-$htmldata = '<h3>Your OTP for Flipkart Clone is : '.$otp.'</h3>';
+$htmldata = 'Hi, <br> You are just a step away from accessing your Flipkart Clone account <br><br> Your OTP for Flipkart Clone is : <h3>'.$otp.'</h3>';
 
-smtp_mailer($email,'OTP Verification',$htmldata);
+smtp_mailer($email,'Your OTP for Email Verification',$htmldata);
 echo "mailed";
 
 $_SESSION['EMAIL'] = $email;
