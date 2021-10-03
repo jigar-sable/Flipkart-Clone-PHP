@@ -10,11 +10,23 @@ include 'partials/_categories_img_nav.php';
 <?php
 include 'partials/_banner.php';
 include 'partials/_top_selection.php';
+
+if(isset($_SESSION['login'])){
 include 'partials/_suggested_for_you.php';
+}
+
 include 'partials/_top_rated.php';
-include 'partials/_recommended_items.php';
+
+if(isset($_SESSION['login'])){
+    include 'partials/_recommended_items.php';
+}
+
+if(isset($_SESSION['login'])){
 include 'partials/_you_may_like.php';
+}
+
 include 'partials/_top_selection.php';
+
 include 'partials/_discounts_for_you.php';
 ?>
 

@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <!-- my orders tab -->
                     <div class="flex items-center gap-5 px-4 py-4 border-b">
                         <span class="material-icons text-primary-blue">folder</span>
-                        <a class="flex w-full justify-between font-medium text-gray-500 hover:text-primary-blue" href="orders.html">
+                        <a class="flex w-full justify-between font-medium text-gray-500 hover:text-primary-blue" href="orders.php">
                             MY ORDERS
                             <span class="material-icons">chevron_right</span>
                         </a>
@@ -55,7 +55,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                         <p class="flex w-full justify-between font-medium text-gray-500">ACCOUNT SETTINGS</p>
                     </div>
                     <div class="flex flex-col pb-3 border-b text-sm">
-                    <a class="p-3 pl-14 hover:bg-blue-50 hover:text-primary-blue" href="profile.html">Profile Information</a>
+                    <a class="p-3 pl-14 hover:bg-blue-50 hover:text-primary-blue" href="profile.php">Profile Information</a>
                     <a class="p-3 pl-14 hover:bg-blue-50 hover:text-primary-blue" href="#">Manage Addresses</a>
                     <a class="p-3 pl-14 hover:bg-blue-50 hover:text-primary-blue" href="#">PAN Card Information</a>
                     </div>
@@ -129,7 +129,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <span class="font-medium text-lg px-4 sm:px-8 py-4 border-b">My Wishlist (<?php if(count($Cart->getData(getUserId($user),'wishlist')) > 0) { echo count($Cart->getData(getUserId($user),'wishlist')); } else { echo 0; } ?>)</span>
 
                     <?php 
-                    foreach($Cart->getData(getUserId($user),'wishlist') as $item):
+                    foreach(array_reverse($Cart->getData(getUserId($user),'wishlist')) as $item):
                     // echo var_dump($item);
                     $wishlist = $product->getProducts($item['product_id']);
 
