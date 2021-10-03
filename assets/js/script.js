@@ -121,8 +121,18 @@ $(document).ready(function() {
     // };
     // new ImageZoom(document.querySelector('.image-box'), options);
 
-// increase / decrease product quantity
 
+// color selection hover image change
+$('.colorImg').hover(function(){
+    $('.productImg').attr('src',$(this).attr('src'));
+});
+// color selection hover image change
+
+
+
+
+
+// increase / decrease product quantity
     let $qtyIncr = $('.qtyIncr');
     let $qtyDecr = $('.qtyDecr');
 
@@ -219,7 +229,6 @@ $(document).ready(function() {
         });
 
     });
-
 // increase / decrease product quantity
 
 

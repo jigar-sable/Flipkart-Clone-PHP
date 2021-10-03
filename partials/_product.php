@@ -31,7 +31,7 @@ foreach($product->getData() as $item):
             <!-- imgbox -->
             <div class="flex flex-col gap-3 m-3">
                 <div class="image-box w-full h-96 p-4 border">
-                    <img class="w-full h-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
+                    <img class="productImg w-full h-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
                 </div>
 
                 <div class="w-full flex gap-3">
@@ -167,8 +167,8 @@ foreach($product->getData() as $item):
             <div class="flex gap-20 mt-4 items-stretch text-sm font-medium">
                 <p class="text-gray-500">Color</p>
                 <ul class="flex gap-3">
-                    <li class="w-14 h-14 border cursor-pointer"><img class="w-full h-full object-contain" src="<?php echo $item['product_color_thumb1']; ?>" alt=""></li>
-                    <li class="w-14 h-14 border cursor-pointer"><img class="w-full h-full object-contain" src="<?php echo $item['product_color_thumb2']; ?>" alt=""></li>
+                    <li class="w-14 h-14 border cursor-pointer hover:border-primary-blue"><img class="colorImg w-full h-full object-contain" src="<?php echo $item['product_color_thumb1']; ?>" alt=""></li>
+                    <li class="w-14 h-14 border cursor-pointer hover:border-primary-blue"><img class="colorImg w-full h-full object-contain" src="<?php echo $item['product_color_thumb2']; ?>" alt=""></li>
                 </ul>
             </div>
             <!-- color selection -->
@@ -335,7 +335,6 @@ endforeach;
     <?php
     include '_you_may_like.php';
     include '_top_rated.php';
-
     ?>
 
     </main>

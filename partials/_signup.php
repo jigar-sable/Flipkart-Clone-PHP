@@ -49,7 +49,7 @@
                             <p class="text-xs text-primary-grey text-left">By continuing, you agree to Flipkart's <a href="https://www.flipkart.com/pages/terms" class="text-primary-blue"> Terms of Use</a> and <a href="https://www.flipkart.com/pages/privacypolicy" class="text-primary-blue"> Privacy Policy.</a></p>
                             <button type="button" class="text-white py-3 w-full bg-primary-orange shadow rounded-sm font-medium" id="continueBtn">Continue</button>
 
-                            <a href="login.html" class="text-primary-blue py-3 mt-2 w-full shadow border rounded-sm font-medium">Existing User? Log in</a>
+                            <a href="login.php" class="text-primary-blue py-3 mt-2 w-full shadow border rounded-sm font-medium">Existing User? Log in</a>
                         </div>
                         <!-- button container -->
     
