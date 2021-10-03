@@ -6,13 +6,13 @@ $db = new DBController();
 
 $email = $_SESSION['EMAIL'];
 
-$fname = $_POST['fname'];
-$lname = $_POST['lname'];
-$gender = $_POST['gender'];
-$mobile = $_POST['mobile'];
-$password = $_POST['password'];
+$fname = mysqli_real_escape_string($db->con, $_POST['fname']);
+$lname = mysqli_real_escape_string($db->con, $_POST['lname']);
+$gender = mysqli_real_escape_string($db->con, $_POST['gender']);
+$mobile = mysqli_real_escape_string($db->con, $_POST['mobile']);
+$password = mysqli_real_escape_string($db->con, $_POST['password']);
 $cpassword = $_POST['cpassword'];
-$address = $_POST['address'];
+$address = mysqli_real_escape_string($db->con, $_POST['address']);
 
 if($password != $cpassword) {
     ?>

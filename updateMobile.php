@@ -3,8 +3,8 @@ require('database/DBController.php');
 
 $db = new DBController();
 
-$mobile = $_POST['mobile'];
-$email = $_POST['useremail'];
+$mobile = mysqli_real_escape_string($db->con, $_POST['mobile']);
+$email = mysqli_real_escape_string($db->con, $_POST['useremail']);
 
 $result = mysqli_query($db->con,"UPDATE `users` SET `mobile` = '$mobile' WHERE `users`.`email` = '$email'");
 

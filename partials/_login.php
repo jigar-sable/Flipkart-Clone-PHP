@@ -2,10 +2,10 @@
 
 $error = false;
 if($_SERVER['REQUEST_METHOD'] == "POST") {
-    if(isset($_POST['loginBtn'])){
+    if(isset($_POST['loginBtn'])) {
 
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $email = mysqli_real_escape_string($db->con, $_POST['email']);
+        $password = mysqli_real_escape_string($db->con, $_POST['password']);
     
         $user->loginUser($email, $password);
 

@@ -4,7 +4,7 @@ require('database/DBController.php');
 
 $db = new DBController();
 
-$email = $_POST['email'];
+$email = mysqli_real_escape_string($db->con, $_POST['email']);
 
 $query = "INSERT INTO `users` (`email`) VALUES ('$email')";
 

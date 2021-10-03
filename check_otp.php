@@ -4,7 +4,7 @@ require('database/DBController.php');
 
 $db = new DBController();
 
-$otp = $_POST['otp'];
+$otp = mysqli_real_escape_string($db->con, $_POST['otp']);
 
 $email = $_SESSION['EMAIL'];
 
