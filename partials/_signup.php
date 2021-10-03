@@ -105,7 +105,7 @@
 
                             <div class="flex flex-col w-full sm:w-1/2 gap-0.5 px-3 py-1.5 rounded-sm border focus-within:border-primary-blue">
                                 <label for="mobile" class="text-xs text-gray-500">Mobile Number</label>
-                                <input type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" maxlength="10" name="mobile" placeholder="Enter Mobile Number" class="outline-none" required>
+                                <input type="tel" pattern="[6-9]{1}[0-9]{9}" maxlength="10" name="mobile" placeholder="Enter Mobile Number" class="outline-none" required>
                             </div>
                         </div>
                         <!-- input container column -->
@@ -160,7 +160,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
-            $('#continueBtn').click(function() {
+        $('#continueBtn').click(function() {
 
                 if($('#continueBtn').html()=='Continue') {
     
@@ -184,7 +184,7 @@
                         check_otp();
                     }
                 }
-            });
+        });
 
 
         function check_mail_exist() {

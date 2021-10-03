@@ -32,7 +32,7 @@
                     <!-- my orders tab -->
                     <div class="flex items-center gap-5 px-4 py-4 border-b">
                         <span class="material-icons text-primary-blue">folder</span>
-                        <a class="flex w-full justify-between font-medium text-gray-500 hover:text-primary-blue" href="orders.html">
+                        <a class="flex w-full justify-between font-medium text-gray-500 hover:text-primary-blue" href="orders.php">
                             MY ORDERS
                             <span class="material-icons">chevron_right</span>
                         </a>
@@ -82,7 +82,7 @@
                     <a class="p-3 pl-14 hover:bg-blue-50 hover:text-primary-blue" href="#">My Coupons</a>
                     <a class="p-3 pl-14 hover:bg-blue-50 hover:text-primary-blue" href="#">My Reviews & Ratings</a>
                     <a class="p-3 pl-14 hover:bg-blue-50 hover:text-primary-blue" href="#">All Notifications</a>
-                    <a class="p-3 pl-14 hover:bg-blue-50 hover:text-primary-blue" href="#">My Wishlist</a>
+                    <a class="p-3 pl-14 hover:bg-blue-50 hover:text-primary-blue" href="wishlist.php">My Wishlist</a>
                     </div>
                     <!-- my stuff tab -->
 
