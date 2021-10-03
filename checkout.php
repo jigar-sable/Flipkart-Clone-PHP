@@ -1,16 +1,17 @@
 <?php
-ob_start();
+@ob_start();
 require 'globals.php';
 
 include 'header.php';
 include 'partials/_categories_nav.php';
 
-
-if(!isset($_SESSION['login'])){
-    // header('location:index.php');
-    echo "<script>location.href='".$URL."/login.php';</script>";
-}
-
+// $userId = getUserId($user);
+// 				echo $userId;
+// if(!isset($_SESSION['login'])){
+//     // header('location:index.php');
+//     echo "<script>location.href='".$URL."/login.php';</script>";
+// }
+error_reporting(0);
 ?>
 
 	<?php  
@@ -28,13 +29,13 @@ if(!isset($_SESSION['login'])){
 		 $computedSignature = base64_encode($hash_hmac);
 		 if ($signature == $computedSignature) {
 
-			if($txStatus == "SUCCESS"){
+			if($txStatus == "SUCCESS") {
 				$userId = getUserId($user);
-				// echo $userId;
+				
                 $product_ids = $Cart->getCartIds($Cart->getData(getUserId($user),'cart'));
                 $Cart->placeOrder($userId, $product_ids);
 			} else { 
-				header('refresh:5; url=cart.php');
+				header('refresh:3; url=cart.php');
 			?>
 
 			    <!-- main sections starts -->
@@ -42,9 +43,9 @@ if(!isset($_SESSION['login'])){
 
                 <!-- row -->
                 <div class="flex flex-col items-center justify-center sm:w-4/6 sm:mt-4 m-auto mb-7 bg-white shadow rounded p-6 pb-12">
-                	<img class="w-1/2 h-60 object-contain" src="https://cdn.dribbble.com/users/251873/screenshots/9388228/error-img.gif" alt="Transaction Error">
+                	<img class="w-1/2 h-60 object-contain" src="assets/images/transaction-error.gif" alt="Transaction Error">
                 	<h1 class="text-2xl font-semibold">Transaction Failed</h1>
-                	<p class="mt-4 text-lg text-gray-800">Redirecting to cart in 0<span id="timer">5</span> sec</p>
+                	<p class="mt-4 text-lg text-gray-800">Redirecting to cart in 0<span id="timer">3</span> sec</p>
                 </div>
                 <!-- row -->
                 

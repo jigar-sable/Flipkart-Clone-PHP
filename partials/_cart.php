@@ -151,7 +151,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                         <input type="hidden" name="customerName" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['first_name']." ".$users['last_name']; } ?>" placeholder="Enter your name here (Ex. John Doe)"/>
                         <input type="hidden" name="customerEmail" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['email']; } ?>" placeholder="Enter your email address here (Ex. Johndoe@test.com)"/>
                         <input type="hidden" name="customerPhone" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['mobile']; } ?>" placeholder="Enter your phone number here (Ex. 9999999999)"/>
-                        <input type="hidden" name="returnUrl" value="http://localhost/Flipkart-Clone-PHP/response.php" placeholder="Enter the URL to which customer will be redirected (Ex. www.example.com)"/>
+                        <input type="hidden" name="returnUrl" value="http://localhost/Flipkart-Clone-PHP/checkout.php" placeholder="Enter the URL to which customer will be redirected (Ex. www.example.com)"/>
                         <input type="hidden" name="notifyUrl" value="" placeholder="Enter the URL to get server notificaitons (Ex. www.example.com)"/>
             
             

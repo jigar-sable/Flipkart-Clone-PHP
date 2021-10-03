@@ -267,7 +267,7 @@ $('.colorImg').hover(function(){
     toggleEdit('#mobEditBtn','#mobSaveBtn','#mobInputs');
 
 // timer 
-let time = 5;
+let time = 3;
 let interval = setInterval(function() {
     time--;
     $('#timer').text(time);
