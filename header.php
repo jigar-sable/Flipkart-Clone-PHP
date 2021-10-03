@@ -171,20 +171,19 @@ require('functions.php');
             <a href="cart.php" class="flex items-center text-white font-medium gap-2 relative">
                 <span class="material-icons">shopping_cart</span>
                 <!-- badge count -->
+                <?php
+                    if(isset($_SESSION['login'])){
+                         if(count($Cart->getData(getUserId($user),'cart')) > 0 ){
+                ?>
                 <div class="w-5 h-5 p-2 bg-red-500 text-xs rounded-full absolute -top-2 left-3 flex justify-center items-center border">
-                <?php 
-                if(isset($_SESSION['login'])){
-                if(count($Cart->getData(getUserId($user),'cart')) > 0 ){
+                <?php
                      echo count($Cart->getData(getUserId($user),'cart'));
-                } else { 
-                     echo 0;
-                } } else {
-                     echo 0;
+                }
                 }
                 ?>
                 </div>
                 <!-- badge count -->
-                Cart
+                &nbsp;Cart
             </a>
         </div>
         <!-- right navs -->
