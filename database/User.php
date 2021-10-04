@@ -24,12 +24,18 @@ class User {
 
     public function loginUser($email, $password){
         if($email != null && $password != null) {
-            $result = $this->db->con->query("SELECT * from `users` where `email` = '$email' and `password` = '$password'");
+            $result = $this->db->con->query("SELECT * from `users` where `email` = '$email'");
             $count = mysqli_num_rows($result);
             if($count>0){
-                session_start();
-                $_SESSION['login'] = $email;
-                header('location:index.php');
+                while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    if(password_verify($password, $row['password'])) {
+                        session_start();
+                        $_SESSION['login'] = $email;
+                        header('location:index.php');
+                    } else {
+                        return false;
+                    }
+                }
             } else {
                 return false;
             }
