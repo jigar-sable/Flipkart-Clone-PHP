@@ -5,6 +5,14 @@
         // $arr = $product->searchProducts($search);
         // echo var_dump($arr);
     }
+
+    if($_SERVER['REQUEST_METHOD'] == "POST") {
+        if(isset($_POST['add_to_wishlist'])){
+            $userid = $_POST['user_id'];
+            $productid = $_POST['product_id'];
+            $Cart->addToCart($userid, $productid, 'wishlist');
+        }
+    }
 ?>
 
 <!-- main sections starts -->
@@ -61,7 +69,7 @@
             <!-- one product -->
             <div class="flex flex-col items-start gap-2 px-4 py-6 relative hover:shadow-lg rounded-sm">
                 <!-- image & product title -->
-                <a href="#" class="flex flex-col items-center text-center group">
+                <a href="<?php printf('%s?product_id=%s','product.php',$item['product_id']); ?>" class="flex flex-col items-center text-center group">
                 <div class="w-44 h-48">
                     <img class="w-full h-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
                 </div>
@@ -89,7 +97,22 @@
                 <!-- product description -->
 
                 <!-- wishlist badge -->
-                <i class="material-icons absolute top-6 right-6 text-gray-300 cursor-pointer hover:text-red-500 md-16">favorite</i>
+                <form method="POST" id="wishlistForm">
+                    <input type="hidden" name="user_id" value="<?php echo getUserId($user); ?>">
+                    <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
+                    <?php
+                        if(in_array($item['product_id'], $Cart->getCartIds($Cart->getData(getUserId($user),'wishlist')) ?? [])){
+                            echo '<button type="submit" name="add_to_wishlist" class="wishlistBtn absolute top-6 right-6 text-gray-300" disabled>
+                            <i class="material-icons cursor-pointer text-red-500 md-16">favorite</i>
+                            </button>';
+                        
+                        } else {
+                            echo "<button type='submit' name='add_to_wishlist' class='wishlistBtn absolute top-6 right-6 text-gray-300' data-id='". $item['product_id'] ."'>
+                            <i class='material-icons cursor-pointer hover:text-red-500 md-16'>favorite</i>
+                            </button>";
+                        }
+                    ?>
+                </form>
                 <!-- wishlist badge -->
 
             </div>

@@ -1,4 +1,6 @@
 <?php
+ob_start();
+
 include 'header.php';
 include 'partials/_categories_nav.php';
 

@@ -34,7 +34,7 @@ class Product {
         }
     }
 
-    public function searchProducts($search = null) {
+    public function searchProducts($search) {
         if($search != null) {
             $result = $this->db->con->query("SELECT * FROM `products` WHERE `product_title` LIKE '%$search%'");
 
