@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Cashfree - Payment Gateway</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-</head>
 <?php
 include 'header.php';
 ?>
-<body onload="document.frm1.submit()">
-
 
 <?php 
 $mode = "TEST"; //<------------ Change to TEST for test server, PROD for production
@@ -43,7 +34,7 @@ if ($mode == "PROD") {
 }
 
 ?>
-  <form action="<?php echo $url; ?>" name="frm1" method="post">
+  <form action="<?php echo $url; ?>" id="payForm" name="frm1" method="post">
       <p>Please wait.......</p>
       <input type="hidden" name="signature" value='<?php echo $signature; ?>'/>
       <input type="hidden" name="orderNote" value='<?php echo $orderNote; ?>'/>
@@ -57,5 +48,13 @@ if ($mode == "PROD") {
       <input type="hidden" name="appId" value='<?php echo $appId; ?>'/>
       <input type="hidden" name="orderId" value='<?php echo $orderId; ?>'/>
   </form>
-</body>
-</html>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#payForm').submit();
+});
+</script>
+
+<?php
+include 'partials/_footer.php';
+?>

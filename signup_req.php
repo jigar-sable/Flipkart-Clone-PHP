@@ -24,7 +24,8 @@ if($password != $cpassword) {
 
     <?php
 } else {
-    $result = mysqli_query($db->con, "UPDATE `users` SET `first_name`='$fname', `last_name`='$lname', `mobile`='$mobile', `password`='$password', `gender`='$gender', `address`='$address' where `email` = '$email'");
+    $pwHash = password_hash($password, PASSWORD_DEFAULT);
+    $result = mysqli_query($db->con, "UPDATE `users` SET `first_name`='$fname', `last_name`='$lname', `mobile`='$mobile', `password`='$pwHash', `gender`='$gender', `address`='$address' where `email` = '$email'");
     echo mysqli_error($db->con);
 
     if($result){

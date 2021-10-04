@@ -34,7 +34,8 @@ function highlightSplit($str) {
 }
 
 function getUserId($user) {
-    foreach($user->getUserData($_SESSION['login']) as $users) { return $users['id']; }
+    $userEmail = $_SESSION['login'];
+    foreach($user->getUserData($userEmail) as $userIds) { return $userIds['id']; }
 }
                            
 ?>

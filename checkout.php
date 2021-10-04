@@ -5,7 +5,7 @@ require 'globals.php';
 include 'header.php';
 include 'partials/_categories_nav.php';
 
-// $userId = getUserId($user);
+$userId = getUserId($user);
 // 				echo $userId;
 // if(!isset($_SESSION['login'])){
 //     // header('location:index.php');
@@ -30,9 +30,9 @@ error_reporting(0);
 		 if ($signature == $computedSignature) {
 
 			if($txStatus == "SUCCESS") {
-				$userId = getUserId($user);
+				// $userId = getUserId($user);
 				
-                $product_ids = $Cart->getCartIds($Cart->getData(getUserId($user),'cart'));
+                $product_ids = $Cart->getCartIds($Cart->getData($userId,'cart'));
                 $Cart->placeOrder($userId, $product_ids);
 			} else { 
 				header('refresh:3; url=cart.php');
