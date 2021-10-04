@@ -1,3 +1,12 @@
+<?php
+    if(isset($_GET['q'])) {
+        $search = $_GET['q'];
+        // echo $search;
+        // $arr = $product->searchProducts($search);
+        // echo var_dump($arr);
+    }
+?>
+
 <!-- main sections starts -->
 <main class="w-full mt-16 sm:mt-0">
 
@@ -38,27 +47,23 @@
         <!-- search column -->
         <div class="flex-1">
 
+        <?php if(count($product->searchProducts($search)) > 1) { ?>
+
             <!-- searches container -->
             <div class="grid grid-cols-4 overflow-hidden bg-white">
 
             <?php
-            if(isset($_GET['q'])){
-                $search = $_GET['q'];
-                echo $search;
-
-                $arr = $product->searchProducts($search);
-                echo var_dump($arr);
-            }
                 foreach($product->searchProducts($search) as $item):
             ?>
+
             <!-- one product -->
             <div class="flex flex-col items-start gap-2 px-4 py-6 relative hover:shadow-lg rounded-sm">
                 <!-- image & product title -->
                 <a href="#" class="flex flex-col items-center text-center group">
                 <div class="w-44 h-48">
-                    <img class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/image/312/312/kk1h5e80/refrigerator-new/g/y/y/rt28a3021s8-hl-1-2021-samsung-original-imafzhedkazavggn.jpeg" alt="">
+                    <img class="w-full h-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
                 </div>
-                <h2 class="text-sm mt-4 group-hover:text-primary-blue text-left">SAMSUNG 230 L Direct Cool Single Door 3 Star Refrigerator</h2>
+                <h2 class="text-sm mt-4 group-hover:text-primary-blue text-left"><?php echo $item['product_title']; ?></h2>
                 </a>
                 <!-- image & product title -->
 
@@ -66,16 +71,16 @@
                 <div class="flex flex-col gap-2 items-start">
                         <!-- rating badge -->
                         <span class="text-sm text-gray-500 font-medium flex gap-2 items-center">
-                            <span class="text-xs px-1.5 py-0.5 bg-primary-green rounded-sm text-white flex items-center gap-0.5">4.3 <i class="material-icons md-12">star</i></span>
-                            <span>(7,345)</span>
+                            <span class="text-xs px-1.5 py-0.5 bg-primary-green rounded-sm text-white flex items-center gap-0.5"><?php echo $item['product_rating_star']; ?> <i class="material-icons md-12">star</i></span>
+                            <span><?php echo number_format($item['product_rating_count']); ?></span>
                         </span>
                         <!-- rating badge -->
 
                         <!-- price container -->
                         <div class="flex items-center gap-1.5 text-md font-medium">
-                            <span>₹16,790</span>
-                            <span class="text-gray-500 line-through text-xs">₹18,890</span>
-                            <span class="text-xs text-primary-green">15%&nbsp;off</span>
+                            <span>₹<?php echo number_format($item['product_price']); ?></span>
+                            <span class="text-gray-500 line-through text-xs">₹<?php echo number_format($item['product_cutted_price']); ?></span>
+                            <span class="text-xs text-primary-green"><?php calcDiscount($item['product_price'], $item['product_cutted_price']) ?>%&nbsp;off</span>
                         </div>
                         <!-- price container -->
                 </div>
@@ -94,6 +99,16 @@
 
             </div>
             <!-- searches container -->
+        
+        <?php } else { ?>
+                            <!-- search not found -->
+                            <div class="flex flex-col items-center justify-center gap-3 bg-white shadow-sm rounded-sm p-6 sm:p-16">
+                    <img class="w-1/2 h-44 object-contain" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/error-no-search-results_2353c5.png" alt="Search Not Found">
+                    <h1 class="text-2xl font-medium text-gray-900">Sorry, no results found!</h1>
+                    <p class="text-xl text-center text-primary-grey">Please check the spelling or try searching for something else</p>
+                </div>
+                <!-- search not found -->
+        <?php } ?>
                 
         </div>
         <!-- search column -->
