@@ -4,6 +4,8 @@
         // echo $search;
         // $arr = $product->searchProducts($search);
         // echo var_dump($arr);
+    } else {
+        header('location:index.php');
     }
 
     if($_SERVER['REQUEST_METHOD'] == "POST") {

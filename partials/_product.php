@@ -14,8 +14,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }
 }
 
-
+if(isset($_GET['product_id'])){
 $product_id = $_GET['product_id'];
+} else {
+    header('location:index.php');
+}
 foreach($product->getData() as $item):
     if($item['product_id'] == $product_id):
 ?>

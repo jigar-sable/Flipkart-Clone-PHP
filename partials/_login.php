@@ -61,7 +61,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                         <!-- password input -->
                         <div class="flex flex-col gap-1">
                             <h2 class="text-xs text-primary-grey text-left">Enter Password</h2>
-                            <input type="password" name="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Password" class="py-2 outline-none border-b rounded-sm focus:border-primary-blue" required>
+                            <input type="password" name="password" minlength="8" maxlength="23" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Password" class="py-2 outline-none border-b rounded-sm focus:border-primary-blue" required>
 
                             <?php
                         if($error) {

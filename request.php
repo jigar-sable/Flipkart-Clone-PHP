@@ -1,5 +1,9 @@
 <?php
+ob_start();
 include 'header.php';
+if(!isset($_POST['orderId'])){
+  header('location:index.php');
+}
 ?>
 
 <?php 
