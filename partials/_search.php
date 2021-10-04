@@ -1,6 +1,6 @@
 <?php
     if(isset($_GET['q'])) {
-        $search = $_GET['q'];
+        $search = mysqli_real_escape_string($db->con, $_GET['q']);
         // echo $search;
         // $arr = $product->searchProducts($search);
         // echo var_dump($arr);
@@ -48,7 +48,7 @@
         <div class="flex-1">
 
         <?php
-        if($search != ""){ 
+        if($search != " "){ 
         if(count($product->searchProducts($search)) > 1) { ?>
 
             <!-- searches container -->
