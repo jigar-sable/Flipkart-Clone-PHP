@@ -1,51 +1,58 @@
-    <!-- main sections starts -->
-    <main class="w-full mt-16 sm:mt-0">
+<!-- main sections starts -->
+<main class="w-full mt-16 sm:mt-0">
 
-        <!-- row -->
-        <div class="flex gap-3.5 mt-2 sm:mt-6 sm:mx-3 m-auto mb-7">
+    <!-- row -->
+    <div class="flex gap-3.5 mt-2 sm:mt-6 sm:mx-3 m-auto mb-7">
 
-            <!-- sidebar column  -->
-            <div class="hidden sm:flex flex-col w-1/5 px-1">
+        <!-- sidebar column  -->
+        <div class="hidden sm:flex flex-col w-1/5 px-1">
 
-                <!-- nav tiles -->
-                <div class="flex flex-col bg-white rounded-sm shadow">
+            <!-- nav tiles -->
+            <div class="flex flex-col bg-white rounded-sm shadow">
 
-                    <!-- filters header -->
-                    <div class="flex items-center gap-5 px-4 py-2 border-b">
-                        <p class="flex w-full justify-between text-lg font-medium">Filters</p>
-                    </div>
-
-                    <!-- order status checkboxes -->
-                    <div class="flex flex-col py-3 text-sm">
-                        <span class="font-medium text-xs px-4">PICK A CATEGORY</span>
-
-                        <!-- checkboxes -->
-                        <div class="flex flex-col gap-2 px-8 font-medium mt-3 pb-3">
-                            <a href="#">Lorem, ipsum dolor.</a>
-                            <a href="#">Lorem, ipsum dolor.</a>
-                            <a href="#">Lorem, ipsum dolor.</a>
-                            <a href="#">Lorem, ipsum dolor.</a>
-                            <a href="#">Lorem, ipsum dolor.</a>
-                        </div>
-                        <!-- checkboxes -->
-
-                    </div>
-                    <!-- order status checkboxes -->
-
+                <!-- filters header -->
+                <div class="flex items-center gap-5 px-4 py-2 border-b">
+                    <p class="flex w-full justify-between text-lg font-medium">Filters</p>
                 </div>
-                <!-- nav tiles -->
+                <!-- order status checkboxes -->
+                <div class="flex flex-col py-3 text-sm">
+                    <span class="font-medium text-xs px-4">PICK A CATEGORY</span>
+                    <!-- checkboxes -->
+                    <div class="flex flex-col gap-2 px-8 font-medium mt-3 pb-3">
+                        <a href="#">Lorem, ipsum dolor.</a>
+                        <a href="#">Lorem, ipsum dolor.</a>
+                        <a href="#">Lorem, ipsum dolor.</a>
+                        <a href="#">Lorem, ipsum dolor.</a>
+                        <a href="#">Lorem, ipsum dolor.</a>
+                    </div>
+                    <!-- checkboxes -->
+                </div>
+                <!-- order status checkboxes -->
 
             </div>
-            <!-- sidebar column  -->
+            <!-- nav tiles -->
 
-            <!-- search column -->
-            <div class="flex-1">
+        </div>
+        <!-- sidebar column  -->
 
-                <!-- searches container -->
-                <div class="grid grid-cols-4 overflow-hidden bg-white">
+        <!-- search column -->
+        <div class="flex-1">
 
-                    <!-- one product -->
-                    <div class="flex flex-col items-start gap-2 px-4 py-6 relative hover:shadow-lg rounded-sm">
+            <!-- searches container -->
+            <div class="grid grid-cols-4 overflow-hidden bg-white">
+
+            <?php
+            if(isset($_GET['q'])){
+                $search = $_GET['q'];
+                echo $search;
+
+                $arr = $product->searchProducts($search);
+                echo var_dump($arr);
+            }
+                foreach($product->searchProducts($search) as $item):
+            ?>
+            <!-- one product -->
+            <div class="flex flex-col items-start gap-2 px-4 py-6 relative hover:shadow-lg rounded-sm">
                 <!-- image & product title -->
                 <a href="#" class="flex flex-col items-center text-center group">
                 <div class="w-44 h-48">
@@ -78,16 +85,20 @@
                 <i class="material-icons absolute top-6 right-6 text-gray-300 cursor-pointer hover:text-red-500 md-16">favorite</i>
                 <!-- wishlist badge -->
 
-                    </div>
-                    <!-- one product -->
-
-                </div>
-                <!-- searches container -->
-                
             </div>
-            <!-- search column -->
-        </div>
-        <!-- row -->
+            <!-- one product -->
 
-    </main>
-    <!-- main sections starts -->
+            <?php
+            endforeach;
+            ?>
+
+            </div>
+            <!-- searches container -->
+                
+        </div>
+        <!-- search column -->
+    </div>
+    <!-- row -->
+
+</main>
+<!-- main sections starts -->

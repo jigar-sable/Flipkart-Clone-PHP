@@ -33,6 +33,20 @@ class Product {
             return $resultArray;
         }
     }
+
+    public function searchProducts($search = null) {
+        if($search != null) {
+            $result = $this->db->con->query("SELECT * FROM `products` WHERE `product_title` LIKE '%$search%'");
+
+            $resultArray = array();
+
+            while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                $resultArray[] = $row;
+            }
+
+            return $resultArray;
+        }
+    }
 }
 
 

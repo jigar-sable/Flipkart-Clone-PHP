@@ -47,10 +47,10 @@ require('functions.php');
         </a>
 
         <!-- search container -->
-        <div class="w-9/12 px-4 py-1.5 hidden sm:flex justify-between items-center shadow-md bg-white rounded-sm">
-            <input class="text-sm flex-1 outline-none border-none placeholder-gray-500" type="text" placeholder="Search for products, brands and more">
-            <span class="material-icons text-primary-blue">search</span>
-        </div>
+        <form action="search.php" method="GET" class="w-9/12 px-4 py-1.5 hidden sm:flex justify-between items-center shadow-md bg-white rounded-sm">
+            <input name="q" class="text-sm flex-1 outline-none border-none placeholder-gray-500" type="text" placeholder="Search for products, brands and more">
+            <button type="submit" class="material-icons text-primary-blue">search</button>
+        </form>
         <!-- search container -->
         </div>
         <!-- logo & search container -->
