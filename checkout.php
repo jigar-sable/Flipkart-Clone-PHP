@@ -1,5 +1,5 @@
 <?php
-@ob_start();
+ob_start();
 require 'globals.php';
 
 include 'header.php';
@@ -12,6 +12,8 @@ $userId = getUserId($user);
 //     echo "<script>location.href='".$URL."/login.php';</script>";
 // }
 error_reporting(0);
+// mysqli_report(5);
+
 ?>
 
 	<?php  
