@@ -99,7 +99,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <!-- logout tab -->
                     <div class="flex items-center gap-5 px-4 py-4 border-b">
                         <span class="material-icons text-primary-blue">power_settings_new</span>
-                        <a class="flex w-full justify-between font-medium text-gray-500 hover:text-primary-blue" href="#">
+                        <a class="flex w-full justify-between font-medium text-gray-500 hover:text-primary-blue" href="logout.php">
                             Logout
                             <span class="material-icons">chevron_right</span>
                         </a>
@@ -113,8 +113,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <div class="flex flex-col items-start gap-2 p-4 bg-white rounded-sm shadow">
                     <span class="text-xs font-medium">Frequently Visited:</span>
                     <div class="flex gap-2.5 text-xs text-gray-500">
-                        <a href="profile.html">Change Password</a>
-                        <a href="orders.html">Track Order</a>
+                        <a href="profile.php">Change Password</a>
+                        <a href="orders.php">Track Order</a>
                         <a href="https://www.flipkart.com/helpcentre">Help Center</a>
                     </div>
                 </div>

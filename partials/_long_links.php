@@ -22,20 +22,29 @@
            </span>
         </p>
 
-        <p>BEST SELLING ON FLIPKART:
-            <span class="text-xxs text-gray-700">
-                <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> |
-                <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> |
-                <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a>
-            </span>
-        </p>
-
         <p>GROCERIES:
             <span class="text-xxs text-gray-700">
                 <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> |
                 <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> |
                 <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> |
                 <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a> | <a href="#">Dal Pulses</a>
+            </span>
+        </p>
+
+        <p>FOOTWEAR:
+            <span class="text-xxs text-gray-700">
+                <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> |
+                <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> |
+                <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> |
+                <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Adidas Shoes</a>
+            </span>
+        </p>
+
+        <p>BEST SELLING ON FLIPKART:
+            <span class="text-xxs text-gray-700">
+                <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> |
+                <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> |
+                <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a> | <a href="#">Books</a>
             </span>
         </p>
 

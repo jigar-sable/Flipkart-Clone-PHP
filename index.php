@@ -31,6 +31,10 @@ include 'partials/_discounts_for_you.php';
 
 include 'partials/_top_selection.php';
 
+if(isset($_SESSION['login'])){
+    include 'partials/_suggested_for_you.php';
+}
+
 include 'partials/_discounts_for_you.php';
 ?>
 
