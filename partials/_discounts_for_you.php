@@ -12,7 +12,9 @@
         <div class="flex items-center justify-between owl-carousel owl-theme relative">
 
             <?php
-            foreach($product->getData('discount_for_you') as $item):
+            $discounts_array =$product->getData('discount_for_you');
+            shuffle($discounts_array); 
+            foreach($discounts_array as $item):
             ?>
 
             <!-- one product -->

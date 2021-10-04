@@ -10,6 +10,7 @@ $product = new Product($db);
 $Cart = new Cart($db);
 
 $product_array = $product->getData();
+$top_selection_array = $product->getData('top_selection');
 
 $user = new User($db);
 

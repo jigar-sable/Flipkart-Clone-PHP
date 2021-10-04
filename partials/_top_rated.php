@@ -12,7 +12,8 @@
         <div class="flex items-center justify-between owl-carousel owl-theme relative">
 
             <?php
-            foreach($product->getData('top_selection') as $item):
+            shuffle($top_selection_array);
+            foreach($top_selection_array as $item):
             ?>
             <!-- one product -->
             <a class="flex flex-col items-center gap-2 p-6" href="<?php echo $item['url']; ?>">

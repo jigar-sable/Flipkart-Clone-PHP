@@ -15,17 +15,19 @@ if(isset($_SESSION['login'])){
 include 'partials/_suggested_for_you.php';
 }
 
-include 'partials/_top_rated.php';
+include 'partials/_discounts_for_you.php';
 
 if(isset($_SESSION['login'])){
     include 'partials/_recommended_items.php';
 }
 
-include 'partials/_discounts_for_you.php';
+include 'partials/_top_rated.php';
 
 if(isset($_SESSION['login'])){
 include 'partials/_you_may_like.php';
 }
+
+include 'partials/_discounts_for_you.php';
 
 include 'partials/_top_selection.php';
 
