@@ -48,7 +48,7 @@ require('functions.php');
 
         <!-- search container -->
         <form action="search.php" method="GET" class="w-9/12 px-4 py-1.5 hidden sm:flex justify-between items-center shadow-md bg-white rounded-sm">
-            <input name="q" class="text-sm flex-1 outline-none border-none placeholder-gray-500" type="text" placeholder="Search for products, brands and more">
+            <input name="q" class="text-sm flex-1 outline-none border-none placeholder-gray-500" type="text" placeholder="Search for products, brands and more" required>
             <button type="submit" class="material-icons text-primary-blue">search</button>
         </form>
         <!-- search container -->

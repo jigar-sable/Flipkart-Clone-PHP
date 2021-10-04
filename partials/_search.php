@@ -47,10 +47,12 @@
         <!-- search column -->
         <div class="flex-1">
 
-        <?php if(count($product->searchProducts($search)) > 1) { ?>
+        <?php
+        if($search != ""){ 
+        if(count($product->searchProducts($search)) > 1) { ?>
 
             <!-- searches container -->
-            <div class="grid grid-cols-4 overflow-hidden bg-white">
+            <div class="grid grid-cols-4 overflow-hidden bg-white rounded-sm">
 
             <?php
                 foreach($product->searchProducts($search) as $item):
@@ -63,7 +65,7 @@
                 <div class="w-44 h-48">
                     <img class="w-full h-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
                 </div>
-                <h2 class="text-sm mt-4 group-hover:text-primary-blue text-left"><?php echo $item['product_title']; ?></h2>
+                <h2 class="text-sm mt-4 group-hover:text-primary-blue text-left"><?php if(strlen($item['product_title']) > 50) {echo substr($item['product_title'],0,50)."...";} else { echo $item['product_title']; } ?></h2>
                 </a>
                 <!-- image & product title -->
 
@@ -72,7 +74,7 @@
                         <!-- rating badge -->
                         <span class="text-sm text-gray-500 font-medium flex gap-2 items-center">
                             <span class="text-xs px-1.5 py-0.5 bg-primary-green rounded-sm text-white flex items-center gap-0.5"><?php echo $item['product_rating_star']; ?> <i class="material-icons md-12">star</i></span>
-                            <span><?php echo number_format($item['product_rating_count']); ?></span>
+                            <span>(<?php echo number_format($item['product_rating_count']); ?>)</span>
                         </span>
                         <!-- rating badge -->
 
@@ -101,14 +103,14 @@
             <!-- searches container -->
         
         <?php } else { ?>
-                            <!-- search not found -->
-                            <div class="flex flex-col items-center justify-center gap-3 bg-white shadow-sm rounded-sm p-6 sm:p-16">
-                    <img class="w-1/2 h-44 object-contain" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/error-no-search-results_2353c5.png" alt="Search Not Found">
+                <!-- search not found -->
+                <div class="flex flex-col items-center justify-center gap-3 bg-white shadow-sm rounded-sm p-6 sm:p-16">
+                    <img draggable="false" class="w-1/2 h-44 object-contain" src="assets/images/error-no-search-results.png" alt="Search Not Found">
                     <h1 class="text-2xl font-medium text-gray-900">Sorry, no results found!</h1>
                     <p class="text-xl text-center text-primary-grey">Please check the spelling or try searching for something else</p>
                 </div>
                 <!-- search not found -->
-        <?php } ?>
+        <?php } } ?>
                 
         </div>
         <!-- search column -->
