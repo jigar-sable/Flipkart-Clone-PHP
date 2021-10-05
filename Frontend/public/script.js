@@ -109,16 +109,20 @@ $(document).ready(function() {
     // js-image-zoom effect
     // var zoom_img = document.querySelector('.zoomimg');
     // var options = {
-    //     width: 300,
+    //     width: 400,
+    //     height: 350,
     //     zoomWidth: 600,
-    //     // scale: 0.5,
+    //     scale: 0.5,
     //     // zoomStyle: 'height:500px;width:12000px;border-radius:2px;',
     //     // zoomLensStyle: 'opacity: 0.3;height: 10px;width: 20px;background-color: black;',
-    //     offset: {vertical: 20, horizontal: 30}
+    //     // offset: {vertical: 20, horizontal: 10}
     //     // zoomPosition: 'right',
     //     // zoomContainer: document.querySelector('.zoomimg')
+        
     // };
-    // new ImageZoom(document.querySelector('.image-box'), options);
+    
+    // new ImageZoom(document.querySelector('.img-container'), options);        
+
 
     $('#qtyUp').on('click',function(e){
         if($('#qtyInput').val()>=1 && $('#qtyInput').val()<=10){
