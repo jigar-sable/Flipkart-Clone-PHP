@@ -50,11 +50,17 @@
             </span>
 
            <!-- dropdown navbar hover tabs -->
-           <div class="userDropDownMenu hidden absolute w-60 -left-24 ml-2 top-9 bg-white shadow-2xl rounded flex-col text-sm">
+           <div class="userDropDownMenu hidden absolute w-60 -left-16 top-10 -left-24 ml-2 top-9 bg-white shadow-2xl rounded flex-col text-sm">
                <a class="pl-3 py-3.5 border-b flex gap-3 items-center hover:bg-gray-50 rounded-t" href="profile.html">
                     <span class="material-icons md-18 text-primary-blue">account_circle</span>
                     My Profile
                </a>
+
+               <div class="pl-3 py-4 border-b flex justify-between pr-3 items-center text-sm hover:bg-gray-50 rounded-t">
+                <span>New Customer?</span>
+                <a href="signup.php" class="text-primary-blue hover:underline">Signup</a>
+               </div>
+
                <a class="pl-3 py-3.5 border-b flex gap-3 items-center hover:bg-gray-50" href="#">
                     <span class="material-icons md-18 text-primary-blue">offline_bolt</span>
                     Supercoin Zone
@@ -101,6 +107,7 @@
             <span class="moreDropDown hidden sm:flex items-center text-white font-medium gap-1 cursor-pointer">More
                 <span class="material-icons text-sm transition-transform duration-100">expand_more</span>
             </span>
+            
 
             <!-- dropdown navbar hover tabs -->
             <div class="moreDropDownMenu hidden absolute w-60 -right-2 top-9 bg-white shadow-2xl rounded flex-col text-sm">

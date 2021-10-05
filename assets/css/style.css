@@ -637,6 +637,10 @@ video {
   top: 2.25rem;
 }
 
+.top-10{
+  top: 2.5rem;
+}
+
 .top-16{
   top: 4rem;
 }
@@ -667,6 +671,10 @@ video {
 
 .left-3{
   left: 0.75rem;
+}
+
+.-left-16{
+  left: -4rem;
 }
 
 .-left-24{
@@ -1530,6 +1538,10 @@ video {
 
 .pr-2{
   padding-right: 0.5rem;
+}
+
+.pr-3{
+  padding-right: 0.75rem;
 }
 
 .pr-5{
