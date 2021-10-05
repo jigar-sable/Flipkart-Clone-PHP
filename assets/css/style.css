@@ -1303,6 +1303,11 @@ video {
   border-color: rgba(40, 116, 240, var(--tw-border-opacity));
 }
 
+.hover\:border-primary-blue:hover{
+  --tw-border-opacity: 1;
+  border-color: rgba(40, 116, 240, var(--tw-border-opacity));
+}
+
 .focus\:border-primary-blue:focus{
   --tw-border-opacity: 1;
   border-color: rgba(40, 116, 240, var(--tw-border-opacity));
