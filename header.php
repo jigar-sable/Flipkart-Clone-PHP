@@ -91,9 +91,9 @@ require('functions.php');
                <?php
                    } else { 
                ?>
-               <div class="pl-3 py-4 border-b flex justify-between pr-3 items-center text-sm hover:bg-gray-50 rounded-t">
+               <div class="pl-3 py-4 border-b flex justify-between pr-3 items-center font-medium text-sm hover:bg-gray-50 rounded-t">
                     <span>New Customer?</span>
-                    <a href="signup.php" class="text-primary-blue hover:underline">Signup</a>
+                    <a href="signup.php" class="text-primary-blue font-medium hover:underline">Signup</a>
                </div>
                <?php
                    }
