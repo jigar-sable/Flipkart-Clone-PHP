@@ -841,6 +841,10 @@ video {
   margin-left: 2rem;
 }
 
+.ml-36{
+  margin-left: 9rem;
+}
+
 .ml-auto{
   margin-left: auto;
 }
@@ -1317,6 +1321,16 @@ video {
 .bg-gray-100{
   --tw-bg-opacity: 1;
   background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+}
+
+.bg-gray-200{
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+}
+
+.bg-gray-400{
+  --tw-bg-opacity: 1;
+  background-color: rgba(156, 163, 175, var(--tw-bg-opacity));
 }
 
 .bg-red-500{
