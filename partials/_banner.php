@@ -5,7 +5,7 @@
     foreach($product->getData('banner') as $banner):
     ?>
 
-    <img class="h-44 sm:h-72 w-full object-cover" src="assets/images/banner/<?php echo $banner['banner_img']; ?>.png" alt="<?php echo $banner['banner_img_alt']; ?>" draggable="false" loading="lazy">
+    <img class="h-44 sm:h-72 w-full object-cover" src="assets/images/banner/<?php echo $banner['banner_img']; ?>.webp" alt="<?php echo $banner['banner_img_alt']; ?>" draggable="false" loading="lazy">
 
     <?php
     endforeach;
