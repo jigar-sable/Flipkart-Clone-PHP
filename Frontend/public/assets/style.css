@@ -665,6 +665,10 @@ video {
   right: -0.5rem;
 }
 
+.-right-12{
+  right: -3rem;
+}
+
 .right-1\/2{
   right: 50%;
 }

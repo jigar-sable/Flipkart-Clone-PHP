@@ -1,6 +1,8 @@
 <?php
 ob_start();
 include 'header.php';
+include 'partials/_categories_nav.php';
+
 if(!isset($_POST['orderId'])){
   header('location:index.php');
 }
