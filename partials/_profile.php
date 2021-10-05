@@ -1,4 +1,24 @@
-    <!-- main sections starts -->
+<?php
+
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+    if(isset($_POST['personalInfoSubmit'])) {
+        $fname = mysqli_real_escape_string($db->con, $_POST['fname']);
+        $lname = mysqli_real_escape_string($db->con, $_POST['lname']);
+        $email = mysqli_real_escape_string($db->con, $_POST['useremail']);
+        $gender = mysqli_real_escape_string($db->con, $_POST['gender']);
+        $user->updateInfo($fname, $lname, $email, $gender);
+    }
+
+    if(isset($_POST['mobileSubmit'])){
+        $mobile = mysqli_real_escape_string($db->con, $_POST['mobile']);
+        $email = mysqli_real_escape_string($db->con, $_POST['useremail']);
+        $user->updateMobile($mobile, $email);
+    }
+}
+
+?>
+
+<!-- main sections starts -->
     <main class="w-full mt-12 sm:mt-0">
 
         <!-- row -->
@@ -117,7 +137,7 @@
                 <!-- edit info container -->
                 <div class="flex flex-col gap-12 m-4 sm:mx-8 sm:my-6">
 
-                    <form action="#" method="post" id="personalInfoForm">
+                    <form method="post" id="personalInfoForm">
 
                         <!-- personal info -->
                         <div class="flex flex-col gap-5 items-start">
@@ -133,7 +153,7 @@
                                     <input type="text" name="lname" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) {echo $users['last_name'];} ?>" class="text-sm outline-none border-none cursor-not-allowed text-gray-500" disabled required>
                                 </div>
                                 <input type="hidden" name="useremail" value="<?php echo $_SESSION['login'] ?>">
-                                <button class="hidden w-full sm:w-auto px-11 py-3 bg-primary-blue border rounded text-white font-medium hover:bg-blue-600 transition-colors duration-75" id="personalSaveBtn" type="submit">SAVE</button>
+                                <button class="hidden w-full sm:w-auto px-11 py-3 bg-primary-blue border rounded text-white font-medium hover:bg-blue-600 transition-colors duration-75" id="personalSaveBtn" type="submit" name="personalInfoSubmit">SAVE</button>
                             </div>
     
                             <!-- gender -->
@@ -172,10 +192,10 @@
                             <button class="hidden flex-1 px-11 py-3 bg-primary-blue border rounded text-white font-medium hover:bg-blue-600 transition-colors duration-75" id="emailSaveBtn">SAVE</button>
                         </div>
 
-                    </div>
+                    </div> 
                     <!-- email address info -->
 
-                    <form action="#" method="post" id="mobUpdateForm">
+                    <form method="post" id="mobUpdateForm">
                     <!-- mobile number info -->
                     <div class="flex flex-col gap-5 items-start">
                         <span class="font-medium text-lg">Mobile Number 
@@ -188,7 +208,7 @@
                                 <input type="tel" pattern="[6-9]{1}[0-9]{9}" maxlength="10" name="mobile" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) {echo $users['mobile'];} ?>" class="text-sm outline-none border-none text-gray-500 cursor-not-allowed" disabled required>
                             </div>
                             <input type="hidden" name="useremail" value="<?php echo $_SESSION['login'] ?>">
-                            <button class="hidden px-11 py-3 bg-primary-blue border rounded text-white font-medium hover:bg-blue-600 transition-colors duration-75" id="mobSaveBtn" type="submit">SAVE</button>
+                            <button class="hidden px-11 py-3 bg-primary-blue border rounded text-white font-medium hover:bg-blue-600 transition-colors duration-75" id="mobSaveBtn" type="submit" name="mobileSubmit">SAVE</button>
                         </div>
 
                     </div>
@@ -229,33 +249,33 @@
     <!-- main sections starts -->
 
 <script>
-    $('#personalInfoForm').on('submit',function(e){
-        e.preventDefault();
-        $.ajax({
-            url: "updateInfo.php",
-            type: "post",
-            data: $('#personalInfoForm').serialize(),
-            success: function(result){
-                if(result="done"){
-                    location.reload();
-                }
-            }
-        });
+    // $('#personalInfoForm').on('submit',function(e){
+    //     e.preventDefault();
+    //     $.ajax({
+    //         url: "updateInfo.php",
+    //         type: "post",
+    //         data: $('#personalInfoForm').serialize(),
+    //         success: function(result){
+    //             if(result="done"){
+    //                 location.reload();
+    //             }
+    //         }
+    //     });
 
-    });
+    // });
 
-    $('#mobUpdateForm').on('submit',function(e){
-        e.preventDefault();
-        $.ajax({
-            url: "updateMobile.php",
-            type: "post",
-            data: $('#mobUpdateForm').serialize(),
-            success: function(result){
-                if(result="done"){
-                    location.reload();
-                }
-            }
-        });
-    });
+    // $('#mobUpdateForm').on('submit',function(e){
+    //     e.preventDefault();
+    //     $.ajax({
+    //         url: "updateMobile.php",
+    //         type: "post",
+    //         data: $('#mobUpdateForm').serialize(),
+    //         success: function(result){
+    //             if(result="done"){
+    //                 location.reload();
+    //             }
+    //         }
+    //     });
+    // });
 
 </script>
