@@ -1,6 +1,5 @@
 <?php
 ob_start();
-require 'globals.php';
 
 include 'header.php';
 include 'partials/_categories_nav.php';

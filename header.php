@@ -1,8 +1,9 @@
 <?php
 // ob_start();
 session_start();
+require('globals.php');
 
-require('functions.php');
+require('functions.php'); 
 ?>
 
 <!DOCTYPE html>
