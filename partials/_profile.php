@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <div class="flex items-center gap-4 p-3 bg-white rounded-sm shadow">
                     <!-- user icon -->
                     <div class="w-12 h-12 rounded-full">
-                        <img draggable="false" class="h-full w-full object-contain" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/profile-pic-male_4811a1.svg" alt="">
+                        <img draggable="false" loading="lazy" class="h-full w-full object-contain" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/profile-pic-male_4811a1.svg" alt="">
                     </div>
                     <!-- user icon -->
                     <div class="flex flex-col gap-1">
@@ -239,7 +239,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 </div>
                 <!-- edit info container -->
                 
-                <img draggable="false" class="w-full object-contain" src="assets/images/profile-footer.png" alt="Profile Footer">
+                <img draggable="false" loading="lazy" class="w-full object-contain" src="assets/images/profile-footer.png" alt="Profile Footer">
             </div>
             <!-- details column -->
         </div>

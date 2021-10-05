@@ -116,7 +116,7 @@
     <script src="https://cdn.jsdelivr.net/npm/js-image-zoom/js-image-zoom.min.js"></script>
 
     <!-- custom js -->
-    <script src="assets/js/script.min.js"></script>
+    <script src="assets/js/script.js"></script>
     
 </body>
 </html>

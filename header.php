@@ -51,7 +51,7 @@ require('functions.php');
         <!-- logo & search container -->
         <div class="flex items-center flex-1">
         <a class="h-7 mr-4" href="/Flipkart-Clone-PHP/index.php">
-            <img draggable="false" class="h-full w-full object-contain" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fk-plus_3b0baa.png" alt="Logo">
+            <img draggable="false" loading="lazy" class="h-full w-full object-contain" src="assets/images/logo.webp" alt="Logo">
         </a>
 
         <!-- search container -->

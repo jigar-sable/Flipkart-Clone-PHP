@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <a class="flex flex-col sm:flex-row gap-5 items-stretch w-full group" href="product.php?product_id=<?php echo $item['product_id']; ?>">
                         <!-- product image -->
                         <div class="flex-shrink-0 sm:flex-shrink w-full sm:w-1/6 h-28">
-                            <img draggable="false" class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
+                            <img draggable="false" loading="lazy" class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
                         </div>
                         <!-- product image -->
 
