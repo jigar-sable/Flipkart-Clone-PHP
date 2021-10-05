@@ -239,7 +239,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 </div>
                 <!-- edit info container -->
                 
-                <img draggable="false" class="w-full object-contain" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/myProfileFooter_4e9fe2.png" alt="">
+                <img draggable="false" class="w-full object-contain" src="assets/images/profile-footer.png" alt="Profile Footer">
             </div>
             <!-- details column -->
         </div>
