@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                             <!-- product title -->
                             <div class="flex justify-between items-start pr-5">
                                 <div class="flex flex-col gap-0.5 w-11/12 sm:w-3/5">
-                                    <p class="truncate group-hover:text-primary-blue"><?php echo $item['product_title']; ?></p>
+                                    <p class="truncate group-hover:text-primary-blue"><?php if(strlen($item['product_title']) > 50) {echo substr($item['product_title'],0,50)."...";} else { echo $item['product_title']; } ?></p>
                                     <span class="text-sm text-gray-500">Seller:<?php echo $item['product_seller']; ?></span>
                                 </div>
                             </div>
