@@ -7,7 +7,7 @@ include 'header.php';
  
   <div class="flex items-center flex-col gap-3 m-6">
     <div class="">
-        <img draggable="false" class="w-full h-full object-contain" src="assets/images/error-500.png" alt="">
+        <img draggable="false" loading="lazy" class="w-full h-full object-contain" src="assets/images/error-500.png" alt="">
     </div>
     <span class="text-lg text-center">Unfortunately the page you are looking for has been moved or deleted</span>
     <a href="index.php" class="bg-primary-blue text-sm text-white px-12 py-2.5 rounded-sm shadow-lg mt-3">GO TO HOMEPAGE</a>

@@ -11,8 +11,16 @@ require('functions.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flipkart</title>
-    <link rel="shortcut icon" href="https://static-assets-web.flixcart.com/www/promos/new/20150528-140547-favicon-retina.ico" type="image/x-icon">
+    <title>Flipkart Clone Online Shopping Site for Mobiles, Electronics & More. Best Offers!</title>
+    <meta name="og_title" property="og:title" content="Flipkart Clone Online Shopping Site for Mobiles, Electronics &amp; More. Best Offers!">
+    <meta name="Keywords" content="Flipkart Clone,Flipkart PHP,Flipkart Jigar Sable,Jigar,Flipkart Clone PHP,ecommerce PHP,PHP Projects,Online Shopping in India,online Shopping store,Online Shopping Site,Buy Online,Shop Online,Online Shopping,Flipkart">
+    <meta name="Description" content="Flipkart Clone PHP Online store for Mobiles, Fashion, Electronics, Home Appliances Find the largest selection from all brands at the lowest prices in India. Payment options - Credit card, Debit card & more.">
+    <!-- <link rel="canonical" href="https://"> -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="author" content="Jigar Sable">
+
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
 
     <!-- font awesome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -24,12 +32,11 @@ require('functions.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-    <!-- jquery cdn -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <!-- custom build css -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    
+    <!-- jquery cdn -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
 
 </head>
 <body class="bg-gray-100" oncontextmenu="return true;">
@@ -44,7 +51,7 @@ require('functions.php');
         <!-- logo & search container -->
         <div class="flex items-center flex-1">
         <a class="h-7 mr-4" href="/Flipkart-Clone-PHP/index.php">
-            <img draggable="false" class="h-full w-full object-contain" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fk-plus_3b0baa.png" alt="">
+            <img draggable="false" loading="lazy" class="h-full w-full object-contain" src="assets/images/logo.webp" alt="Logo">
         </a>
 
         <!-- search container -->

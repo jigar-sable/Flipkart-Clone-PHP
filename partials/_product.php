@@ -34,7 +34,7 @@ foreach($product->getData() as $item):
             <!-- imgbox -->
             <div class="flex flex-col gap-3 m-3">
                 <div class="image-box w-full h-96 p-4 border">
-                    <img draggable="false" class="productImg w-full h-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
+                    <img draggable="false" loading="lazy" class="productImg w-full h-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
                 </div>
 
                 <div class="w-full flex gap-3">
@@ -158,7 +158,7 @@ foreach($product->getData() as $item):
 
             <!-- warranty & brand -->
             <div class="flex gap-8 mt-2 items-center text-sm">
-                <img draggable="false" class="w-20 h-8 border p-1 object-contain" src="assets/images/brands/<?php echo $item['product_brand_logo']; ?>.png" alt="">
+                <img draggable="false" loading="lazy" class="w-20 h-8 border p-1 object-contain" src="assets/images/brands/<?php echo $item['product_brand_logo']; ?>.png" alt="">
                 <span><?php echo $item['product_domestic_warranty']; ?> <a class="font-medium text-primary-blue" href="#">Know More</a></span>
             </div>
             <!-- warranty & brand -->
@@ -166,7 +166,7 @@ foreach($product->getData() as $item):
             <!-- delivery details -->
             <div class="flex gap-16 mt-4 items-center text-sm font-medium">
                 <p class="text-gray-500">Delivery</p>
-                <span>Delivery by 27 Sep, Monday</span>
+                <span>Delivery by 21 Oct, Thursday</span>
             </div>
             <!-- delivery details -->
 
@@ -174,8 +174,8 @@ foreach($product->getData() as $item):
             <div class="flex gap-20 mt-4 items-stretch text-sm font-medium">
                 <p class="text-gray-500">Color</p>
                 <ul class="flex gap-3">
-                    <li class="w-14 h-14 border cursor-pointer hover:border-primary-blue"><img draggable="false" class="colorImg w-full h-full object-contain" src="<?php echo $item['product_color_thumb1']; ?>" alt=""></li>
-                    <li class="w-14 h-14 border cursor-pointer hover:border-primary-blue"><img draggable="false" class="colorImg w-full h-full object-contain" src="<?php echo $item['product_color_thumb2']; ?>" alt=""></li>
+                    <li class="w-14 h-14 border cursor-pointer hover:border-primary-blue"><img draggable="false" loading="lazy" class="colorImg w-full h-full object-contain" src="<?php echo $item['product_color_thumb1']; ?>" alt=""></li>
+                    <li class="w-14 h-14 border cursor-pointer hover:border-primary-blue"><img draggable="false" loading="lazy" class="colorImg w-full h-full object-contain" src="<?php echo $item['product_color_thumb2']; ?>" alt=""></li>
                 </ul>
             </div>
             <!-- color selection -->
@@ -228,7 +228,7 @@ foreach($product->getData() as $item):
 
             <!-- flipkart plus banner -->
             <div class="sm:w-1/2 mt-4 border">
-                <img draggable="false" class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/lockin/763/305/images/promotion_banner_v2_active.png" alt="">
+                <img draggable="false" loading="lazy" class="w-full h-full object-contain" src="https://rukminim1.flixcart.com/lockin/763/305/images/promotion_banner_v2_active.png" alt="">
             </div>
             <!-- flipkart plus banner -->
 
@@ -246,17 +246,17 @@ foreach($product->getData() as $item):
 
                 <!-- info rows -->
                 <div class="flex flex-col sm:flex-row gap-2 sm:gap-7 p-6 items-stretch border-b">
-                    <img draggable="false" class="h-40 sm:h-24 w-full sm:w-44 object-contain" src="https://rukminim1.flixcart.com/image/200/200/cms-rpd-images/919a81e496a24548bbcec5d90c2960ff_16d4db6631c_image.jpeg" alt="">
+                    <img draggable="false" loading="lazy" class="h-40 sm:h-24 w-full sm:w-44 object-contain" src="https://rukminim1.flixcart.com/image/200/200/cms-rpd-images/919a81e496a24548bbcec5d90c2960ff_16d4db6631c_image.jpeg" alt="">
                     <div class="flex flex-col gap-2">
-                        <h2 class="text-lg">Lorem, ipsum dolor.</h2>
-                        <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis corporis provident labore soluta vero amet reprehenderit magnam fuga error quod, cupiditate voluptate modi officia ullam nemo. Optio dignissimos laborum ut?</p>
+                        <h2 class="text-lg">Lorem, ipsum dolor</h2>
+                        <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis corporis provident labore soluta vero amet reprehenderit magnam fuga error quod, cupiditate voluptate modi officia ullam nemo. Optio dignissimos laborum ut.</p>
                     </div>
                 </div>
 
                 <div class="flex flex-col gap-2 sm:gap-7 sm:flex-row-reverse p-6 items-stretch">
-                    <img draggable="false" class="h-40 sm:h-24 w-full sm:w-44 object-contain" src="https://rukminim1.flixcart.com/image/200/200/cms-rpd-images/919a81e496a24548bbcec5d90c2960ff_16d4db6631c_image.jpeg" alt="">
+                    <img draggable="false" loading="lazy" class="h-40 sm:h-24 w-full sm:w-44 object-contain" src="https://rukminim1.flixcart.com/image/200/200/cms-rpd-images/919a81e496a24548bbcec5d90c2960ff_16d4db6631c_image.jpeg" alt="">
                     <div class="flex flex-col gap-2">
-                        <h2 class="text-lg">Lorem, ipsum.</h2>
+                        <h2 class="text-lg">Lorem ipsum dolor sit</h2>
                         <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt doloribus repellat delectus. Corrupti voluptates, laudantium est veritatis blanditiis qui facilis eligendi modi odio accusamus explicabo!</p>
                     </div>
                 </div>

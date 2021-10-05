@@ -101,10 +101,8 @@
             <i class="material-icons text-yellow-400 md-20">help</i> Help Center
          </a>
 
-         <div class="">
-            &copy; 2007-2021 Flipkart.com
-         </div>
-         <img src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/payment-method_69e7ec.svg" alt="">
+         <span>&copy; 2007-2021 Flipkart.com</span>
+         <img src="assets/images/payment-method.svg" draggable="false" alt="Payment Methods">
     </div>
     <!-- copyright cards footer -->
 
