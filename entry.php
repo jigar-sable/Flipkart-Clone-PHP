@@ -167,6 +167,9 @@
 
 
 <?php
+require('database/DBController.php');
+
+$db = new DBController();
 
 if(isset($_POST['submit'])){
 
@@ -196,7 +199,7 @@ $manfby = $_POST['product_manf'];
 $highlights = $_POST['product_highlights'];
 
 
-$con = mysqli_connect('localhost','root','','flipkart_clone');
+// $con = mysqli_connect('localhost','root','','flipkart_clone');
 
 $query = "INSERT INTO `products` (
 `product_title`,
@@ -225,8 +228,8 @@ $query = "INSERT INTO `products` (
 `product_warranty_ncovered`) VALUES 
 ('$title', '$img', '$img_alt', '$starcount', '$reviews', '$price', '$cprice', '$seller', '$model', '$ratingcount', '$brand', '$highlights', '$desc', '$color', '$color1', '$color2', '$sales_package', '$generic_name', '$manfby', '$country_origin', '$warranty_summary', '$domesticwarranty', '$covered_warranty', '$ncovered_warranty');";
 
-$result = mysqli_query($con,$query);
-echo mysqli_error($con);
+$result = mysqli_query($db->con, $query);
+echo mysqli_error($db->con);
 if($result){
   echo "Done Bhai!!";
 } else {

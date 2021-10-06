@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2021 at 05:21 PM
+-- Generation Time: Oct 06, 2021 at 02:11 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -237,6 +237,13 @@ CREATE TABLE `save_for_later` (
   `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `save_for_later`
+--
+
+INSERT INTO `save_for_later` (`cart_id`, `user_id`, `product_id`) VALUES
+(31, 1, 7);
+
 -- --------------------------------------------------------
 
 --
@@ -287,13 +294,6 @@ CREATE TABLE `users` (
   `created_on` datetime NOT NULL DEFAULT current_timestamp(),
   `otp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `mobile`, `password`, `gender`, `address`, `created_on`, `otp`) VALUES
-(1, 'Jigar', 'Sablec', 'jigarsable21@gmail.com', '7043024736', '$2y$10$uJJ7OGBYrNxB5q4er7UQm.iu4DZQANTJlGUaJdrF2T0JOavnXgJpG', 'male', 'B-106, Shreenathji Park, Vapi', '2021-10-05 19:20:46', 0);
 
 -- --------------------------------------------------------
 
@@ -352,6 +352,7 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`);
+ALTER TABLE `products` ADD FULLTEXT KEY `product_title` (`product_title`);
 
 --
 -- Indexes for table `top_selection`
@@ -385,7 +386,7 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `categories_thumb`
@@ -427,7 +428,7 @@ ALTER TABLE `top_selection`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
