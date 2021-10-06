@@ -141,12 +141,6 @@ $(document).ready(function() {
     });
 
 
-
-
-
-
-
-
     // personal info edit buttons
     $('#editPersonalBtn').click(function() {
         // change button text
