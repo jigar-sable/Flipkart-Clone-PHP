@@ -5,13 +5,12 @@
 // if(!session_id()) session_start();
 
 // print_r($_SESSION['login']);
-require 'globals.php';
 
 include 'header.php';
 
 if(isset($_SESSION['login'])){
-   // header('location:index.php');
-   echo "<script>location.href='".$URL."/index.php';</script>";
+   header('location:index.php');
+   // echo "<script>location.href='".$URL."/index.php';</script>";
 }
 
 include 'partials/_categories_nav.php';

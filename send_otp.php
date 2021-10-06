@@ -8,7 +8,7 @@ $email = mysqli_real_escape_string($db->con, $_POST['email']);
 
 $query = "INSERT INTO `users` (`email`) VALUES ('$email')";
 
-$result = mysqli_query($db->con,$query);
+$result = mysqli_query($db->con, $query);
 $otp = rand(111111,999999);
 mysqli_query($db->con, "UPDATE `users` set `otp`='$otp' where `email` = '$email'");
 

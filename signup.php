@@ -1,5 +1,4 @@
 <?php
-require 'globals.php';
 
 include 'header.php';
 

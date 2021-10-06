@@ -1,8 +1,9 @@
 <?php
 // ob_start();
 session_start();
+require('globals.php');
 
-require('functions.php');
+require('functions.php'); 
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +34,7 @@ require('functions.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- custom build css -->
-    <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     
     <!-- jquery cdn -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
@@ -50,7 +51,7 @@ require('functions.php');
 
         <!-- logo & search container -->
         <div class="flex items-center flex-1">
-        <a class="h-7 mr-4" href="/Flipkart-Clone-PHP/index.php">
+        <a class="h-7 mr-4" href="<?php echo $URL; ?>/index.php">
             <img draggable="false" loading="lazy" class="h-full w-full object-contain" src="assets/images/logo.webp" alt="Logo">
         </a>
 
@@ -91,9 +92,9 @@ require('functions.php');
                <?php
                    } else { 
                ?>
-               <div class="pl-3 py-4 border-b flex justify-between pr-3 items-center text-sm hover:bg-gray-50 rounded-t">
+               <div class="pl-3 py-4 border-b flex justify-between pr-3 items-center font-medium text-sm hover:bg-gray-50 rounded-t">
                     <span>New Customer?</span>
-                    <a href="signup.php" class="text-primary-blue hover:underline">Signup</a>
+                    <a href="signup.php" class="text-primary-blue font-medium hover:underline">Signup</a>
                </div>
                <?php
                    }

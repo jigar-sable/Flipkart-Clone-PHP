@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <!-- empty cart -->
                 <div class="flex items-center flex-col gap-2 m-6">
                     <div class="w-52 h-44">
-                        <img draggable="false" loading="lazy" class="w-full h-full object-contain" src="assets/images/cart-empty.png" alt="">
+                        <img draggable="false" class="w-full h-full object-contain" src="assets/images/cart-empty.png" alt="Empty Cart">
                     </div>
                     <span class="text-lg">Your cart is empty!</span>
                     <p class="text-xs">Add items to it now.</p>
@@ -69,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <a class="flex flex-col sm:flex-row gap-5 items-stretch w-full group" href="product.php?product_id=<?php echo $item['product_id']; ?>">
                         <!-- product image -->
                         <div class="w-full sm:w-1/6 h-28 flex-shrink-0 sm:flex-shrink">
-                            <img draggable="false" loading="lazy" class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
+                            <img draggable="false" class="h-full w-full object-contain" src="assets/images/products/<?php echo $item['product_img']; ?>.png" alt="<?php echo $item['product_img_alt']; ?>">
                         </div>
                         <!-- product image -->
 
@@ -78,7 +78,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                             <!-- product title -->
                             <div class="flex flex-col sm:flex-row justify-between items-start pr-5 gap-1 sm:gap-0">
                                 <div class="flex flex-col gap-0.5 w-11/12 sm:w-3/5">
-                                    <p class="truncate group-hover:text-primary-blue"><?php echo $item['product_title']; ?></p>
+                                    <p class="truncate group-hover:text-primary-blue"><?php if(strlen($item['product_title']) > 50) {echo substr($item['product_title'],0,50)."...";} else { echo $item['product_title']; } ?></p>
                                     <span class="text-sm text-gray-500">Seller:<?php echo $item['product_seller']; ?></span>
                                 </div>
 
@@ -151,7 +151,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                         <input type="hidden" name="customerName" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['first_name']." ".$users['last_name']; } ?>" placeholder="Enter your name here (Ex. John Doe)"/>
                         <input type="hidden" name="customerEmail" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['email']; } ?>" placeholder="Enter your email address here (Ex. Johndoe@test.com)"/>
                         <input type="hidden" name="customerPhone" value="<?php foreach($user->getUserData($_SESSION['login']) as $users) { echo $users['mobile']; } ?>" placeholder="Enter your phone number here (Ex. 9999999999)"/>
-                        <input type="hidden" name="returnUrl" value="http://localhost/Flipkart-Clone-PHP/checkout.php" placeholder="Enter the URL to which customer will be redirected (Ex. www.example.com)"/>
+                        <input type="hidden" name="returnUrl" value="<?php echo $URL; ?>/checkout.php" placeholder="Enter the URL to which customer will be redirected (Ex. www.example.com)"/>
                         <input type="hidden" name="notifyUrl" value="" placeholder="Enter the URL to get server notificaitons (Ex. www.example.com)"/>
             
             

@@ -114,7 +114,7 @@
                         <div class="flex flex-col sm:flex-row justify-between w-full">
 
                             <div class="flex flex-col gap-1 overflow-hidden">
-                                <p class="text-sm"><?php echo $order['product_title'] ?></p>
+                                <p class="text-sm"><?php if(strlen($order['product_title']) > 50) {echo substr($order['product_title'],0,50)."...";} else { echo $order['product_title']; } ?></p> 
                                 <p class="text-xs text-gray-500 mt-2">Color: <?php echo $order['product_color'] ?></p>
                                 <p class="text-xs text-gray-500">Seller: <?php echo $order['product_seller'] ?></p>
                             </div>

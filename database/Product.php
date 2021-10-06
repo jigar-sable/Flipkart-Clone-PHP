@@ -36,8 +36,10 @@ class Product {
 
     public function searchProducts($search) {
         if($search != null) {
-            $result = $this->db->con->query("SELECT * FROM `products` WHERE `product_title` LIKE '%$search%'");
-
+            // $result = $this->db->con->query("SELECT * FROM `products` WHERE `product_title` LIKE '%$search%'");
+            $query = "SELECT * FROM `products` WHERE MATCH (`product_title`) AGAINST ('$search')";
+            $result = $this->db->con->query($query);
+            // echo $query;
             $resultArray = array();
 
             while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){

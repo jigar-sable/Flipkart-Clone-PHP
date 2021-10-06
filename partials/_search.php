@@ -58,8 +58,8 @@
         <div class="flex-1">
 
         <?php
-        if($search != " "){ 
-        if(count($product->searchProducts($search)) > 1) { ?>
+        if($search != ""){ 
+        if(count($product->searchProducts($search)) > 0) { ?>
 
             <!-- searches container -->
             <div class="grid grid-cols-4 overflow-hidden bg-white rounded-sm">
