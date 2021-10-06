@@ -1373,6 +1373,11 @@ video {
   background-color: rgba(23, 35, 55, var(--tw-bg-opacity));
 }
 
+.bg-primary-grey{
+  --tw-bg-opacity: 1;
+  background-color: rgba(135, 135, 135, var(--tw-bg-opacity));
+}
+
 .hover\:bg-gray-50:hover{
   --tw-bg-opacity: 1;
   background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
