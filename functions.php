@@ -41,7 +41,7 @@ function getUserId($user) {
     }
 }
 
-function placeOrders($Cart, $user) {
+function placeOrders($Cart, $user) { 
     $userId = getUserId($user);
     $product_ids = $Cart->getCartIds($Cart->getData($userId,'cart'));
     $Cart->placeOrder($userId, $product_ids);

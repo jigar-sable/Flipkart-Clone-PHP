@@ -159,8 +159,8 @@ class Cart {
                 // mysqli_report(5);
                 
                 if($result){
-                    // header("Location: orders.php");
-                    echo "<script>location.href = 'orders.php'; </script>";
+                    header("Location: orders.php");
+                    // echo "<script>location.href = 'orders.php'; </script>";
                 }
             }
       

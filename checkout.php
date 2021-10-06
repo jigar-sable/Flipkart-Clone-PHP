@@ -30,7 +30,7 @@ error_reporting(0);
 		 $computedSignature = base64_encode($hash_hmac);
 		 if ($signature == $computedSignature) {
 
-			if($txStatus == "SUCCESS") {
+			if($txStatus == "SUCCESS") { 
 				// $userId = getUserId($user);
 				
                 // $product_ids = $Cart->getCartIds($Cart->getData($userId,'cart'));
