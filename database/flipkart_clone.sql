@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2021 at 02:11 PM
+-- Generation Time: Oct 07, 2021 at 07:03 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `flipkart_clone`
+-- Database: `flipkart_olddb`
 --
 
 -- --------------------------------------------------------
@@ -236,13 +236,6 @@ CREATE TABLE `save_for_later` (
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `save_for_later`
---
-
-INSERT INTO `save_for_later` (`cart_id`, `user_id`, `product_id`) VALUES
-(31, 1, 7);
 
 -- --------------------------------------------------------
 
