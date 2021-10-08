@@ -12,7 +12,7 @@ if(!isset($_POST['orderId'])){
 $mode = "TEST"; //<------------ Change to TEST for test server, PROD for production
 
 extract($_POST);
-  $secretKey = "b4ddf9ea26a6ee515214980135ebe8e9d95174ec";
+  $secretKey = ""; /* enter secret key here */
   $postData = array( 
   "appId" => $appId, 
   "orderId" => $orderId, 

@@ -31,9 +31,9 @@ function smtp_mailer($to,$subject,$msg){
 	$mail->Port = 587;
 	$mail->IsHTML(true);
 	$mail->CharSet = 'UTF-8';
-	$mail->Username = "jigartesters@gmail.com";
-	$mail->Password = "Qwerty!2024";
-	$mail->SetFrom("jigartesters@gmail.com","Fipkart Clone");
+	$mail->Username = "jhondoe@gmail.com";
+	$mail->Password = "jhonDoe#11";
+	$mail->SetFrom("jhondoe@gmail.com","Fipkart Clone");
 	$mail->Subject = $subject;
 	$mail->Body = $msg;
 	$mail->AddAddress($to);
