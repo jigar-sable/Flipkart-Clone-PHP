@@ -16,7 +16,7 @@ error_reporting(0);
 ?>
 
 	<?php  
-		 $secretkey = "b4ddf9ea26a6ee515214980135ebe8e9d95174ec";
+		 $secretkey = ""; /* enter secret key here */
 		 $orderId = $_POST["orderId"];
 		 $orderAmount = $_POST["orderAmount"];
 		 $referenceId = $_POST["referenceId"];
