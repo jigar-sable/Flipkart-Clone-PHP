@@ -1,6 +1,5 @@
-# Flipkart-Clone-PHP
+## Flipkart-Clone-PHP
 
-## Overview
 Full Stack Flipkart Clone Using LAMP Stack
 
 ## Tech Stack
@@ -14,19 +13,18 @@ Full Stack Flipkart Clone Using LAMP Stack
 
 ## Features
 
-- OTP Email Verified Signup
-- Login, Signup & Logout
-- AJAX Requests
-- Wishlist Add or Remove Products
-- Cart Add or Remove Products
-- Save For Later Products
-- Cashfree Payment Gateway Enabled
-- Profile Page 
-- Update Personal Info & Mobile
-- Product Details & Color Change on Hover
-- Buy Now & Add To Cart Features
-- Basic Orders Tracking
-- Real Time Price Updates on Quantity Change
+- 🚀 **OTP Email Verified Signup:** Ensure secure and verified user registrations.
+- 🔐 **Login, Signup & Logout:** Smooth authentication processes for users.
+- 🔄 **AJAX Requests:** Enhance user experience with seamless data retrieval.
+- ❤️ **Wishlist Management:** Enable effortless addition and removal of products.
+- 🛒 **Cart Management:** Streamline shopping experiences with easy product management.
+- 💡 **Save For Later:** Allow users to save products for future consideration.
+- 💳 **Cashfree Payment Gateway:** Facilitate secure transactions with Cashfree integration.
+- 📋 **Profile Page:** Provide a centralized hub for managing account details.
+- 📱 **Personal Info Update:** Allow users to update personal information and mobile number.
+- 🎨 **Product Details Enhancement:** Improve product browsing with dynamic hover effects.
+- 🛍️ **Buy Now & Add To Cart:** Offer convenient purchase options for users.
+- 📦 **Basic Orders Tracking:** Keep users informed with simple order tracking functionalities.
 
 ## Sneak Peek of Site 🙈 :
 <!-- ![home](https://user-images.githubusercontent.com/64949957/136549386-5d3cd8e9-7499-4fe4-8652-8840930febb6.PNG) -->
@@ -34,11 +32,7 @@ Full Stack Flipkart Clone Using LAMP Stack
 
 <h2>📬 Contact</h2>
 
-If you want to contact me, you can reach me through below handles.
+Feel free to reach me through the below handles if you'd like to contact me.
 
-&nbsp;&nbsp;<a href="https://www.linkedin.com/in/jigar-sable/"><img src="https://www.felberpr.com/wp-content/uploads/linkedin-logo.png" width="30"></img></a>
-
-© 2021 Jigar Sable
-
-
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+[![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jigar-sablee)
+[![instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/jigarsable.dev)
